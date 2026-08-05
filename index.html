@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robusta Café | منيو روبوستا</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800;900&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root[data-theme="dark"] {
+            --bg-deep: #140d08;
+            --bg-card: #21160d;
+            --bg-card-alt: #2a1c11;
+            --bg-glass: rgba(33, 22, 13, 0.72);
+            --primary: #cf9a5e;
+            --primary-light: #f6e3c6;
+            --accent: #ea8c1f;
+            --accent-deep: #a35d1f;
+            --text-main: #f5ead9;
+            --text-muted: #a8967f;
+            --border-color: rgba(207, 154, 94, 0.22);
+            --header-overlay: rgba(20, 13, 8, 0.93);
+            --scallop-color: #140d08;
+        }
+
+        :root[data-theme="light"] {
+            --bg-deep: #faf4e7;
+            --bg-card: #fffdf8;
+            --bg-card-alt: #fff6e6;
+            --bg-glass: rgba(255, 253, 248, 0.82);
+            --primary: #8a5a2c;
+            --primary-light: #3c2410;
+            --accent: #d9720f;
+            --accent-deep: #b5590a;
+            --text-main: #2a1b0e;
+            --text-muted: #83705a;
+            --border-color: rgba(138, 90, 44, 0.22);
+            --header-overlay: rgba(250, 244, 231, 0.9);
+            --scallop-color: #faf4e7;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Tajawal', sans-serif;
+            scroll-behavior: smooth;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            min-height: 100vh;
+            overflow-x: hidden;
+            background-image:
+                radial-gradient(circle at 15% 8%, rgba(207,154,94,0.05) 0%, transparent 6%),
+                radial-gradient(circle at 82% 22%, rgba(234,140,31,0.04) 0%, transparent 8%),
+                radial-gradient(circle at 92% 70%, rgba(207,154,94,0.04) 0%, transparent 7%);
+        }
+
+        .display-font {
+            font-family: 'Cairo', 'Tajawal', sans-serif;
+        }
+
+        /* Top Controls Bar */
+        .top-controls {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .control-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .control-btn, .sort-select {
+            background: var(--bg-glass);
+            border: 1px solid var(--border-color);
+            color: var(--primary);
+            padding: 10px 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 0.88rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            outline: none;
+        }
+
+        .control-btn:hover, .sort-select:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: var(--bg-deep);
+        }
+
+        .sort-select {
+            font-family: 'Tajawal', sans-serif;
+            appearance: none;
+            -webkit-appearance: none;
+            cursor: pointer;
+        }
+
+        .sort-select option {
+            background: var(--bg-card);
+            color: var(--text-main);
+        }
+
+        .theme-switch {
+            position: relative;
+            width: 60px;
+            height: 30px;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.15);
+            background: linear-gradient(135deg, #1c2547, #2f3d6e);
+            cursor: pointer;
+            padding: 0;
+            flex-shrink: 0;
+            box-shadow: inset 0 2px 6px rgba(0,0,0,0.35), 0 4px 10px rgba(0,0,0,0.15);
+            direction: ltr;
+        }
+
+        :root[data-theme="light"] .theme-switch {
+            background: linear-gradient(135deg, #ffd98a, #ff9f45);
+            border-color: rgba(0,0,0,0.08);
+        }
+
+        .theme-switch .track-icon {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.72rem;
+            transition: opacity 0.4s ease;
+        }
+        .theme-switch .track-icon.sun { left: 8px; color: #ffd873; opacity: 0; }
+        .theme-switch .track-icon.moon { right: 8px; color: #d7e0ff; opacity: 0.85; }
+        :root[data-theme="light"] .theme-switch .track-icon.sun { opacity: 0.9; }
+        :root[data-theme="light"] .theme-switch .track-icon.moon { opacity: 0; }
+
+        .switch-knob {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 30%, #fff6e0, #ffcf6b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.78rem;
+            color: var(--accent-deep);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+            transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1), background 0.4s ease;
+        }
+
+        :root[data-theme="light"] .switch-knob {
+            transform: translateX(30px);
+            background: radial-gradient(circle at 35% 30%, #fffdf6, #ffe1a8);
+        }
+
+        .switch-knob i {
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .switch-knob.flip i {
+            animation: flipIcon 0.5s ease;
+        }
+
+        @keyframes flipIcon {
+            0% { transform: rotate(0deg) scale(1); opacity: 1; }
+            50% { transform: rotate(180deg) scale(0.4); opacity: 0.3; }
+            100% { transform: rotate(360deg) scale(1); opacity: 1; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .switch-knob, .switch-knob i, .theme-switch .track-icon { transition: none; }
+            .switch-knob.flip i { animation: none; }
+        }
+
+        /* Header Styling */
+        header {
+            position: relative;
+            padding: 80px 20px 46px;
+            text-align: center;
+            background:
+                linear-gradient(to bottom, var(--header-overlay) 55%, var(--bg-deep)),
+                radial-gradient(ellipse at 50% -10%, rgba(207,154,94,0.18), transparent 60%),
+                var(--bg-deep);
+            border-bottom: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        .ambient-ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 10px solid var(--primary);
+            opacity: 0.05;
+            pointer-events: none;
+        }
+        .ring-1 { width: 260px; height: 260px; top: -110px; left: -70px; }
+        .ring-2 { width: 160px; height: 160px; bottom: -60px; right: -30px; border-width: 6px; }
+
+        .steam {
+            width: 60px;
+            height: 40px;
+            margin: 0 auto -6px;
+            position: relative;
+            z-index: 1;
+        }
+        .steam svg { width: 100%; height: 100%; overflow: visible; }
+        .steam path {
+            stroke: var(--primary);
+            stroke-width: 2.5;
+            fill: none;
+            stroke-linecap: round;
+            opacity: 0.55;
+            transform-origin: bottom center;
+            animation: rise 3.2s ease-in-out infinite;
+        }
+        .steam path:nth-child(2) { animation-delay: 0.5s; opacity: 0.4; }
+        .steam path:nth-child(3) { animation-delay: 1s; opacity: 0.3; }
+
+        @keyframes rise {
+            0% { transform: translateY(4px) scaleY(0.8); opacity: 0; }
+            30% { opacity: 0.5; }
+            100% { transform: translateY(-14px) scaleY(1.1); opacity: 0; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .steam path { animation: none; opacity: 0.35; }
+        }
+
+        .logo-container {
+            width: 96px;
+            height: 96px;
+            margin: 0 auto 22px;
+            background: radial-gradient(circle at 35% 30%, var(--accent), var(--accent-deep));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            font-family: 'Cairo', sans-serif;
+            font-size: 2.6rem;
+            font-weight: 900;
+            color: var(--bg-deep);
+            box-shadow:
+                0 0 0 3px var(--bg-deep),
+                0 0 0 5px var(--primary),
+                0 10px 30px rgba(0,0,0,0.35);
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        header h1 {
+            font-family: 'Cairo', sans-serif;
+            font-size: 3.3rem;
+            font-weight: 900;
+            letter-spacing: 5px;
+            background: linear-gradient(180deg, var(--primary-light), var(--primary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+        :root[data-theme="light"] header h1 {
+            -webkit-text-fill-color: initial;
+            background: none;
+            color: var(--primary-light);
+        }
+
+        .subtitle {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 26px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .subtitle .bean { color: var(--accent); font-size: 0.5rem; }
+
+        .cafe-info {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            background: var(--bg-glass);
+            backdrop-filter: blur(10px);
+            padding: 12px 25px;
+            border-radius: 14px;
+            max-width: 650px;
+            margin: 0 auto;
+            border: 1px solid var(--border-color);
+            position: relative;
+            z-index: 1;
+        }
+
+        .cafe-info div {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cafe-info i {
+            color: var(--accent);
+        }
+
+        /* Category Sticky Nav */
+        .category-nav {
+            display: flex;
+            gap: 10px;
+            padding: 18px 20px;
+            overflow-x: auto;
+            background: var(--bg-glass);
+            backdrop-filter: blur(15px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            scrollbar-width: none;
+        }
+
+        .category-nav::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nav-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 10px 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            white-space: nowrap;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            transition: all 0.25s ease;
+        }
+        .nav-btn i { font-size: 0.85rem; color: var(--primary); transition: color 0.25s ease; }
+
+        .nav-btn:hover {
+            border-color: var(--primary);
+            color: var(--text-main);
+        }
+
+        .nav-btn.active {
+            background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+            color: var(--bg-deep);
+            border-color: var(--accent);
+            font-weight: 700;
+            box-shadow: 0 6px 16px rgba(234, 140, 31, 0.3);
+        }
+        .nav-btn.active i { color: var(--bg-deep); }
+
+        /* Main Container & Sections */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .menu-section {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+        }
+
+        .menu-section.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 36px;
+        }
+
+        .section-header h2 {
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.9rem;
+            color: var(--primary-light);
+            font-weight: 800;
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .section-header h2::before,
+        .section-header h2::after {
+            content: '';
+            width: 34px;
+            height: 2px;
+            background: var(--accent);
+            display: inline-block;
+        }
+
+        /* Menu Grid / List Layout Modes */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* Compact List View Mode (Default) */
+        .menu-grid.list-view {
+            grid-template-columns: 1fr;
+            max-width: 800px;
+            margin: 0 auto;
+            gap: 10px;
+        }
+
+        .menu-grid.list-view .menu-item {
+            padding: 13px 18px;
+        }
+
+        .menu-grid.list-view .menu-item::before {
+            display: none;
+        }
+
+        .menu-grid.list-view .item-details h3 {
+            font-size: 1.05rem;
+            margin-bottom: 2px;
+        }
+
+        .menu-grid.list-view .item-details p {
+            font-size: 0.78rem;
+        }
+
+        .menu-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        /* Ticket-stub scalloped edge, grid mode only */
+        .menu-item::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 10px;
+            right: 10px;
+            height: 12px;
+            background-image: radial-gradient(circle at 6px 6px, transparent 6px, var(--scallop-color) 6.4px);
+            background-size: 12px 12px;
+            background-repeat: repeat-x;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            box-shadow: 0 12px 26px rgba(0,0,0,0.18);
+        }
+
+        .menu-grid.list-view .menu-item:hover {
+            transform: none;
+            border-color: var(--accent);
+        }
+
+        .item-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .item-details h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 5px;
+        }
+
+        .item-details p {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+            font-style: italic;
+        }
+
+        .leader {
+            flex: 1 1 auto;
+            min-width: 16px;
+            height: 0;
+            margin: 0 14px;
+            align-self: center;
+            border-bottom: 2px dotted var(--border-color);
+        }
+
+        .item-price {
+            background: transparent;
+            color: var(--accent);
+            padding: 7px 14px;
+            border-radius: 8px;
+            font-weight: 800;
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.02rem;
+            border: 1.5px dashed var(--primary);
+            white-space: nowrap;
+            transform: rotate(-2deg);
+            transition: all 0.25s ease;
+            flex-shrink: 0;
+        }
+
+        .menu-item:hover .item-price {
+            transform: rotate(0deg);
+            background: var(--accent);
+            color: var(--bg-deep);
+            border-color: var(--accent);
+            border-style: solid;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 80px;
+            background: var(--bg-glass);
+        }
+
+        footer span {
+            color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.3rem; }
+            .cafe-info { flex-direction: column; gap: 8px; border-radius: 16px; }
+            .menu-grid { grid-template-columns: 1fr; }
+            .top-controls { flex-direction: column; gap: 10px; align-items: stretch; }
+            .control-group { justify-content: space-between; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-controls">
+        <div class="control-group">
+            <select class="sort-select" id="sortSelect" onchange="sortActiveSection()">
+                <option value="default" data-ar="ترتيب حسب: الافتراضي" data-en="Sort by: Default">ترتيب حسب: الافتراضي</option>
+                <option value="low-high" data-ar="السعر: من الأقل للأعلى" data-en="Price: Low to High">السعر: من الأقل للأعلى</option>
+                <option value="high-low" data-ar="السعر: من الأعلى للأقل" data-en="Price: High to Low">السعر: من الأعلى للأقل</option>
+            </select>
+            <button class="control-btn" onclick="toggleViewMode()" id="viewToggleBtn">
+                <i class="fa-solid fa-grip" id="viewIcon"></i> <span id="viewText" data-ar="عرض شبكي" data-en="Grid View">عرض شبكي</span>
+            </button>
+        </div>
+        <div class="control-group">
+            <button class="control-btn" onclick="toggleLanguage()" id="langBtn">
+                <i class="fa-solid fa-globe"></i> <span id="langText">English</span>
+            </button>
+            <button class="theme-switch" onclick="toggleTheme()" id="themeBtn" aria-label="الوضع الليلي" title="الوضع الليلي">
+                <i class="fa-solid fa-sun track-icon sun"></i>
+                <i class="fa-solid fa-moon track-icon moon"></i>
+                <span class="switch-knob"><i class="fa-solid fa-moon" id="themeIcon"></i></span>
+            </button>
+        </div>
+    </div>
+
+    <header>
+        <div class="ambient-ring ring-1"></div>
+        <div class="ambient-ring ring-2"></div>
+        <div class="steam" aria-hidden="true">
+            <svg viewBox="0 0 60 40">
+                <path d="M20 40 Q14 26 22 20 Q28 14 22 4"></path>
+                <path d="M30 40 Q24 26 32 20 Q38 14 32 4"></path>
+                <path d="M40 40 Q34 26 42 20 Q48 14 42 4"></path>
+            </svg>
+        </div>
+        <div class="logo-container">
+            <!-- Replace the src below with your own logo/photo path or URL -->
+            <img src="logo.png.png" alt="Robusta Café logo">
+        </div>
+        <h1>ROBUSTA</h1>
+        <div class="subtitle"><span data-ar="كافيه" data-en="Cafe">Cafe</span><span class="bean"><i class="fa-solid fa-circle"></i></span><span data-ar="جودة ممتازة" data-en="Premium Quality">Premium Quality</span></div>
+        <div class="cafe-info">
+            <div><i class="fa-solid fa-location-dot"></i> <span data-ar="كوبرى الحجاجية بجوار سور عمارة حمزة" data-en="Al-Hajjajiah Bridge, next to Hamza Building wall">كوبرى الحجاجية بجوار سور عمارة حمزة</span></div>
+            <div><i class="fa-solid fa-phone"></i> 01214110565</div>
+        </div>
+    </header>
+
+    <div class="category-nav" id="categoryNav">
+        <button class="nav-btn active" onclick="switchTab('hot-drinks')"><i class="fa-solid fa-mug-hot"></i><span data-ar="مشروبات ساخنة" data-en="Hot Drinks">Hot Drinks</span></button>
+        <button class="nav-btn" onclick="switchTab('soft-drinks')"><i class="fa-solid fa-bottle-water"></i><span data-ar="مشروبات غازية" data-en="Soft Drinks">Soft Drinks</span></button>
+        <button class="nav-btn" onclick="switchTab('ice-drinks')"><i class="fa-solid fa-snowflake"></i><span data-ar="مشروبات مثلجة" data-en="Ice Drinks">Ice Drinks</span></button>
+        <button class="nav-btn" onclick="switchTab('zabady')"><i class="fa-solid fa-blender"></i><span data-ar="زبادي خلاط" data-en="Zabady Khallat">Zabady Khallat</span></button>
+        <button class="nav-btn" onclick="switchTab('milkshake')"><i class="fa-solid fa-ice-cream"></i><span data-ar="ميلك شيك" data-en="Milkshake">Milkshake</span></button>
+        <button class="nav-btn" onclick="switchTab('boba')"><i class="fa-solid fa-circle-dot"></i><span data-ar="بوبا جديدة" data-en="New Boba">New Boba</span></button>
+        <button class="nav-btn" onclick="switchTab('juices')"><i class="fa-solid fa-lemon"></i><span data-ar="عصائر وساموزي" data-en="Juices & Smoothies">Juices & Smoothies</span></button>
+        <button class="nav-btn" onclick="switchTab('cocktails')"><i class="fa-solid fa-martini-glass-citrus"></i><span data-ar="كوكتيلات" data-en="Cocktails">Cocktails</span></button>
+        <button class="nav-btn" onclick="switchTab('cocktail-soda')"><i class="fa-solid fa-wine-bottle"></i><span data-ar="كوكتيل صودا" data-en="Cocktail Soda">Cocktail Soda</span></button>
+        <button class="nav-btn" onclick="switchTab('dessert')"><i class="fa-solid fa-cake-candles"></i><span data-ar="حلويات" data-en="Dessert">Dessert</span></button>
+    </div>
+
+    <div class="container">
+        <!-- Hot Drinks -->
+        <div id="hot-drinks" class="menu-section active">
+            <div class="section-header"><h2 data-ar="مشروبات ساخنة" data-en="Hot Drinks">Hot Drinks</h2></div>
+            <div class="menu-grid list-view">
+                <div class="menu-item"><div class="item-details"><h3 data-ar="قهوة تركي" data-en="Turkish Coffee">قهوة تركي</h3></div><div class="leader"></div><div class="item-price">35/25</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="قهوة فرنساوي" data-en="French Coffee">قهوة فرنساوي</h3></div><div class="leader"></div><div class="item-price">40</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="قهوة بندق" data-en="Hazelnut Coffee">قهوة بندق</h3></div><div class="leader"></div><div class="item-price">40</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="قهوة نوتيلا" data-en="Nutella Coffee">قهوة نوتيلا</h3></div><div class="leader"></div><div class="item-price">40</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="شاي" data-en="Tea">شاي</h3></div><div class="leader"></div><div class="item-price">15</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="شاي نكهات" data-en="Flavored Tea">شاي نكهات</h3></div><div class="leader"></div><div class="item-price">20</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="نعناع" data-en="Mint">نعناع</h3></div><div class="leader"></div><div class="item-price">15</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="ينسون / كركديه / تفاح / ليمون" data-en="Anise / Hibiscus / Apple / Lemon">ينسون / كركديه / تفاح / ليمون</h3></div><div class="leader"></div><div class="item-price">15</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="زنجبيل" data-en="Ginger">زنجبيل</h3></div><div class="leader"></div><div class="item-price">15</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="كوكتيل اعشاب" data-en="Herbal Cocktail">كوكتيل اعشاب</h3></div><div class="leader"></div><div class="item-price">25</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="هوت سيدر" data-en="Hot Cider">هوت سيدر</h3></div><div class="leader"></div><div class="item-price">30</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="سحلب مكسرات" data-en="Sahlab with Nuts">سحلب مكسرات</h3></div><div class="leader"></div><div class="item-price">35</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="سحلب اوريو" data-en="Sahlab Oreo">سحلب اوريو</h3></div><div class="leader"></div><div class="item-price">40</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="سحلب فواكه" data-en="Sahlab Fruits">سحلب فواكه</h3></div><div class="leader"></div><div class="item-price">40</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="نسكافية" data-en="Nescafe">نسكافية</h3></div><div class="leader"></div><div class="item-price">40</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="اسبريسو" data-en="Espresso">اسبريسو</h3></div><div class="leader"></div><div class="item-price">40/30</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="اسبريسو حليب" data-en="Espresso Milk">اسبريسو حليب</h3></div><div class="leader"></div><div class="item-price">50</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="امريكان كوفي" data-en="American Coffee">امريكان كوفي</h3></div><div class="leader"></div><div class="item-price">35</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="اسبريسو ميكاتو" data-en="Espresso Macchiato">اسبريسو ميكاتو</h3></div><div class="leader"></div><div class="item-price">40</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="كورتادو" data-en="Cortado">كورتادو</h3></div><div class="leader"></div><div class="item-price">45</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="فلات وايت" data-en="Flat White">فلات وايت</h3></div><div class="leader"></div><div class="item-price">55</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="كابتشينو" data-en="Cappuccino">كابتشينو</h3></div><div class="leader"></div><div class="item-price">50</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="لاتيه" data-en="Latte">لاتيه</h3></div><div class="leader"></div><div class="item-price">50</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="اسبانش لاتيه" data-en="Spanish Latte">اسبانش لاتيه</h3></div><div class="leader"></div><div class="item-price">60</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="موكا (وايت/دارك)" data-en="Mocha (White/Dark)">موكا (وايت/دارك)</h3></div><div class="leader"></div><div class="item-price">60</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="هوت شوكلت" data-en="Hot Chocolate">هوت شوكلت</h3></div><div class="leader"></div><div class="item-price">50</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="هوت لوتس" data-en="Hot Lotus">هوت لوتس</h3></div><div class="leader"></div><div class="item-price">60</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="هوت اوريو" data-en="Hot Oreo">هوت اوريو</h3></div><div class="leader"></div><div class="item-price">60</div></div>
+            </div>
+        </div>
+
+        <!-- Soft Drinks -->
+        <div id="soft-drinks" class="menu-section">
+            <div class="section-header"><h2 data-ar="مشروبات غازية" data-en="Soft Drinks">Soft Drinks</h2></div>
+            <div class="menu-grid list-view">
+                <div class="menu-item"><div class="item-details"><h3 data-ar="مياه صغيرة" data-en="Small Water">مياه صغيرة</h3></div><div class="leader"></div><div class="item-price">10</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="كان" data-en="Can">كان</h3></div><div class="leader"></div><div class="item-price">30</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="فيروز" data-en="Fayrouz">فيروز</h3></div><div class="leader"></div><div class="item-price">35</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="بريل" data-en="Birell">بريل</h3></div><div class="leader"></div><div class="item-price">35</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="تويست توت" data-en="Twist Berry">تويست توت</h3></div><div class="leader"></div><div class="item-price">25</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="تويست فراولة" data-en="Twist Strawberry">تويست فراولة</h3></div><div class="leader"></div><div class="item-price">25</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="ستنج" data-en="Sting">ستنج</h3></div><div class="leader"></div><div class="item-price">25</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="ريدبول" data-en="Redbull">ريدبول</h3></div><div class="leader"></div><div class="item-price">75</div></div>
+            </div>
+        </div>
+
+        <!-- Ice Drinks -->
+        <div id="ice-drinks" class="menu-section">
+            <div class="section-header"><h2 data-ar="مشروبات مثلجة" data-en="Ice Drinks">Ice Drinks</h2></div>
+            <div class="menu-grid list-view">
+                <div class="menu-item"><div class="item-details"><h3 data-ar="ايس كوفي" data-en="Ice Coffee">ايس كوفي</h3></div><div class="leader"></div><div class="item-price">50</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="ايس لاتيه" data-en="Ice Latte">ايس لاتيه</h3></div><div class="leader"></div><div class="item-price">50</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="وايت ايس موكا" data-en="White Ice Mocha">وايت ايس موكا</h3></div><div class="leader"></div><div class="item-price">50</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="دارك ايس موكا" data-en="Dark Ice Mocha">دارك ايس موكا</h3></div><div class="leader"></div><div class="item-price">50</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="ايس امريكانو" data-en="Ice Americano">ايس امريكانو</h3></div><div class="leader"></div><div class="item-price">45</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="ايس سبانش لاتيه" data-en="Ice Spanish Latte">ايس سبانش لاتيه</h3></div><div class="leader"></div><div class="item-price">65</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="ايس لاتيه فراولة" data-en="Ice Strawberry Latte">ايس لاتيه فراولة</h3></div><div class="leader"></div><div class="item-price">65</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="فرابتشينو نسكافيه/فانيليا/فراولة" data-en="Frappuccino Nescafe/Vanilla/Strawberry">فرابتشينو نسكافيه/فانيليا/فراولة</h3></div><div class="leader"></div><div class="item-price">55</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="فرابتشينو اوريو/كراميل/لوتس" data-en="Frappuccino Oreo/Caramel/Lotus">فرابتشينو اوريو/كراميل/لوتس</h3></div><div class="leader"></div><div class="item-price">60</div></div>
+            </div>
+        </div>
+
+        <!-- Zabady Khallat -->
+        <div id="zabady" class="menu-section">
+            <div class="section-header"><h2 data-ar="زبادي خلاط" data-en="Zabady Khallat">Zabady Khallat</h2></div>
+            <div class="menu-grid list-view">
+                <div class="menu-item"><div class="item-details"><h3 data-ar="كلاسيك" data-en="Classic">كلاسيك</h3></div><div class="leader"></div><div class="item-price">45</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="توت" data-en="Berry">توت</h3></div><div class="leader"></div><div class="item-price">45</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="لوتس" data-en="Lotus">لوتس</h3></div><div class="leader"></div><div class="item-price">45</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="كارميل" data-en="Caramel">كارميل</h3></div><div class="leader"></div><div class="item-price">45</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="خوخ" data-en="Peach">خوخ</h3></div><div class="leader"></div><div class="item-price">45</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="فراولة" data-en="Strawberry">فراولة</h3></div><div class="leader"></div><div class="item-price">45</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="باشون فروت" data-en="Passion Fruit">باشون فروت</h3></div><div class="leader"></div><div class="item-price">50</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="كيوي" data-en="Kiwi">كيوي</h3></div><div class="leader"></div><div class="item-price">50</div></div>
+            </div>
+        </div>
+
+        <!-- Milkshake -->
+        <div id="milkshake" class="menu-section">
+            <div class="section-header"><h2 data-ar="ميلك شيك" data-en="Milkshake">Milkshake</h2></div>
+            <div class="menu-grid list-view">
+                <div class="menu-item"><div class="item-details"><h3 data-ar="فانيليا" data-en="Vanilla">فانيليا</h3></div><div class="leader"></div><div class="item-price">55</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="تشيز كيك" data-en="Cheesecake">تشيز كيك</h3></div><div class="leader"></div><div class="item-price">100</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="شوكولا" data-en="Chocolate">شوكولا</h3></div><div class="leader"></div><div class="item-price">55</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="كيت كات" data-en="Kitkat">كيت كات</h3></div><div class="leader"></div><div class="item-price">70</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="فراولة" data-en="Strawberry">فراولة</h3></div><div class="leader"></div><div class="item-price">55</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="بيستاشيو" data-en="Pistachio">بيستاشيو</h3></div><div class="leader"></div><div class="item-price">80</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="مانجا" data-en="Mango">مانجا</h3></div><div class="leader"></div><div class="item-price">55</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="كراميل" data-en="Caramel">كراميل</h3></div><div class="leader"></div><div class="item-price">60</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="بلوبيري" data-en="Blueberry">بلوبيري</h3></div><div class="leader"></div><div class="item-price">60</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="موكا" data-en="Mocha">موكا</h3></div><div class="leader"></div><div class="item-price">60</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="سنيكر" data-en="Snickers">سنيكر</h3></div><div class="leader"></div><div class="item-price">60</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="لوتس" data-en="Lotus">لوتس</h3></div><div class="leader"></div><div class="item-price">65</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="اوريو" data-en="Oreo">اوريو</h3></div><div class="leader"></div><div class="item-price">65</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="هوهوز" data-en="HoHos">هوهوز</h3></div><div class="leader"></div><div class="item-price">65</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="نوتيلا" data-en="Nutella">نوتيلا</h3></div><div class="leader"></div><div class="item-price">65</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="خوخ" data-en="Peach">خوخ</h3></div><div class="leader"></div><div class="item-price">65</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="كيوي" data-en="Kiwi">كيوي</h3></div><div class="leader"></div><div class="item-price">65</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="باشون فروت" data-en="Passion Fruit">باشون فروت</h3></div><div class="leader"></div><div class="item-price">65</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="توينكيز" data-en="Twinkies">توينكيز</h3></div><div class="leader"></div><div class="item-price">65</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="ميكس بيري" data-en="Mix Berry">ميكس بيري</h3></div><div class="leader"></div><div class="item-price">65</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="كوفي" data-en="Coffee">كوفي</h3></div><div class="leader"></div><div class="item-price">65</div></div>
+            </div>
+        </div>
+
+        <!-- New Boba -->
+        <div id="boba" class="menu-section">
+            <div class="section-header"><h2 data-ar="بوبا جديدة" data-en="New Boba">New Boba</h2></div>
+            <div class="menu-grid list-view">
+                <div class="menu-item"><div class="item-details"><h3 data-ar="بوبا بلوبيري" data-en="Boba Blueberry">بوبا بلوبيري</h3></div><div class="leader"></div><div class="item-price">70</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="بوبا مانجو" data-en="Boba Mango">بوبا مانجو</h3></div><div class="leader"></div><div class="item-price">70</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="بوبا باشون" data-en="Boba Passion">بوبا باشون</h3></div><div class="leader"></div><div class="item-price">70</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="بوبا بلوبيري ميلك شيك" data-en="Boba Blueberry Milkshake">بوبا بلوبيري ميلك شيك</h3></div><div class="leader"></div><div class="item-price">75</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="بوبا مانجو ميلك شيك" data-en="Boba Mango Milkshake">بوبا مانجو ميلك شيك</h3></div><div class="leader"></div><div class="item-price">75</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="بوبا باشون ميلك شيك" data-en="Boba Passion Milkshake">بوبا باشون ميلك شيك</h3></div><div class="leader"></div><div class="item-price">75</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="بوبا فانيليا ميلك شيك" data-en="Boba Vanilla Milkshake">بوبا فانيليا ميلك شيك</h3></div><div class="leader"></div><div class="item-price">75</div></div>
+            </div>
+        </div>
+
+        <!-- Juices & Smoothies -->
+        <div id="juices" class="menu-section">
+            <div class="section-header"><h2 data-ar="عصائر وساموزي" data-en="Juices & Smoothies">Juices & Smoothies</h2></div>
+            <div class="menu-grid list-view">
+                <div class="menu-item"><div class="item-details"><h3 data-ar="افوكادو" data-en="Avocado">افوكادو</h3></div><div class="leader"></div><div class="item-price">80</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="كيوي" data-en="Kiwi">كيوي</h3></div><div class="leader"></div><div class="item-price">70</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="مانجو" data-en="Mango">مانجو</h3></div><div class="leader"></div><div class="item-price">50</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="فراولة" data-en="Strawberry">فراولة</h3></div><div class="leader"></div><div class="item-price">50</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="فراولة حليب" data-en="Strawberry Milk">فراولة حليب</h3></div><div class="leader"></div><div class="item-price">55</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="فراولة شوكلت" data-en="Strawberry Chocolate">فراولة شوكلت</h3></div><div class="leader"></div><div class="item-price">60</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="جوافة" data-en="Guava">جوافة</h3></div><div class="leader"></div><div class="item-price">50</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="جوافة حليب" data-en="Guava Milk">جوافة حليب</h3></div><div class="leader"></div><div class="item-price">55</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="موز حليب" data-en="Banana Milk">موز حليب</h3></div><div class="leader"></div><div class="item-price">55</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="موز شوكلت" data-en="Banana Chocolate">موز شوكلت</h3></div><div class="leader"></div><div class="item-price">60</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="بلح حليب" data-en="Dates Milk">بلح حليب</h3></div><div class="leader"></div><div class="item-price">55</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="بلح شوكلت" data-en="Dates Chocolate">بلح شوكلت</h3></div><div class="leader"></div><div class="item-price">60</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="ليمون" data-en="Lemon">ليمون</h3></div><div class="leader"></div><div class="item-price">40</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="ليمون نعناع" data-en="Lemon Mint">ليمون نعناع</h3></div><div class="leader"></div><div class="item-price">45</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="ليمون توت" data-en="Lemon Berry">ليمون توت</h3></div><div class="leader"></div><div class="item-price">50</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="ميكس بيري" data-en="Mix Berry">ميكس بيري</h3></div><div class="leader"></div><div class="item-price">50</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="بطيخ" data-en="Watermelon">بطيخ</h3></div><div class="leader"></div><div class="item-price">50</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="توت" data-en="Berry">توت</h3></div><div class="leader"></div><div class="item-price">50</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="لوليتا (مانجو+فراولة+لوتس)" data-en="Lolita (Mango+Strawberry+Lotus)">لوليتا (مانجو+فراولة+لوتس)</h3></div><div class="leader"></div><div class="item-price">50</div></div>
+            </div>
+        </div>
+
+        <!-- Cocktails -->
+        <div id="cocktails" class="menu-section">
+            <div class="section-header"><h2 data-ar="كوكتيلات" data-en="Cocktails">Cocktails</h2></div>
+            <div class="menu-grid list-view">
+                <div class="menu-item">
+                    <div class="item-details">
+                        <h3 data-ar="مالديف" data-en="Maldives">مالديف</h3>
+                        <p data-ar="مانجو - جوز هند" data-en="Mango - Coconut">مانجو - جوز هند</p>
+                    </div>
+                    <div class="item-price">60</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-details">
+                        <h3 data-ar="جولد" data-en="Gold">جولد</h3>
+                        <p data-ar="برتقال - باشون فروت" data-en="Orange - Passion Fruit">برتقال - باشون فروت</p>
+                    </div>
+                    <div class="item-price">55</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-details">
+                        <h3 data-ar="فلورينجو" data-en="Florinjo">فلورينجو</h3>
+                        <p data-ar="مانجو - اناناس - باشون فروت" data-en="Mango - Pineapple - Passion Fruit">مانجو - اناناس - باشون فروت</p>
+                    </div>
+                    <div class="item-price">60</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-details">
+                        <h3 data-ar="بينك روز" data-en="Pink Rose">بينك روز</h3>
+                        <p data-ar="بطيخ - فراولة - ايس فراولة" data-en="Watermelon - Strawberry - Strawberry Ice Cream">بطيخ - فراولة - ايس فراولة</p>
+                    </div>
+                    <div class="item-price">60</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-details">
+                        <h3 data-ar="جرين مانجو" data-en="Green Mango">جرين مانجو</h3>
+                        <p data-ar="مانجو - باشون فروت" data-en="Mango - Passion Fruit">مانجو - باشون فروت</p>
+                    </div>
+                    <div class="item-price">60</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-details">
+                        <h3 data-ar="ستروبري" data-en="Strawberry">ستروبري</h3>
+                        <p data-ar="فراولة - توت ازرق" data-en="Strawberry - Blue Berry">فراولة - توت ازرق</p>
+                    </div>
+                    <div class="item-price">60</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-details">
+                        <h3 data-ar="باور" data-en="Power">باور</h3>
+                        <p data-ar="بلح - موز - ايس فانيليا" data-en="Dates - Banana - Vanilla Ice Cream">بلح - موز - ايس فانيليا</p>
+                    </div>
+                    <div class="item-price">55</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-details">
+                        <h3 data-ar="مورنينج" data-en="Morning">مورنينج</h3>
+                        <p data-ar="مانجو - كيوي" data-en="Mango - Kiwi">مانجو - كيوي</p>
+                    </div>
+                    <div class="item-price">60</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-details">
+                        <h3 data-ar="بيتش" data-en="Peach">بيتش</h3>
+                        <p data-ar="مانجو - خوخ" data-en="Mango - Peach">مانجو - خوخ</p>
+                    </div>
+                    <div class="item-price">60</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-details">
+                        <h3 data-ar="ليمونادا" data-en="Lemonade">ليمونادا</h3>
+                        <p data-ar="ليمون - جوز هند" data-en="Lemon - Coconut">ليمون - جوز هند</p>
+                    </div>
+                    <div class="item-price">55</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-details">
+                        <h3 data-ar="سبیشال" data-en="Special">سبیشال</h3>
+                        <p data-ar="فراولة - موز - مانجو - ايس" data-en="Strawberry - Banana - Mango - Ice Cream">فراولة - موز - مانجو - ايس</p>
+                    </div>
+                    <div class="item-price">60</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-details">
+                        <h3 data-ar="منعش" data-en="Refresh">منعش</h3>
+                        <p data-ar="بطيخ - نعناع" data-en="Watermelon - Mint">بطيخ - نعناع</p>
+                    </div>
+                    <div class="item-price">55</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-details">
+                        <h3 data-ar="فروت سلاد" data-en="Fruit Salad">فروت سلاد</h3>
+                    </div>
+                    <div class="item-price">50</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-details">
+                        <h3 data-ar="فلوريدا" data-en="Florida">فلوريدا</h3>
+                        <p data-ar="مانجا - جوافة - فراولة" data-en="Mango - Guava - Strawberry">مانجا - جوافة - فراولة</p>
+                    </div>
+                    <div class="item-price">60</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cocktail Soda -->
+        <div id="cocktail-soda" class="menu-section">
+            <div class="section-header"><h2 data-ar="كوكتيل صودا" data-en="Cocktail Soda">Cocktail Soda</h2></div>
+            <div class="menu-grid list-view">
+                <div class="menu-item">
+                    <div class="item-details">
+                        <h3 data-ar="موجيتو فليفر" data-en="Mojito Flavor">موجيتو فليفر</h3>
+                        <p data-ar="بلو بيري - فراولة - نعناع - رمان" data-en="Blueberry - Strawberry - Mint - Pomegranate">بلو بيري - فراولة - نعناع - رمان</p>
+                    </div>
+                    <div class="item-price">50</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-details">
+                        <h3 data-ar="ايس تي فليفر" data-en="Ice Tea Flavor">ايس تي فليفر</h3>
+                        <p data-ar="خوخ - باشون فروت - فراولة" data-en="Peach - Passion Fruit - Strawberry">خوخ - باشون فروت - فراولة</p>
+                    </div>
+                    <div class="item-price">60</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-details">
+                        <h3 data-ar="كارولينا" data-en="Carolina">كارولينا</h3>
+                        <p data-ar="عنب - ميكس بيري - صودا - ليمون" data-en="Grapes - Mix Berry - Soda - Lemon">عنب - ميكس بيري - صودا - ليمون</p>
+                    </div>
+                    <div class="item-price">60</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-details">
+                        <h3 data-ar="مارغريتا" data-en="Margarita">مارغريتا</h3>
+                        <p data-ar="فراولة - باشون فروت - صودا - ليمون" data-en="Strawberry - Passion Fruit - Soda - Lemon">فراولة - باشون فروت - صودا - ليمون</p>
+                    </div>
+                    <div class="item-price">65</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-details">
+                        <h3 data-ar="هامرهيد" data-en="Hammerhead">هامرهيد</h3>
+                        <p data-ar="ريدبول - اسبريسو" data-en="Redbull - Espresso">ريدبول - اسبريسو</p>
+                    </div>
+                    <div class="item-price">90</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-details">
+                        <h3 data-ar="صن شاين" data-en="Sunshine">صن شاين</h3>
+                        <p data-ar="رمان - ليمون - صودا" data-en="Pomegranate - Lemon - Soda">رمان - ليمون - صودا</p>
+                    </div>
+                    <div class="item-price">55</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dessert -->
+        <div id="dessert" class="menu-section">
+            <div class="section-header"><h2 data-ar="حلويات" data-en="Dessert">Dessert</h2></div>
+            <div class="menu-grid list-view">
+                <div class="menu-item"><div class="item-details"><h3 data-ar="مولتن كيك نوتيلا" data-en="Nutella Molten Cake">مولتن كيك نوتيلا</h3></div><div class="leader"></div><div class="item-price">90</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="مولتن كيك بيستاشيو" data-en="Pistachio Molten Cake">مولتن كيك بيستاشيو</h3></div><div class="leader"></div><div class="item-price">90</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="مولتن كيك لوتس" data-en="Lotus Molten Cake">مولتن كيك لوتس</h3></div><div class="leader"></div><div class="item-price">90</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="مولتن كيك عيد الميلاد" data-en="Birthday Molten Cake">مولتن كيك عيد الميلاد</h3></div><div class="leader"></div><div class="item-price">100</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="مولتن كيك ايس" data-en="Ice Cream Molten Cake">مولتن كيك ايس</h3></div><div class="leader"></div><div class="item-price">100</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="تشيز كيك لوتس" data-en="Lotus Cheesecake">تشيز كيك لوتس</h3></div><div class="leader"></div><div class="item-price">70</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="تشيز كيك فراولة" data-en="Strawberry Cheesecake">تشيز كيك فراولة</h3></div><div class="leader"></div><div class="item-price">70</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="تشيز كيك توت" data-en="Berry Cheesecake">تشيز كيك توت</h3></div><div class="leader"></div><div class="item-price">70</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="تشيز كيك مانجو" data-en="Mango Cheesecake">تشيز كيك مانجو</h3></div><div class="leader"></div><div class="item-price">70</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="سينابون صوص" data-en="Cinnabon with Sauce">سينابون صوص</h3></div><div class="leader"></div><div class="item-price">90</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="فادج كيك" data-en="Fudge Cake">فادج كيك</h3></div><div class="leader"></div><div class="item-price">65</div></div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 <span data-ar="روبوستا كافيه" data-en="Robusta Café">Robusta Café</span>. <span data-ar="جميع الحقوق محفوظة." data-en="All Rights Reserved.">All Rights Reserved.</span></p>
+    </footer>
+
+    <script>
+        let currentLang = 'ar';
+
+        // Ensure the page actually shows Arabic text on first load
+        document.querySelectorAll('[data-ar]').forEach(el => {
+            el.textContent = el.getAttribute('data-ar');
+        });
+        document.querySelectorAll('#sortSelect option').forEach(opt => {
+            opt.textContent = opt.getAttribute('data-ar');
+        });
+        document.getElementById('langText').textContent = 'English';
+
+        const originalOrders = {};
+        document.querySelectorAll('.menu-section').forEach(section => {
+            const grid = section.querySelector('.menu-grid');
+            originalOrders[section.id] = Array.from(grid.children);
+        });
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            const html = document.documentElement;
+
+            if (currentLang === 'en') {
+                html.setAttribute('lang', 'en');
+                html.setAttribute('dir', 'ltr');
+                document.getElementById('langText').textContent = 'العربية';
+            } else {
+                html.setAttribute('lang', 'ar');
+                html.setAttribute('dir', 'rtl');
+                document.getElementById('langText').textContent = 'English';
+            }
+
+            document.querySelectorAll('[data-ar]').forEach(el => {
+                el.textContent = el.getAttribute(`data-${currentLang}`);
+            });
+
+            document.querySelectorAll('#sortSelect option').forEach(opt => {
+                opt.textContent = opt.getAttribute(`data-${currentLang}`);
+            });
+
+            updateThemeLabel();
+        }
+
+        function switchTab(sectionId) {
+            const sections = document.querySelectorAll('.menu-section');
+            sections.forEach(sec => sec.classList.remove('active'));
+
+            const buttons = document.querySelectorAll('.nav-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById(sectionId).classList.add('active');
+            event.currentTarget.classList.add('active');
+
+            document.getElementById('sortSelect').value = 'default';
+
+            window.scrollTo({
+                top: document.getElementById('categoryNav').offsetTop - 10,
+                behavior: 'smooth'
+            });
+        }
+
+        const themeLabels = {
+            ar: { dark: 'الوضع الليلي', light: 'الوضع الفاتح' },
+            en: { dark: 'Dark Mode', light: 'Light Mode' }
+        };
+        let isDarkTheme = true;
+
+        function updateThemeLabel() {
+            const themeBtn = document.getElementById('themeBtn');
+            const mode = isDarkTheme ? 'dark' : 'light';
+            const label = themeLabels[currentLang][mode];
+            themeBtn.setAttribute('aria-label', label);
+            themeBtn.setAttribute('title', label);
+        }
+
+        function toggleTheme() {
+            const html = document.documentElement;
+            const themeIcon = document.getElementById('themeIcon');
+            const themeBtn = document.getElementById('themeBtn');
+            const knob = themeBtn.querySelector('.switch-knob');
+
+            if (html.getAttribute('data-theme') === 'dark') {
+                html.setAttribute('data-theme', 'light');
+                themeIcon.className = 'fa-solid fa-sun';
+                isDarkTheme = false;
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                themeIcon.className = 'fa-solid fa-moon';
+                isDarkTheme = true;
+            }
+
+            knob.classList.remove('flip');
+            void knob.offsetWidth;
+            knob.classList.add('flip');
+
+            updateThemeLabel();
+        }
+
+        function toggleViewMode() {
+            const grids = document.querySelectorAll('.menu-grid');
+            const viewIcon = document.getElementById('viewIcon');
+            const viewText = document.getElementById('viewText');
+            
+            let isListView = false;
+            grids.forEach(grid => {
+                grid.classList.toggle('list-view');
+                isListView = grid.classList.contains('list-view');
+            });
+
+            if (isListView) {
+                viewIcon.className = 'fa-solid fa-grip';
+                viewText.setAttribute('data-ar', 'عرض شبكي');
+                viewText.setAttribute('data-en', 'Grid View');
+            } else {
+                viewIcon.className = 'fa-solid fa-list';
+                viewText.setAttribute('data-ar', 'عرض قائمة');
+                viewText.setAttribute('data-en', 'List View');
+            }
+            viewText.textContent = viewText.getAttribute(`data-${currentLang}`);
+        }
+
+        function sortActiveSection() {
+            const sortValue = document.getElementById('sortSelect').value;
+            const activeSection = document.querySelector('.menu-section.active');
+            const grid = activeSection.querySelector('.menu-grid');
+            const sectionId = activeSection.id;
+
+            if (sortValue === 'default') {
+                grid.innerHTML = '';
+                originalOrders[sectionId].forEach(item => grid.appendChild(item));
+                return;
+            }
+
+            const items = Array.from(grid.querySelectorAll('.menu-item'));
+
+            items.sort((a, b) => {
+                const priceTextA = a.querySelector('.item-price').textContent;
+                const priceTextB = b.querySelector('.item-price').textContent;
+
+                const getMinPrice = (text) => {
+                    const nums = text.split('/').map(num => parseFloat(num.trim()));
+                    return Math.min(...nums);
+                };
+
+                const priceA = getMinPrice(priceTextA);
+                const priceB = getMinPrice(priceTextB);
+
+                if (sortValue === 'low-high') {
+                    return priceA - priceB;
+                } else if (sortValue === 'high-low') {
+                    return priceB - priceA;
+                }
+            });
+
+            grid.innerHTML = '';
+            items.forEach(item => grid.appendChild(item));
+        }
+    </script>
+</body>
+</html>
