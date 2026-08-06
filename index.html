@@ -422,44 +422,20 @@
             display: inline-block;
         }
 
-        /* Menu Grid / List Layout Modes */
+        /* Menu List Layout */
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 20px;
-            transition: all 0.3s ease;
-        }
-
-        /* Compact List View Mode (Default) */
-        .menu-grid.list-view {
             grid-template-columns: 1fr;
             max-width: 800px;
             margin: 0 auto;
             gap: 10px;
         }
 
-        .menu-grid.list-view .menu-item {
-            padding: 13px 18px;
-        }
-
-        .menu-grid.list-view .menu-item::before {
-            display: none;
-        }
-
-        .menu-grid.list-view .item-details h3 {
-            font-size: 1.05rem;
-            margin-bottom: 2px;
-        }
-
-        .menu-grid.list-view .item-details p {
-            font-size: 0.78rem;
-        }
-
         .menu-item {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
             border-radius: 14px;
-            padding: 20px;
+            padding: 13px 18px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -467,28 +443,10 @@
             position: relative;
         }
 
-        /* Ticket-stub scalloped edge, grid mode only */
-        .menu-item::before {
-            content: '';
-            position: absolute;
-            top: -6px;
-            left: 10px;
-            right: 10px;
-            height: 12px;
-            background-image: radial-gradient(circle at 6px 6px, transparent 6px, var(--scallop-color) 6.4px);
-            background-size: 12px 12px;
-            background-repeat: repeat-x;
-        }
-
         .menu-item:hover {
-            transform: translateY(-4px);
-            border-color: var(--accent);
-            box-shadow: 0 12px 26px rgba(0,0,0,0.18);
-        }
-
-        .menu-grid.list-view .menu-item:hover {
             transform: none;
             border-color: var(--accent);
+            box-shadow: 0 12px 26px rgba(0,0,0,0.18);
         }
 
         .item-details {
@@ -497,7 +455,8 @@
         }
 
         .item-details h3 {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
+            margin-bottom: 2px;
             font-weight: 700;
             color: var(--text-main);
             margin-bottom: 5px;
@@ -567,8 +526,7 @@
     </style>
 </head>
 <body>
-
-    <div class="top-controls">
+        </div>
         <div class="control-group">
              <select class="sort-select" id="sortSelect" onchange="sortActiveSection()">
                 <option value="default" data-ar="ترتيب حسب: الافتراضي" data-en="Sort by: Default">ترتيب حسب: الافتراضي</option>
@@ -619,13 +577,18 @@
         <button class="nav-btn" onclick="switchTab('cocktails')"><i class="fa-solid fa-martini-glass-citrus"></i><span data-ar="كوكتيلات" data-en="Cocktails">Cocktails</span></button>
         <button class="nav-btn" onclick="switchTab('cocktail-soda')"><i class="fa-solid fa-wine-bottle"></i><span data-ar="كوكتيل صودا" data-en="Cocktail Soda">Cocktail Soda</span></button>
         <button class="nav-btn" onclick="switchTab('dessert')"><i class="fa-solid fa-cake-candles"></i><span data-ar="حلويات" data-en="Dessert">Dessert</span></button>
+        <button class="nav-btn" onclick="switchTab('fresca')"><i class="fa-solid fa-cookie-bite"></i><span data-ar="فريسكا" data-en="Fresca">Fresca</span></button>
+        <button class="nav-btn" onclick="switchTab('pancake')"><i class="fa-solid fa-circle-dot"></i><span data-ar="بان كيك" data-en="Pancake">Pancake</span></button>
+        <button class="nav-btn" onclick="switchTab('waffle')"><i class="fa-solid fa-grip"></i><span data-ar="وافل" data-en="Waffle">Waffle</span></button>
+        <button class="nav-btn" onclick="switchTab('icecream')"><i class="fa-solid fa-ice-cream"></i><span data-ar="آيس كريم" data-en="Ice Cream">Ice Cream</span></button>
+        <button class="nav-btn" onclick="switchTab('lomma-box')"><i class="fa-solid fa-gift"></i><span data-ar="بوكس اللمة" data-en="Lomma Box">Lomma Box</span></button>
     </div>
 
     <div class="container">
         <!-- Hot Drinks -->
         <div id="hot-drinks" class="menu-section active">
             <div class="section-header"><h2 data-ar="مشروبات ساخنة" data-en="Hot Drinks">Hot Drinks</h2></div>
-            <div class="menu-grid list-view">
+            <div class="menu-grid">
                 <div class="menu-item"><div class="item-details"><h3 data-ar="قهوة تركي" data-en="Turkish Coffee">قهوة تركي</h3></div><div class="leader"></div><div class="item-price">35/25</div></div>
                 <div class="menu-item"><div class="item-details"><h3 data-ar="قهوة فرنساوي" data-en="French Coffee">قهوة فرنساوي</h3></div><div class="leader"></div><div class="item-price">40</div></div>
                 <div class="menu-item"><div class="item-details"><h3 data-ar="قهوة بندق" data-en="Hazelnut Coffee">قهوة بندق</h3></div><div class="leader"></div><div class="item-price">40</div></div>
@@ -660,7 +623,7 @@
         <!-- Soft Drinks -->
         <div id="soft-drinks" class="menu-section">
             <div class="section-header"><h2 data-ar="مشروبات غازية" data-en="Soft Drinks">Soft Drinks</h2></div>
-            <div class="menu-grid list-view">
+            <div class="menu-grid">
                 <div class="menu-item"><div class="item-details"><h3 data-ar="مياه صغيرة" data-en="Small Water">مياه صغيرة</h3></div><div class="leader"></div><div class="item-price">10</div></div>
                 <div class="menu-item"><div class="item-details"><h3 data-ar="كان" data-en="Can">كان</h3></div><div class="leader"></div><div class="item-price">30</div></div>
                 <div class="menu-item"><div class="item-details"><h3 data-ar="فيروز" data-en="Fayrouz">فيروز</h3></div><div class="leader"></div><div class="item-price">35</div></div>
@@ -675,7 +638,7 @@
         <!-- Ice Drinks -->
         <div id="ice-drinks" class="menu-section">
             <div class="section-header"><h2 data-ar="مشروبات مثلجة" data-en="Ice Drinks">Ice Drinks</h2></div>
-            <div class="menu-grid list-view">
+            <div class="menu-grid">
                 <div class="menu-item"><div class="item-details"><h3 data-ar="ايس كوفي" data-en="Ice Coffee">ايس كوفي</h3></div><div class="leader"></div><div class="item-price">50</div></div>
                 <div class="menu-item"><div class="item-details"><h3 data-ar="ايس لاتيه" data-en="Ice Latte">ايس لاتيه</h3></div><div class="leader"></div><div class="item-price">50</div></div>
                 <div class="menu-item"><div class="item-details"><h3 data-ar="وايت ايس موكا" data-en="White Ice Mocha">وايت ايس موكا</h3></div><div class="leader"></div><div class="item-price">50</div></div>
@@ -691,7 +654,7 @@
         <!-- Zabady Khallat -->
         <div id="zabady" class="menu-section">
             <div class="section-header"><h2 data-ar="زبادي خلاط" data-en="Zabady Khallat">Zabady Khallat</h2></div>
-            <div class="menu-grid list-view">
+            <div class="menu-grid">
                 <div class="menu-item"><div class="item-details"><h3 data-ar="كلاسيك" data-en="Classic">كلاسيك</h3></div><div class="leader"></div><div class="item-price">45</div></div>
                 <div class="menu-item"><div class="item-details"><h3 data-ar="توت" data-en="Berry">توت</h3></div><div class="leader"></div><div class="item-price">45</div></div>
                 <div class="menu-item"><div class="item-details"><h3 data-ar="لوتس" data-en="Lotus">لوتس</h3></div><div class="leader"></div><div class="item-price">45</div></div>
@@ -706,7 +669,7 @@
         <!-- Milkshake -->
         <div id="milkshake" class="menu-section">
             <div class="section-header"><h2 data-ar="ميلك شيك" data-en="Milkshake">Milkshake</h2></div>
-            <div class="menu-grid list-view">
+            <div class="menu-grid">
                 <div class="menu-item"><div class="item-details"><h3 data-ar="فانيليا" data-en="Vanilla">فانيليا</h3></div><div class="leader"></div><div class="item-price">55</div></div>
                 <div class="menu-item"><div class="item-details"><h3 data-ar="تشيز كيك" data-en="Cheesecake">تشيز كيك</h3></div><div class="leader"></div><div class="item-price">100</div></div>
                 <div class="menu-item"><div class="item-details"><h3 data-ar="شوكولا" data-en="Chocolate">شوكولا</h3></div><div class="leader"></div><div class="item-price">55</div></div>
@@ -734,7 +697,7 @@
         <!-- New Boba -->
         <div id="boba" class="menu-section">
             <div class="section-header"><h2 data-ar="بوبا جديدة" data-en="New Boba">New Boba</h2></div>
-            <div class="menu-grid list-view">
+            <div class="menu-grid">
                 <div class="menu-item"><div class="item-details"><h3 data-ar="بوبا بلوبيري" data-en="Boba Blueberry">بوبا بلوبيري</h3></div><div class="leader"></div><div class="item-price">70</div></div>
                 <div class="menu-item"><div class="item-details"><h3 data-ar="بوبا مانجو" data-en="Boba Mango">بوبا مانجو</h3></div><div class="leader"></div><div class="item-price">70</div></div>
                 <div class="menu-item"><div class="item-details"><h3 data-ar="بوبا باشون" data-en="Boba Passion">بوبا باشون</h3></div><div class="leader"></div><div class="item-price">70</div></div>
@@ -748,7 +711,7 @@
         <!-- Juices & Smoothies -->
         <div id="juices" class="menu-section">
             <div class="section-header"><h2 data-ar="عصائر وساموزي" data-en="Juices & Smoothies">Juices & Smoothies</h2></div>
-            <div class="menu-grid list-view">
+            <div class="menu-grid">
                 <div class="menu-item"><div class="item-details"><h3 data-ar="افوكادو" data-en="Avocado">افوكادو</h3></div><div class="leader"></div><div class="item-price">80</div></div>
                 <div class="menu-item"><div class="item-details"><h3 data-ar="كيوي" data-en="Kiwi">كيوي</h3></div><div class="leader"></div><div class="item-price">70</div></div>
                 <div class="menu-item"><div class="item-details"><h3 data-ar="مانجو" data-en="Mango">مانجو</h3></div><div class="leader"></div><div class="item-price">50</div></div>
@@ -774,7 +737,7 @@
         <!-- Cocktails -->
         <div id="cocktails" class="menu-section">
             <div class="section-header"><h2 data-ar="كوكتيلات" data-en="Cocktails">Cocktails</h2></div>
-            <div class="menu-grid list-view">
+            <div class="menu-grid">
                 <div class="menu-item">
                     <div class="item-details">
                         <h3 data-ar="مالديف" data-en="Maldives">مالديف</h3>
@@ -878,7 +841,7 @@
         <!-- Cocktail Soda -->
         <div id="cocktail-soda" class="menu-section">
             <div class="section-header"><h2 data-ar="كوكتيل صودا" data-en="Cocktail Soda">Cocktail Soda</h2></div>
-            <div class="menu-grid list-view">
+            <div class="menu-grid">
                 <div class="menu-item">
                     <div class="item-details">
                         <h3 data-ar="موجيتو فليفر" data-en="Mojito Flavor">موجيتو فليفر</h3>
@@ -927,7 +890,7 @@
         <!-- Dessert -->
         <div id="dessert" class="menu-section">
             <div class="section-header"><h2 data-ar="حلويات" data-en="Dessert">Dessert</h2></div>
-            <div class="menu-grid list-view">
+            <div class="menu-grid">
                 <div class="menu-item"><div class="item-details"><h3 data-ar="مولتن كيك نوتيلا" data-en="Nutella Molten Cake">مولتن كيك نوتيلا</h3></div><div class="leader"></div><div class="item-price">90</div></div>
                 <div class="menu-item"><div class="item-details"><h3 data-ar="مولتن كيك بيستاشيو" data-en="Pistachio Molten Cake">مولتن كيك بيستاشيو</h3></div><div class="leader"></div><div class="item-price">90</div></div>
                 <div class="menu-item"><div class="item-details"><h3 data-ar="مولتن كيك لوتس" data-en="Lotus Molten Cake">مولتن كيك لوتس</h3></div><div class="leader"></div><div class="item-price">90</div></div>
@@ -939,6 +902,127 @@
                 <div class="menu-item"><div class="item-details"><h3 data-ar="تشيز كيك مانجو" data-en="Mango Cheesecake">تشيز كيك مانجو</h3></div><div class="leader"></div><div class="item-price">70</div></div>
                 <div class="menu-item"><div class="item-details"><h3 data-ar="سينابون صوص" data-en="Cinnabon with Sauce">سينابون صوص</h3></div><div class="leader"></div><div class="item-price">90</div></div>
                 <div class="menu-item"><div class="item-details"><h3 data-ar="فادج كيك" data-en="Fudge Cake">فادج كيك</h3></div><div class="leader"></div><div class="item-price">65</div></div>
+            </div>
+        </div>
+
+        <!-- Fresca -->
+        <div id="fresca" class="menu-section">
+            <div class="section-header"><h2 data-ar="فريسكا" data-en="Fresca">Fresca</h2></div>
+            <div class="menu-grid">
+                <div class="menu-item"><div class="item-details"><h3 data-ar="فريسكا هوهوز" data-en="Fresca HoHos">فريسكا هوهوز</h3></div><div class="leader"></div><div class="item-price">25</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="فريسكا توينكز" data-en="Fresca Twinkies">فريسكا توينكز</h3></div><div class="leader"></div><div class="item-price">25</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="فريسكا ميكس لوتس" data-en="Fresca Mix Lotus">فريسكا ميكس لوتس</h3></div><div class="leader"></div><div class="item-price">30</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="فريسكا وايت" data-en="Fresca White Chocolate">فريسكا وايت</h3></div><div class="leader"></div><div class="item-price">30</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="فريسكا كراميل" data-en="Fresca Caramel">فريسكا كراميل</h3></div><div class="leader"></div><div class="item-price">30</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="فريسكا كيندر" data-en="Fresca Kinder">فريسكا كيندر</h3></div><div class="leader"></div><div class="item-price">30</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="فريسكا بيستاشيو" data-en="Fresca Pistachio">فريسكا بيستاشيو</h3></div><div class="leader"></div><div class="item-price">35</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="فريسكا ميكس فروت" data-en="Fresca Mix Fruit">فريسكا ميكس فروت</h3></div><div class="leader"></div><div class="item-price">35</div></div>
+            </div>
+        </div>
+
+        <!-- Pancake -->
+        <div id="pancake" class="menu-section">
+            <div class="section-header"><h2 data-ar="بان كيك" data-en="Pancake">Pancake</h2></div>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="item-details">
+                        <h3 data-ar="نوتيلا" data-en="Nutella">نوتيلا</h3>
+                        <p data-ar="10 / 15 / 25 قطعة" data-en="10 / 15 / 25 pcs">10 / 15 / 25 قطعة</p>
+                    </div>
+                    <div class="leader"></div><div class="item-price">40/60/80</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-details">
+                        <h3 data-ar="وايت شوكلت" data-en="White Chocolate">وايت شوكلت</h3>
+                        <p data-ar="10 / 15 / 25 قطعة" data-en="10 / 15 / 25 pcs">10 / 15 / 25 قطعة</p>
+                    </div>
+                    <div class="leader"></div><div class="item-price">45/65/90</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-details">
+                        <h3 data-ar="ميكس" data-en="Mix">ميكس</h3>
+                        <p data-ar="10 / 15 / 25 قطعة" data-en="10 / 15 / 25 pcs">10 / 15 / 25 قطعة</p>
+                    </div>
+                    <div class="leader"></div><div class="item-price">45/65/90</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-details">
+                        <h3 data-ar="اوريو" data-en="Oreo">اوريو</h3>
+                        <p data-ar="10 / 15 / 25 قطعة" data-en="10 / 15 / 25 pcs">10 / 15 / 25 قطعة</p>
+                    </div>
+                    <div class="leader"></div><div class="item-price">50/75/100</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-details">
+                        <h3 data-ar="لوتس" data-en="Lotus">لوتس</h3>
+                        <p data-ar="10 / 15 / 25 قطعة" data-en="10 / 15 / 25 pcs">10 / 15 / 25 قطعة</p>
+                    </div>
+                    <div class="leader"></div><div class="item-price">50/75/100</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-details">
+                        <h3 data-ar="بيستاشيو" data-en="Pistachio">بيستاشيو</h3>
+                        <p data-ar="10 / 15 / 25 قطعة" data-en="10 / 15 / 25 pcs">10 / 15 / 25 قطعة</p>
+                    </div>
+                    <div class="leader"></div><div class="item-price">60/90/130</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Waffle -->
+        <div id="waffle" class="menu-section">
+            <div class="section-header"><h2 data-ar="وافل" data-en="Waffle">Waffle</h2></div>
+            <div class="menu-grid">
+                <div class="menu-item"><div class="item-details"><h3 data-ar="وافل ساندوتش" data-en="Waffle Sandwich">وافل ساندوتش</h3></div><div class="leader"></div><div class="item-price">45</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="نوتيلا" data-en="Nutella">نوتيلا</h3></div><div class="leader"></div><div class="item-price">50</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="وايت شوكلت" data-en="White Chocolate">وايت شوكلت</h3></div><div class="leader"></div><div class="item-price">55</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="لوتس" data-en="Lotus">لوتس</h3></div><div class="leader"></div><div class="item-price">65</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="بيستاشيو" data-en="Pistachio">بيستاشيو</h3></div><div class="leader"></div><div class="item-price">80</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="كراميل" data-en="Caramel">كراميل</h3></div><div class="leader"></div><div class="item-price">50</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="موز" data-en="Banana">موز</h3></div><div class="leader"></div><div class="item-price">65</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="فواكه" data-en="Fruits">فواكه</h3></div><div class="leader"></div><div class="item-price">85</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="توت" data-en="Berries">توت</h3></div><div class="leader"></div><div class="item-price">75</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="اوريو - هوهوز" data-en="Oreo - HoHos">اوريو - هوهوز</h3></div><div class="leader"></div><div class="item-price">80</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="كيت كات" data-en="Kitkat">كيت كات</h3></div><div class="leader"></div><div class="item-price">100</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="فتة وافل" data-en="Waffle Fatteh">فتة وافل</h3></div><div class="leader"></div><div class="item-price">60</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="ميكس شوكلت لوتس" data-en="Mix Chocolate Lotus">ميكس شوكلت لوتس</h3></div><div class="leader"></div><div class="item-price">70</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="ميكس وايت لوتس" data-en="Mix White Chocolate Lotus">ميكس وايت لوتس</h3></div><div class="leader"></div><div class="item-price">70</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="ميكس صوصات" data-en="Mix Sauces">ميكس صوصات</h3></div><div class="leader"></div><div class="item-price">70</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="ميكس شوكلت بيستاشيو" data-en="Mix Chocolate Pistachio">ميكس شوكلت بيستاشيو</h3></div><div class="leader"></div><div class="item-price">90</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="ميكس لوتس بيستاشيو" data-en="Mix Lotus Pistachio">ميكس لوتس بيستاشيو</h3></div><div class="leader"></div><div class="item-price">90</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="ميكس وايت توت" data-en="Mix White Chocolate Berries">ميكس وايت توت</h3></div><div class="leader"></div><div class="item-price">90</div></div>
+            </div>
+        </div>
+
+        <!-- Ice Cream -->
+        <div id="icecream" class="menu-section">
+            <div class="section-header"><h2 data-ar="آيس كريم" data-en="Ice Cream">Ice Cream</h2></div>
+            <div class="menu-grid">
+                <div class="menu-item"><div class="item-details"><h3 data-ar="بولة 1" data-en="1 Scoop">بولة 1</h3></div><div class="leader"></div><div class="item-price">20</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="بولة 2" data-en="2 Scoops">بولة 2</h3></div><div class="leader"></div><div class="item-price">40</div></div>
+                <div class="menu-item">
+                    <div class="item-details">
+                        <h3 data-ar="بولة 3" data-en="3 Scoops">بولة 3</h3>
+                        <p data-ar="من اختيارك + صوص + فواكه" data-en="Your choice + sauce + fruits">من اختيارك + صوص + فواكه</p>
+                    </div>
+                    <div class="leader"></div><div class="item-price">55</div>
+                </div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="بولة 4" data-en="4 Scoops">بولة 4</h3></div><div class="leader"></div><div class="item-price">70</div></div>
+                <div class="menu-item"><div class="item-details"><h3 data-ar="روبوستا آيس كريم" data-en="Robusta Ice Cream">روبوستا آيس كريم</h3></div><div class="leader"></div><div class="item-price">75</div></div>
+            </div>
+        </div>
+
+        <!-- Lomma Box -->
+        <div id="lomma-box" class="menu-section">
+            <div class="section-header"><h2 data-ar="بوكس اللمة" data-en="Lomma Box">Lomma Box</h2></div>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="item-details">
+                        <h3 data-ar="بوكس اللمة" data-en="Lomma Box">بوكس اللمة</h3>
+                        <p data-ar="وافل - بان كيك 10 قطع - فريسكا هوهوز / توينكز" data-en="Waffle - Pancake 10 pcs - Fresca HoHos / Twinkies">وافل - بان كيك 10 قطع - فريسكا هوهوز / توينكز</p>
+                    </div>
+                    <div class="leader"></div><div class="item-price">110</div>
+                </div>
             </div>
         </div>
     </div>
