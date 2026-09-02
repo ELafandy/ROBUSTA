@@ -1,0 +1,1344 @@
+{
+ "updatedAt": "2026-09-02T19:55:38.243Z",
+ "sections": [
+  {
+   "id": "hot-drinks",
+   "ar": "مشروبات ساخنة",
+   "en": "Hot Drinks",
+   "icon": "fa-solid fa-mug-hot",
+   "items": [
+    {
+     "ar": "قهوة تركي",
+     "en": "Turkish Coffee",
+     "dar": "",
+     "den": "",
+     "price": "35/25"
+    },
+    {
+     "ar": "قهوة فرنساوي",
+     "en": "French Coffee",
+     "dar": "",
+     "den": "",
+     "price": "40"
+    },
+    {
+     "ar": "قهوة بندق",
+     "en": "Hazelnut Coffee",
+     "dar": "",
+     "den": "",
+     "price": "40"
+    },
+    {
+     "ar": "قهوة نوتيلا",
+     "en": "Nutella Coffee",
+     "dar": "",
+     "den": "",
+     "price": "40"
+    },
+    {
+     "ar": "شاي",
+     "en": "Tea",
+     "dar": "",
+     "den": "",
+     "price": "15"
+    },
+    {
+     "ar": "شاي نكهات",
+     "en": "Flavored Tea",
+     "dar": "",
+     "den": "",
+     "price": "20"
+    },
+    {
+     "ar": "نعناع",
+     "en": "Mint",
+     "dar": "",
+     "den": "",
+     "price": "15"
+    },
+    {
+     "ar": "ينسون / كركديه / تفاح / ليمون",
+     "en": "Anise / Hibiscus / Apple / Lemon",
+     "dar": "",
+     "den": "",
+     "price": "15"
+    },
+    {
+     "ar": "زنجبيل",
+     "en": "Ginger",
+     "dar": "",
+     "den": "",
+     "price": "15"
+    },
+    {
+     "ar": "كوكتيل اعشاب",
+     "en": "Herbal Cocktail",
+     "dar": "",
+     "den": "",
+     "price": "25"
+    },
+    {
+     "ar": "هوت سيدر",
+     "en": "Hot Cider",
+     "dar": "",
+     "den": "",
+     "price": "30"
+    },
+    {
+     "ar": "سحلب مكسرات",
+     "en": "Sahlab with Nuts",
+     "dar": "",
+     "den": "",
+     "price": "35"
+    },
+    {
+     "ar": "سحلب اوريو",
+     "en": "Sahlab Oreo",
+     "dar": "",
+     "den": "",
+     "price": "40"
+    },
+    {
+     "ar": "سحلب فواكه",
+     "en": "Sahlab Fruits",
+     "dar": "",
+     "den": "",
+     "price": "40"
+    },
+    {
+     "ar": "نسكافية",
+     "en": "Nescafe",
+     "dar": "",
+     "den": "",
+     "price": "40"
+    },
+    {
+     "ar": "اسبريسو",
+     "en": "Espresso",
+     "dar": "",
+     "den": "",
+     "price": "40/30"
+    },
+    {
+     "ar": "اسبريسو حليب",
+     "en": "Espresso Milk",
+     "dar": "",
+     "den": "",
+     "price": "50"
+    },
+    {
+     "ar": "امريكان كوفي",
+     "en": "American Coffee",
+     "dar": "",
+     "den": "",
+     "price": "35"
+    },
+    {
+     "ar": "اسبريسو ميكاتو",
+     "en": "Espresso Macchiato",
+     "dar": "",
+     "den": "",
+     "price": "40"
+    },
+    {
+     "ar": "كورتادو",
+     "en": "Cortado",
+     "dar": "",
+     "den": "",
+     "price": "45"
+    },
+    {
+     "ar": "فلات وايت",
+     "en": "Flat White",
+     "dar": "",
+     "den": "",
+     "price": "55"
+    },
+    {
+     "ar": "كابتشينو",
+     "en": "Cappuccino",
+     "dar": "",
+     "den": "",
+     "price": "50"
+    },
+    {
+     "ar": "لاتيه",
+     "en": "Latte",
+     "dar": "",
+     "den": "",
+     "price": "50"
+    },
+    {
+     "ar": "اسبانش لاتيه",
+     "en": "Spanish Latte",
+     "dar": "",
+     "den": "",
+     "price": "60"
+    },
+    {
+     "ar": "موكا (وايت/دارك)",
+     "en": "Mocha (White/Dark)",
+     "dar": "",
+     "den": "",
+     "price": "60"
+    },
+    {
+     "ar": "هوت شوكلت",
+     "en": "Hot Chocolate",
+     "dar": "",
+     "den": "",
+     "price": "50"
+    },
+    {
+     "ar": "هوت لوتس",
+     "en": "Hot Lotus",
+     "dar": "",
+     "den": "",
+     "price": "60"
+    },
+    {
+     "ar": "هوت اوريو",
+     "en": "Hot Oreo",
+     "dar": "",
+     "den": "",
+     "price": "60"
+    }
+   ]
+  },
+  {
+   "id": "soft-drinks",
+   "ar": "مشروبات غازية",
+   "en": "Soft Drinks",
+   "icon": "fa-solid fa-bottle-water",
+   "items": [
+    {
+     "ar": "مياه صغيرة",
+     "en": "Small Water",
+     "dar": "",
+     "den": "",
+     "price": "10"
+    },
+    {
+     "ar": "كان",
+     "en": "Can",
+     "dar": "",
+     "den": "",
+     "price": "30"
+    },
+    {
+     "ar": "فيروز",
+     "en": "Fayrouz",
+     "dar": "",
+     "den": "",
+     "price": "35"
+    },
+    {
+     "ar": "بريل",
+     "en": "Birell",
+     "dar": "",
+     "den": "",
+     "price": "35"
+    },
+    {
+     "ar": "تويست توت",
+     "en": "Twist Berry",
+     "dar": "",
+     "den": "",
+     "price": "25"
+    },
+    {
+     "ar": "تويست فراولة",
+     "en": "Twist Strawberry",
+     "dar": "",
+     "den": "",
+     "price": "25"
+    },
+    {
+     "ar": "ستنج",
+     "en": "Sting",
+     "dar": "",
+     "den": "",
+     "price": "25"
+    },
+    {
+     "ar": "ريدبول",
+     "en": "Redbull",
+     "dar": "",
+     "den": "",
+     "price": "75"
+    }
+   ]
+  },
+  {
+   "id": "ice-drinks",
+   "ar": "مشروبات مثلجة",
+   "en": "Ice Drinks",
+   "icon": "fa-solid fa-snowflake",
+   "items": [
+    {
+     "ar": "ايس كوفي",
+     "en": "Ice Coffee",
+     "dar": "",
+     "den": "",
+     "price": "50"
+    },
+    {
+     "ar": "ايس لاتيه",
+     "en": "Ice Latte",
+     "dar": "",
+     "den": "",
+     "price": "50"
+    },
+    {
+     "ar": "وايت ايس موكا",
+     "en": "White Ice Mocha",
+     "dar": "",
+     "den": "",
+     "price": "50"
+    },
+    {
+     "ar": "دارك ايس موكا",
+     "en": "Dark Ice Mocha",
+     "dar": "",
+     "den": "",
+     "price": "50"
+    },
+    {
+     "ar": "ايس امريكانو",
+     "en": "Ice Americano",
+     "dar": "",
+     "den": "",
+     "price": "45"
+    },
+    {
+     "ar": "ايس سبانش لاتيه",
+     "en": "Ice Spanish Latte",
+     "dar": "",
+     "den": "",
+     "price": "65"
+    },
+    {
+     "ar": "ايس لاتيه فراولة",
+     "en": "Ice Strawberry Latte",
+     "dar": "",
+     "den": "",
+     "price": "65"
+    },
+    {
+     "ar": "فرابتشينو نسكافيه/فانيليا/فراولة",
+     "en": "Frappuccino Nescafe/Vanilla/Strawberry",
+     "dar": "",
+     "den": "",
+     "price": "55"
+    },
+    {
+     "ar": "فرابتشينو اوريو/كراميل/لوتس",
+     "en": "Frappuccino Oreo/Caramel/Lotus",
+     "dar": "",
+     "den": "",
+     "price": "60"
+    }
+   ]
+  },
+  {
+   "id": "zabady",
+   "ar": "زبادي خلاط",
+   "en": "Zabady Khallat",
+   "icon": "fa-solid fa-blender",
+   "items": [
+    {
+     "ar": "كلاسيك",
+     "en": "Classic",
+     "dar": "",
+     "den": "",
+     "price": "45"
+    },
+    {
+     "ar": "توت",
+     "en": "Berry",
+     "dar": "",
+     "den": "",
+     "price": "45"
+    },
+    {
+     "ar": "لوتس",
+     "en": "Lotus",
+     "dar": "",
+     "den": "",
+     "price": "45"
+    },
+    {
+     "ar": "كارميل",
+     "en": "Caramel",
+     "dar": "",
+     "den": "",
+     "price": "45"
+    },
+    {
+     "ar": "خوخ",
+     "en": "Peach",
+     "dar": "",
+     "den": "",
+     "price": "45"
+    },
+    {
+     "ar": "فراولة",
+     "en": "Strawberry",
+     "dar": "",
+     "den": "",
+     "price": "45"
+    },
+    {
+     "ar": "باشون فروت",
+     "en": "Passion Fruit",
+     "dar": "",
+     "den": "",
+     "price": "50"
+    },
+    {
+     "ar": "كيوي",
+     "en": "Kiwi",
+     "dar": "",
+     "den": "",
+     "price": "50"
+    }
+   ]
+  },
+  {
+   "id": "milkshake",
+   "ar": "ميلك شيك",
+   "en": "Milkshake",
+   "icon": "fa-solid fa-ice-cream",
+   "items": [
+    {
+     "ar": "فانيليا",
+     "en": "Vanilla",
+     "dar": "",
+     "den": "",
+     "price": "55"
+    },
+    {
+     "ar": "تشيز كيك",
+     "en": "Cheesecake",
+     "dar": "",
+     "den": "",
+     "price": "100"
+    },
+    {
+     "ar": "شوكولا",
+     "en": "Chocolate",
+     "dar": "",
+     "den": "",
+     "price": "55"
+    },
+    {
+     "ar": "كيت كات",
+     "en": "Kitkat",
+     "dar": "",
+     "den": "",
+     "price": "70"
+    },
+    {
+     "ar": "فراولة",
+     "en": "Strawberry",
+     "dar": "",
+     "den": "",
+     "price": "55"
+    },
+    {
+     "ar": "بيستاشيو",
+     "en": "Pistachio",
+     "dar": "",
+     "den": "",
+     "price": "80"
+    },
+    {
+     "ar": "مانجا",
+     "en": "Mango",
+     "dar": "",
+     "den": "",
+     "price": "55"
+    },
+    {
+     "ar": "كراميل",
+     "en": "Caramel",
+     "dar": "",
+     "den": "",
+     "price": "60"
+    },
+    {
+     "ar": "بلوبيري",
+     "en": "Blueberry",
+     "dar": "",
+     "den": "",
+     "price": "60"
+    },
+    {
+     "ar": "موكا",
+     "en": "Mocha",
+     "dar": "",
+     "den": "",
+     "price": "60"
+    },
+    {
+     "ar": "سنيكر",
+     "en": "Snickers",
+     "dar": "",
+     "den": "",
+     "price": "60"
+    },
+    {
+     "ar": "لوتس",
+     "en": "Lotus",
+     "dar": "",
+     "den": "",
+     "price": "65"
+    },
+    {
+     "ar": "اوريو",
+     "en": "Oreo",
+     "dar": "",
+     "den": "",
+     "price": "65"
+    },
+    {
+     "ar": "هوهوز",
+     "en": "HoHos",
+     "dar": "",
+     "den": "",
+     "price": "65"
+    },
+    {
+     "ar": "نوتيلا",
+     "en": "Nutella",
+     "dar": "",
+     "den": "",
+     "price": "65"
+    },
+    {
+     "ar": "خوخ",
+     "en": "Peach",
+     "dar": "",
+     "den": "",
+     "price": "65"
+    },
+    {
+     "ar": "كيوي",
+     "en": "Kiwi",
+     "dar": "",
+     "den": "",
+     "price": "65"
+    },
+    {
+     "ar": "باشون فروت",
+     "en": "Passion Fruit",
+     "dar": "",
+     "den": "",
+     "price": "65"
+    },
+    {
+     "ar": "توينكيز",
+     "en": "Twinkies",
+     "dar": "",
+     "den": "",
+     "price": "65"
+    },
+    {
+     "ar": "ميكس بيري",
+     "en": "Mix Berry",
+     "dar": "",
+     "den": "",
+     "price": "65"
+    },
+    {
+     "ar": "كوفي",
+     "en": "Coffee",
+     "dar": "",
+     "den": "",
+     "price": "65"
+    }
+   ]
+  },
+  {
+   "id": "boba",
+   "ar": "بوبا جديدة",
+   "en": "New Boba",
+   "icon": "fa-solid fa-circle-dot",
+   "items": [
+    {
+     "ar": "بوبا بلوبيري",
+     "en": "Boba Blueberry",
+     "dar": "",
+     "den": "",
+     "price": "70"
+    },
+    {
+     "ar": "بوبا مانجو",
+     "en": "Boba Mango",
+     "dar": "",
+     "den": "",
+     "price": "70"
+    },
+    {
+     "ar": "بوبا باشون",
+     "en": "Boba Passion",
+     "dar": "",
+     "den": "",
+     "price": "70"
+    },
+    {
+     "ar": "بوبا بلوبيري ميلك شيك",
+     "en": "Boba Blueberry Milkshake",
+     "dar": "",
+     "den": "",
+     "price": "75"
+    },
+    {
+     "ar": "بوبا مانجو ميلك شيك",
+     "en": "Boba Mango Milkshake",
+     "dar": "",
+     "den": "",
+     "price": "75"
+    },
+    {
+     "ar": "بوبا باشون ميلك شيك",
+     "en": "Boba Passion Milkshake",
+     "dar": "",
+     "den": "",
+     "price": "75"
+    },
+    {
+     "ar": "بوبا فانيليا ميلك شيك",
+     "en": "Boba Vanilla Milkshake",
+     "dar": "",
+     "den": "",
+     "price": "75"
+    }
+   ]
+  },
+  {
+   "id": "juices",
+   "ar": "عصائر وساموزي",
+   "en": "Juices & Smoothies",
+   "icon": "fa-solid fa-lemon",
+   "items": [
+    {
+     "ar": "افوكادو",
+     "en": "Avocado",
+     "dar": "",
+     "den": "",
+     "price": "80"
+    },
+    {
+     "ar": "كيوي",
+     "en": "Kiwi",
+     "dar": "",
+     "den": "",
+     "price": "70"
+    },
+    {
+     "ar": "مانجو",
+     "en": "Mango",
+     "dar": "",
+     "den": "",
+     "price": "50"
+    },
+    {
+     "ar": "فراولة",
+     "en": "Strawberry",
+     "dar": "",
+     "den": "",
+     "price": "50"
+    },
+    {
+     "ar": "فراولة حليب",
+     "en": "Strawberry Milk",
+     "dar": "",
+     "den": "",
+     "price": "55"
+    },
+    {
+     "ar": "فراولة شوكلت",
+     "en": "Strawberry Chocolate",
+     "dar": "",
+     "den": "",
+     "price": "60"
+    },
+    {
+     "ar": "جوافة",
+     "en": "Guava",
+     "dar": "",
+     "den": "",
+     "price": "50"
+    },
+    {
+     "ar": "جوافة حليب",
+     "en": "Guava Milk",
+     "dar": "",
+     "den": "",
+     "price": "55"
+    },
+    {
+     "ar": "موز حليب",
+     "en": "Banana Milk",
+     "dar": "",
+     "den": "",
+     "price": "55"
+    },
+    {
+     "ar": "موز شوكلت",
+     "en": "Banana Chocolate",
+     "dar": "",
+     "den": "",
+     "price": "60"
+    },
+    {
+     "ar": "بلح حليب",
+     "en": "Dates Milk",
+     "dar": "",
+     "den": "",
+     "price": "55"
+    },
+    {
+     "ar": "بلح شوكلت",
+     "en": "Dates Chocolate",
+     "dar": "",
+     "den": "",
+     "price": "60"
+    },
+    {
+     "ar": "ليمون",
+     "en": "Lemon",
+     "dar": "",
+     "den": "",
+     "price": "40"
+    },
+    {
+     "ar": "ليمون نعناع",
+     "en": "Lemon Mint",
+     "dar": "",
+     "den": "",
+     "price": "45"
+    },
+    {
+     "ar": "ليمون توت",
+     "en": "Lemon Berry",
+     "dar": "",
+     "den": "",
+     "price": "50"
+    },
+    {
+     "ar": "ميكس بيري",
+     "en": "Mix Berry",
+     "dar": "",
+     "den": "",
+     "price": "50"
+    },
+    {
+     "ar": "بطيخ",
+     "en": "Watermelon",
+     "dar": "",
+     "den": "",
+     "price": "50"
+    },
+    {
+     "ar": "توت",
+     "en": "Berry",
+     "dar": "",
+     "den": "",
+     "price": "50"
+    },
+    {
+     "ar": "لوليتا (مانجو+فراولة+لوتس)",
+     "en": "Lolita (Mango+Strawberry+Lotus)",
+     "dar": "",
+     "den": "",
+     "price": "50"
+    }
+   ]
+  },
+  {
+   "id": "cocktails",
+   "ar": "كوكتيلات",
+   "en": "Cocktails",
+   "icon": "fa-solid fa-martini-glass-citrus",
+   "items": [
+    {
+     "ar": "مالديف",
+     "en": "Maldives",
+     "dar": "مانجو - جوز هند",
+     "den": "Mango - Coconut",
+     "price": "60"
+    },
+    {
+     "ar": "جولد",
+     "en": "Gold",
+     "dar": "برتقال - باشون فروت",
+     "den": "Orange - Passion Fruit",
+     "price": "55"
+    },
+    {
+     "ar": "فلورينجو",
+     "en": "Florinjo",
+     "dar": "مانجو - اناناس - باشون فروت",
+     "den": "Mango - Pineapple - Passion Fruit",
+     "price": "60"
+    },
+    {
+     "ar": "بينك روز",
+     "en": "Pink Rose",
+     "dar": "بطيخ - فراولة - ايس فراولة",
+     "den": "Watermelon - Strawberry - Strawberry Ice Cream",
+     "price": "60"
+    },
+    {
+     "ar": "جرين مانجو",
+     "en": "Green Mango",
+     "dar": "مانجو - باشون فروت",
+     "den": "Mango - Passion Fruit",
+     "price": "60"
+    },
+    {
+     "ar": "ستروبري",
+     "en": "Strawberry",
+     "dar": "فراولة - توت ازرق",
+     "den": "Strawberry - Blue Berry",
+     "price": "60"
+    },
+    {
+     "ar": "باور",
+     "en": "Power",
+     "dar": "بلح - موز - ايس فانيليا",
+     "den": "Dates - Banana - Vanilla Ice Cream",
+     "price": "55"
+    },
+    {
+     "ar": "مورنينج",
+     "en": "Morning",
+     "dar": "مانجو - كيوي",
+     "den": "Mango - Kiwi",
+     "price": "60"
+    },
+    {
+     "ar": "بيتش",
+     "en": "Peach",
+     "dar": "مانجو - خوخ",
+     "den": "Mango - Peach",
+     "price": "60"
+    },
+    {
+     "ar": "ليمونادا",
+     "en": "Lemonade",
+     "dar": "ليمون - جوز هند",
+     "den": "Lemon - Coconut",
+     "price": "55"
+    },
+    {
+     "ar": "سبیشال",
+     "en": "Special",
+     "dar": "فراولة - موز - مانجو - ايس",
+     "den": "Strawberry - Banana - Mango - Ice Cream",
+     "price": "60"
+    },
+    {
+     "ar": "منعش",
+     "en": "Refresh",
+     "dar": "بطيخ - نعناع",
+     "den": "Watermelon - Mint",
+     "price": "55"
+    },
+    {
+     "ar": "فروت سلاد",
+     "en": "Fruit Salad",
+     "dar": "",
+     "den": "",
+     "price": "50"
+    },
+    {
+     "ar": "فلوريدا",
+     "en": "Florida",
+     "dar": "مانجا - جوافة - فراولة",
+     "den": "Mango - Guava - Strawberry",
+     "price": "60"
+    }
+   ]
+  },
+  {
+   "id": "cocktail-soda",
+   "ar": "كوكتيل صودا",
+   "en": "Cocktail Soda",
+   "icon": "fa-solid fa-wine-bottle",
+   "items": [
+    {
+     "ar": "موجيتو فليفر",
+     "en": "Mojito Flavor",
+     "dar": "بلو بيري - فراولة - نعناع - رمان",
+     "den": "Blueberry - Strawberry - Mint - Pomegranate",
+     "price": "50"
+    },
+    {
+     "ar": "ايس تي فليفر",
+     "en": "Ice Tea Flavor",
+     "dar": "خوخ - باشون فروت - فراولة",
+     "den": "Peach - Passion Fruit - Strawberry",
+     "price": "60"
+    },
+    {
+     "ar": "كارولينا",
+     "en": "Carolina",
+     "dar": "عنب - ميكس بيري - صودا - ليمون",
+     "den": "Grapes - Mix Berry - Soda - Lemon",
+     "price": "60"
+    },
+    {
+     "ar": "مارغريتا",
+     "en": "Margarita",
+     "dar": "فراولة - باشون فروت - صودا - ليمون",
+     "den": "Strawberry - Passion Fruit - Soda - Lemon",
+     "price": "65"
+    },
+    {
+     "ar": "هامرهيد",
+     "en": "Hammerhead",
+     "dar": "ريدبول - اسبريسو",
+     "den": "Redbull - Espresso",
+     "price": "90"
+    },
+    {
+     "ar": "صن شاين",
+     "en": "Sunshine",
+     "dar": "رمان - ليمون - صودا",
+     "den": "Pomegranate - Lemon - Soda",
+     "price": "55"
+    }
+   ]
+  },
+  {
+   "id": "dessert",
+   "ar": "حلويات",
+   "en": "Dessert",
+   "icon": "fa-solid fa-cake-candles",
+   "items": [
+    {
+     "ar": "مولتن كيك نوتيلا",
+     "en": "Nutella Molten Cake",
+     "dar": "",
+     "den": "",
+     "price": "90"
+    },
+    {
+     "ar": "مولتن كيك بيستاشيو",
+     "en": "Pistachio Molten Cake",
+     "dar": "",
+     "den": "",
+     "price": "90"
+    },
+    {
+     "ar": "مولتن كيك لوتس",
+     "en": "Lotus Molten Cake",
+     "dar": "",
+     "den": "",
+     "price": "90"
+    },
+    {
+     "ar": "مولتن كيك عيد الميلاد",
+     "en": "Birthday Molten Cake",
+     "dar": "",
+     "den": "",
+     "price": "100"
+    },
+    {
+     "ar": "مولتن كيك ايس",
+     "en": "Ice Cream Molten Cake",
+     "dar": "",
+     "den": "",
+     "price": "100"
+    },
+    {
+     "ar": "تشيز كيك لوتس",
+     "en": "Lotus Cheesecake",
+     "dar": "",
+     "den": "",
+     "price": "70"
+    },
+    {
+     "ar": "تشيز كيك فراولة",
+     "en": "Strawberry Cheesecake",
+     "dar": "",
+     "den": "",
+     "price": "70"
+    },
+    {
+     "ar": "تشيز كيك توت",
+     "en": "Berry Cheesecake",
+     "dar": "",
+     "den": "",
+     "price": "70"
+    },
+    {
+     "ar": "تشيز كيك مانجو",
+     "en": "Mango Cheesecake",
+     "dar": "",
+     "den": "",
+     "price": "70"
+    },
+    {
+     "ar": "سينابون صوص",
+     "en": "Cinnabon with Sauce",
+     "dar": "",
+     "den": "",
+     "price": "90"
+    },
+    {
+     "ar": "فادج كيك",
+     "en": "Fudge Cake",
+     "dar": "",
+     "den": "",
+     "price": "65"
+    }
+   ]
+  },
+  {
+   "id": "fresca",
+   "ar": "فريسكا",
+   "en": "Fresca",
+   "icon": "fa-solid fa-cookie-bite",
+   "items": [
+    {
+     "ar": "فريسكا هوهوز",
+     "en": "Fresca HoHos",
+     "dar": "",
+     "den": "",
+     "price": "25"
+    },
+    {
+     "ar": "فريسكا توينكز",
+     "en": "Fresca Twinkies",
+     "dar": "",
+     "den": "",
+     "price": "25"
+    },
+    {
+     "ar": "فريسكا ميكس لوتس",
+     "en": "Fresca Mix Lotus",
+     "dar": "",
+     "den": "",
+     "price": "30"
+    },
+    {
+     "ar": "فريسكا وايت",
+     "en": "Fresca White Chocolate",
+     "dar": "",
+     "den": "",
+     "price": "30"
+    },
+    {
+     "ar": "فريسكا كراميل",
+     "en": "Fresca Caramel",
+     "dar": "",
+     "den": "",
+     "price": "30"
+    },
+    {
+     "ar": "فريسكا كيندر",
+     "en": "Fresca Kinder",
+     "dar": "",
+     "den": "",
+     "price": "30"
+    },
+    {
+     "ar": "فريسكا بيستاشيو",
+     "en": "Fresca Pistachio",
+     "dar": "",
+     "den": "",
+     "price": "35"
+    },
+    {
+     "ar": "فريسكا ميكس فروت",
+     "en": "Fresca Mix Fruit",
+     "dar": "",
+     "den": "",
+     "price": "35"
+    }
+   ]
+  },
+  {
+   "id": "pancake",
+   "ar": "بان كيك",
+   "en": "Pancake",
+   "icon": "fa-solid fa-circle-dot",
+   "items": [
+    {
+     "ar": "نوتيلا",
+     "en": "Nutella",
+     "dar": "10 / 15 / 25 قطعة",
+     "den": "10 / 15 / 25 pcs",
+     "price": "40/60/80"
+    },
+    {
+     "ar": "وايت شوكلت",
+     "en": "White Chocolate",
+     "dar": "10 / 15 / 25 قطعة",
+     "den": "10 / 15 / 25 pcs",
+     "price": "45/65/90"
+    },
+    {
+     "ar": "ميكس",
+     "en": "Mix",
+     "dar": "10 / 15 / 25 قطعة",
+     "den": "10 / 15 / 25 pcs",
+     "price": "45/65/90"
+    },
+    {
+     "ar": "اوريو",
+     "en": "Oreo",
+     "dar": "10 / 15 / 25 قطعة",
+     "den": "10 / 15 / 25 pcs",
+     "price": "50/75/100"
+    },
+    {
+     "ar": "لوتس",
+     "en": "Lotus",
+     "dar": "10 / 15 / 25 قطعة",
+     "den": "10 / 15 / 25 pcs",
+     "price": "50/75/100"
+    },
+    {
+     "ar": "بيستاشيو",
+     "en": "Pistachio",
+     "dar": "10 / 15 / 25 قطعة",
+     "den": "10 / 15 / 25 pcs",
+     "price": "60/90/130"
+    }
+   ]
+  },
+  {
+   "id": "waffle",
+   "ar": "وافل",
+   "en": "Waffle",
+   "icon": "fa-solid fa-grip",
+   "items": [
+    {
+     "ar": "وافل ساندوتش",
+     "en": "Waffle Sandwich",
+     "dar": "",
+     "den": "",
+     "price": "45"
+    },
+    {
+     "ar": "وافليتا - ايسكريم",
+     "en": "Waffleita - Icecream",
+     "dar": "",
+     "den": "",
+     "price": "35"
+    },
+    {
+     "ar": "وافليتا فواكه",
+     "en": "Waffleita Fruits",
+     "dar": "",
+     "den": "",
+     "price": "45"
+    },
+    {
+     "ar": "نوتيلا",
+     "en": "Nutella",
+     "dar": "",
+     "den": "",
+     "price": "50"
+    },
+    {
+     "ar": "وايت شوكلت",
+     "en": "White Chocolate",
+     "dar": "",
+     "den": "",
+     "price": "55"
+    },
+    {
+     "ar": "لوتس",
+     "en": "Lotus",
+     "dar": "",
+     "den": "",
+     "price": "65"
+    },
+    {
+     "ar": "بيستاشيو",
+     "en": "Pistachio",
+     "dar": "",
+     "den": "",
+     "price": "80"
+    },
+    {
+     "ar": "كراميل",
+     "en": "Caramel",
+     "dar": "",
+     "den": "",
+     "price": "50"
+    },
+    {
+     "ar": "موز",
+     "en": "Banana",
+     "dar": "",
+     "den": "",
+     "price": "65"
+    },
+    {
+     "ar": "فواكه",
+     "en": "Fruits",
+     "dar": "",
+     "den": "",
+     "price": "85"
+    },
+    {
+     "ar": "توت",
+     "en": "Berries",
+     "dar": "",
+     "den": "",
+     "price": "75"
+    },
+    {
+     "ar": "اوريو - هوهوز",
+     "en": "Oreo - HoHos",
+     "dar": "",
+     "den": "",
+     "price": "80"
+    },
+    {
+     "ar": "كيت كات",
+     "en": "Kitkat",
+     "dar": "",
+     "den": "",
+     "price": "100"
+    },
+    {
+     "ar": "فتة وافل",
+     "en": "Waffle Fatteh",
+     "dar": "",
+     "den": "",
+     "price": "60"
+    },
+    {
+     "ar": "ميكس شوكلت لوتس",
+     "en": "Mix Chocolate Lotus",
+     "dar": "",
+     "den": "",
+     "price": "70"
+    },
+    {
+     "ar": "ميكس وايت لوتس",
+     "en": "Mix White Chocolate Lotus",
+     "dar": "",
+     "den": "",
+     "price": "70"
+    },
+    {
+     "ar": "ميكس صوصات",
+     "en": "Mix Sauces",
+     "dar": "",
+     "den": "",
+     "price": "70"
+    },
+    {
+     "ar": "ميكس شوكلت بيستاشيو",
+     "en": "Mix Chocolate Pistachio",
+     "dar": "",
+     "den": "",
+     "price": "90"
+    },
+    {
+     "ar": "ميكس لوتس بيستاشيو",
+     "en": "Mix Lotus Pistachio",
+     "dar": "",
+     "den": "",
+     "price": "90"
+    },
+    {
+     "ar": "ميكس وايت توت",
+     "en": "Mix White Chocolate Berries",
+     "dar": "",
+     "den": "",
+     "price": "90"
+    }
+   ]
+  },
+  {
+   "id": "icecream",
+   "ar": "آيس كريم",
+   "en": "Ice Cream",
+   "icon": "fa-solid fa-ice-cream",
+   "items": [
+    {
+     "ar": "بولة 1",
+     "en": "1 Scoop",
+     "dar": "",
+     "den": "",
+     "price": "20"
+    },
+    {
+     "ar": "بولة 2",
+     "en": "2 Scoops",
+     "dar": "",
+     "den": "",
+     "price": "40"
+    },
+    {
+     "ar": "بولة 3",
+     "en": "3 Scoops",
+     "dar": "من اختيارك + صوص + فواكه",
+     "den": "Your choice + sauce + fruits",
+     "price": "55"
+    },
+    {
+     "ar": "بولة 4",
+     "en": "4 Scoops",
+     "dar": "",
+     "den": "",
+     "price": "70"
+    },
+    {
+     "ar": "روبوستا آيس كريم",
+     "en": "Robusta Ice Cream",
+     "dar": "",
+     "den": "",
+     "price": "75"
+    }
+   ]
+  },
+  {
+   "id": "lomma-box",
+   "ar": "بوكس اللمة",
+   "en": "Lomma Box",
+   "icon": "fa-solid fa-gift",
+   "items": [
+    {
+     "ar": "بوكس اللمة",
+     "en": "Lomma Box",
+     "dar": "وافل - بان كيك 10 قطع - فريسكا هوهوز / توينكز",
+     "den": "Waffle - Pancake 10 pcs - Fresca HoHos / Twinkies",
+     "price": "110"
+    }
+   ]
+  },
+  {
+   "id": "ff",
+   "ar": "اين",
+   "en": "ff",
+   "icon": "fa-solid fa-mug-hot",
+   "items": []
+  }
+ ],
+ "settings": {
+  "instagram": "https://www.instagram.com/rou.bst?igsi=MW84MXNiYjVxNzhvbg%3D%3D",
+  "tiktok": "https://www.tiktok.com/@robusta3836?_r=1&_t=ZS-99PB4Mk2GkW",
+  "facebook": "https://www.facebook.com/share/1E9tZYEzWs/",
+  "whatsapp": "https://wa.me/201214110596",
+  "phone": "01214110596",
+  "addressAr": "كوبرى الحجاجية بجوار سور عمارة حمزة",
+  "addressEn": "Al-Hajjajiah Bridge, next to Hamza Building wall",
+  "logo": "logo.png.png",
+  "ghOwner": "Elafandy",
+  "ghRepo": "ROBUSTA",
+  "ghBranch": "main",
+  "ghPath": "menu-data.json",
+  "ghAuto": true
+ }
+}
