@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-09-02T20:27:10.581Z",
+ "updatedAt": "2026-09-02T20:28:15.173Z",
  "sections": [
   {
    "id": "hot-drinks",
@@ -1330,6 +1330,13 @@
      "dar": "",
      "den": "",
      "price": "35"
+    },
+    {
+     "ar": "وافليتا فواكه",
+     "en": "Waffleta Fruits",
+     "dar": "",
+     "den": "",
+     "price": "45"
     }
    ]
   }
