@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-09-02T20:23:33.373Z",
+ "updatedAt": "2026-09-02T20:24:31.301Z",
  "sections": [
   {
    "id": "hot-drinks",
@@ -1317,6 +1317,13 @@
      "price": "110"
     }
    ]
+  },
+  {
+   "id": "robusta-s-inventions",
+   "ar": "اختراعات روبستا",
+   "en": "Robusta's inventions",
+   "icon": "fa-solid fa-star",
+   "items": []
   }
  ],
  "settings": {
