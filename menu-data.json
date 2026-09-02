@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-09-02T20:42:44.975Z",
+ "updatedAt": "2026-09-02T20:44:59.053Z",
  "sections": [
   {
    "id": "hot-drinks",
@@ -1337,6 +1337,13 @@
      "dar": "",
      "den": "",
      "price": "45"
+    },
+    {
+     "ar": "فايرل كب",
+     "en": "Vairal cup",
+     "dar": "",
+     "den": "",
+     "price": "120"
     }
    ]
   }
