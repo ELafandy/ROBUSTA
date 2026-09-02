@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-09-02T20:22:17.513Z",
+ "updatedAt": "2026-09-02T20:22:28.913Z",
  "sections": [
   {
    "id": "hot-drinks",
@@ -1317,13 +1317,6 @@
      "price": "110"
     }
    ]
-  },
-  {
-   "id": "ff",
-   "ar": "اين",
-   "en": "ff",
-   "icon": "fa-solid fa-mug-hot",
-   "items": []
   }
  ],
  "settings": {
