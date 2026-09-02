@@ -523,9 +523,324 @@
             .top-controls { flex-direction: column; gap: 10px; align-items: stretch; }
             .control-group { justify-content: space-between; }
         }
+
+        /* ===================== Social Links ===================== */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 22px auto 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .social-btn {
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--primary);
+            background: var(--bg-glass);
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-4px);
+            color: #fff;
+            box-shadow: 0 10px 22px rgba(0,0,0,0.28);
+        }
+
+        .social-btn.instagram:hover { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); border-color: #dc2743; }
+        .social-btn.tiktok:hover    { background: #010101; border-color: #25f4ee; color: #25f4ee; }
+        .social-btn.facebook:hover  { background: #1877f2; border-color: #1877f2; }
+        .social-btn.whatsapp:hover  { background: #25d366; border-color: #25d366; }
+
+        footer .social-links { margin-bottom: 18px; }
+
+        /* ===================== Admin: buttons & bar ===================== */
+        .control-btn.admin-on {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: var(--bg-deep);
+        }
+
+        .admin-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1500;
+            background: var(--bg-glass);
+            backdrop-filter: blur(14px);
+            border-top: 1px solid var(--accent);
+            padding: 10px 14px;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+            box-shadow: 0 -8px 26px rgba(0,0,0,0.28);
+        }
+
+        body.admin-mode .admin-bar { display: flex; }
+        body.admin-mode { padding-bottom: 78px; }
+
+        .admin-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 0.86rem;
+            margin-inline-end: auto;
+        }
+
+        /* ===================== Buttons ===================== */
+        .btn {
+            border: 1px solid var(--border-color);
+            background: var(--bg-card-alt);
+            color: var(--text-main);
+            padding: 9px 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 0.86rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            transition: all 0.2s ease;
+        }
+        .btn:hover { border-color: var(--accent); color: var(--accent); }
+        .btn-primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+        .btn-primary:hover { background: var(--accent-deep); border-color: var(--accent-deep); color: #fff; }
+        .btn-danger { background: transparent; border-color: #c0392b; color: #e05a4b; }
+        .btn-danger:hover { background: #c0392b; color: #fff; border-color: #c0392b; }
+
+        /* ===================== Admin: item / section controls ===================== */
+        .item-actions,
+        .section-actions,
+        .add-item-row,
+        .add-section-row { display: none; }
+
+        body.admin-mode .item-actions { display: flex; gap: 6px; margin-inline-start: 12px; }
+        body.admin-mode .section-actions { display: flex; gap: 8px; justify-content: center; margin-top: -6px; margin-bottom: 16px; flex-wrap: wrap; }
+        body.admin-mode .add-item-row,
+        body.admin-mode .add-section-row { display: flex; justify-content: center; margin-top: 14px; }
+
+        .icon-btn {
+            width: 34px;
+            height: 34px;
+            border-radius: 9px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-card-alt);
+            color: var(--text-muted);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+        .icon-btn:hover { border-color: var(--accent); color: var(--accent); }
+        .icon-btn.danger:hover { border-color: #c0392b; color: #e05a4b; }
+
+        body.admin-mode .menu-item { border-style: dashed; }
+
+        /* ===================== Modals ===================== */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.68);
+            backdrop-filter: blur(4px);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .modal-overlay.open { display: flex; }
+
+        .modal {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            width: 100%;
+            max-width: 470px;
+            max-height: 88vh;
+            overflow-y: auto;
+            padding: 24px;
+            box-shadow: 0 24px 60px rgba(0,0,0,0.45);
+            animation: modalIn 0.22s ease;
+        }
+        @keyframes modalIn { from { transform: translateY(14px); opacity: 0; } to { transform: none; opacity: 1; } }
+
+        .modal h3 {
+            font-family: 'Cairo', sans-serif;
+            color: var(--primary);
+            font-size: 1.25rem;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 9px;
+        }
+        .modal .modal-sub {
+            color: var(--text-muted);
+            font-size: 0.83rem;
+            margin-bottom: 18px;
+            line-height: 1.6;
+        }
+
+        .form-group { margin-bottom: 13px; }
+        .form-group label {
+            display: block;
+            font-size: 0.83rem;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            background: var(--bg-deep);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 11px 13px;
+            color: var(--text-main);
+            font-family: 'Tajawal', sans-serif;
+            font-size: 0.95rem;
+            outline: none;
+        }
+        .form-group input:focus,
+        .form-group select:focus { border-color: var(--accent); }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+        .modal-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .modal-actions .btn { flex: 1; justify-content: center; }
+
+        .field-hint { font-size: 0.75rem; color: var(--text-muted); margin-top: 5px; }
+
+        .divider {
+            height: 1px;
+            background: var(--border-color);
+            margin: 18px 0;
+        }
+
+        /* ===================== Toast ===================== */
+        .toast {
+            position: fixed;
+            bottom: 26px;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: var(--bg-card-alt);
+            border: 1px solid var(--accent);
+            color: var(--text-main);
+            padding: 12px 22px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            z-index: 2500;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease, transform 0.25s ease;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+            max-width: 90vw;
+            text-align: center;
+        }
+        .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+        body.admin-mode .toast { bottom: 96px; }
+
+        .empty-note {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            padding: 26px 10px;
+            border: 1px dashed var(--border-color);
+            border-radius: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .social-btn { width: 42px; height: 42px; font-size: 1.05rem; }
+            .form-row { grid-template-columns: 1fr; }
+            .modal { padding: 20px 16px; }
+            .admin-badge { width: 100%; justify-content: center; margin-bottom: 4px; }
+            body.admin-mode { padding-bottom: 120px; }
+            .item-actions .icon-btn { width: 30px; height: 30px; }
+            body.admin-mode .toast { bottom: 150px; }
+        }
+
+        /* ===================== GitHub sync ===================== */
+        .gh-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            padding: 8px 12px;
+            border-radius: 10px;
+            border: 1px dashed var(--border-color);
+            white-space: nowrap;
+        }
+        .gh-status.ok   { color: #3fb27f; border-color: #3fb27f; border-style: solid; }
+        .gh-status.busy { color: var(--accent); border-color: var(--accent); }
+        .gh-status.err  { color: #e05a4b; border-color: #c0392b; border-style: solid; }
+        .gh-status.off  { display: none; }
+
+        .checkbox-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--bg-deep);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 11px 13px;
+            cursor: pointer;
+        }
+        .checkbox-row input { width: 18px; height: 18px; accent-color: var(--accent); cursor: pointer; flex-shrink: 0; }
+        .checkbox-row span { font-size: 0.88rem; }
+
+        .section-title {
+            font-family: 'Cairo', sans-serif;
+            color: var(--primary);
+            font-size: 1rem;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .field-hint a { color: var(--accent); }
+
+        .btn-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
+        .btn-row .btn { flex: 1; justify-content: center; min-width: 130px; }
+
     </style>
 </head>
 <body>
+    <!-- Baked-in data. The admin panel's "Export HTML" rewrites these two blocks. -->
+    <script type="application/json" id="menuData">{"updatedAt": "2026-01-01T00:00:00.000Z", "sections": [{"id": "hot-drinks", "ar": "مشروبات ساخنة", "en": "Hot Drinks", "icon": "fa-solid fa-mug-hot", "items": [{"ar": "قهوة تركي", "en": "Turkish Coffee", "dar": "", "den": "", "price": "35/25"}, {"ar": "قهوة فرنساوي", "en": "French Coffee", "dar": "", "den": "", "price": "40"}, {"ar": "قهوة بندق", "en": "Hazelnut Coffee", "dar": "", "den": "", "price": "40"}, {"ar": "قهوة نوتيلا", "en": "Nutella Coffee", "dar": "", "den": "", "price": "40"}, {"ar": "شاي", "en": "Tea", "dar": "", "den": "", "price": "15"}, {"ar": "شاي نكهات", "en": "Flavored Tea", "dar": "", "den": "", "price": "20"}, {"ar": "نعناع", "en": "Mint", "dar": "", "den": "", "price": "15"}, {"ar": "ينسون / كركديه / تفاح / ليمون", "en": "Anise / Hibiscus / Apple / Lemon", "dar": "", "den": "", "price": "15"}, {"ar": "زنجبيل", "en": "Ginger", "dar": "", "den": "", "price": "15"}, {"ar": "كوكتيل اعشاب", "en": "Herbal Cocktail", "dar": "", "den": "", "price": "25"}, {"ar": "هوت سيدر", "en": "Hot Cider", "dar": "", "den": "", "price": "30"}, {"ar": "سحلب مكسرات", "en": "Sahlab with Nuts", "dar": "", "den": "", "price": "35"}, {"ar": "سحلب اوريو", "en": "Sahlab Oreo", "dar": "", "den": "", "price": "40"}, {"ar": "سحلب فواكه", "en": "Sahlab Fruits", "dar": "", "den": "", "price": "40"}, {"ar": "نسكافية", "en": "Nescafe", "dar": "", "den": "", "price": "40"}, {"ar": "اسبريسو", "en": "Espresso", "dar": "", "den": "", "price": "40/30"}, {"ar": "اسبريسو حليب", "en": "Espresso Milk", "dar": "", "den": "", "price": "50"}, {"ar": "امريكان كوفي", "en": "American Coffee", "dar": "", "den": "", "price": "35"}, {"ar": "اسبريسو ميكاتو", "en": "Espresso Macchiato", "dar": "", "den": "", "price": "40"}, {"ar": "كورتادو", "en": "Cortado", "dar": "", "den": "", "price": "45"}, {"ar": "فلات وايت", "en": "Flat White", "dar": "", "den": "", "price": "55"}, {"ar": "كابتشينو", "en": "Cappuccino", "dar": "", "den": "", "price": "50"}, {"ar": "لاتيه", "en": "Latte", "dar": "", "den": "", "price": "50"}, {"ar": "اسبانش لاتيه", "en": "Spanish Latte", "dar": "", "den": "", "price": "60"}, {"ar": "موكا (وايت/دارك)", "en": "Mocha (White/Dark)", "dar": "", "den": "", "price": "60"}, {"ar": "هوت شوكلت", "en": "Hot Chocolate", "dar": "", "den": "", "price": "50"}, {"ar": "هوت لوتس", "en": "Hot Lotus", "dar": "", "den": "", "price": "60"}, {"ar": "هوت اوريو", "en": "Hot Oreo", "dar": "", "den": "", "price": "60"}]}, {"id": "soft-drinks", "ar": "مشروبات غازية", "en": "Soft Drinks", "icon": "fa-solid fa-bottle-water", "items": [{"ar": "مياه صغيرة", "en": "Small Water", "dar": "", "den": "", "price": "10"}, {"ar": "كان", "en": "Can", "dar": "", "den": "", "price": "30"}, {"ar": "فيروز", "en": "Fayrouz", "dar": "", "den": "", "price": "35"}, {"ar": "بريل", "en": "Birell", "dar": "", "den": "", "price": "35"}, {"ar": "تويست توت", "en": "Twist Berry", "dar": "", "den": "", "price": "25"}, {"ar": "تويست فراولة", "en": "Twist Strawberry", "dar": "", "den": "", "price": "25"}, {"ar": "ستنج", "en": "Sting", "dar": "", "den": "", "price": "25"}, {"ar": "ريدبول", "en": "Redbull", "dar": "", "den": "", "price": "75"}]}, {"id": "ice-drinks", "ar": "مشروبات مثلجة", "en": "Ice Drinks", "icon": "fa-solid fa-snowflake", "items": [{"ar": "ايس كوفي", "en": "Ice Coffee", "dar": "", "den": "", "price": "50"}, {"ar": "ايس لاتيه", "en": "Ice Latte", "dar": "", "den": "", "price": "50"}, {"ar": "وايت ايس موكا", "en": "White Ice Mocha", "dar": "", "den": "", "price": "50"}, {"ar": "دارك ايس موكا", "en": "Dark Ice Mocha", "dar": "", "den": "", "price": "50"}, {"ar": "ايس امريكانو", "en": "Ice Americano", "dar": "", "den": "", "price": "45"}, {"ar": "ايس سبانش لاتيه", "en": "Ice Spanish Latte", "dar": "", "den": "", "price": "65"}, {"ar": "ايس لاتيه فراولة", "en": "Ice Strawberry Latte", "dar": "", "den": "", "price": "65"}, {"ar": "فرابتشينو نسكافيه/فانيليا/فراولة", "en": "Frappuccino Nescafe/Vanilla/Strawberry", "dar": "", "den": "", "price": "55"}, {"ar": "فرابتشينو اوريو/كراميل/لوتس", "en": "Frappuccino Oreo/Caramel/Lotus", "dar": "", "den": "", "price": "60"}]}, {"id": "zabady", "ar": "زبادي خلاط", "en": "Zabady Khallat", "icon": "fa-solid fa-blender", "items": [{"ar": "كلاسيك", "en": "Classic", "dar": "", "den": "", "price": "45"}, {"ar": "توت", "en": "Berry", "dar": "", "den": "", "price": "45"}, {"ar": "لوتس", "en": "Lotus", "dar": "", "den": "", "price": "45"}, {"ar": "كارميل", "en": "Caramel", "dar": "", "den": "", "price": "45"}, {"ar": "خوخ", "en": "Peach", "dar": "", "den": "", "price": "45"}, {"ar": "فراولة", "en": "Strawberry", "dar": "", "den": "", "price": "45"}, {"ar": "باشون فروت", "en": "Passion Fruit", "dar": "", "den": "", "price": "50"}, {"ar": "كيوي", "en": "Kiwi", "dar": "", "den": "", "price": "50"}]}, {"id": "milkshake", "ar": "ميلك شيك", "en": "Milkshake", "icon": "fa-solid fa-ice-cream", "items": [{"ar": "فانيليا", "en": "Vanilla", "dar": "", "den": "", "price": "55"}, {"ar": "تشيز كيك", "en": "Cheesecake", "dar": "", "den": "", "price": "100"}, {"ar": "شوكولا", "en": "Chocolate", "dar": "", "den": "", "price": "55"}, {"ar": "كيت كات", "en": "Kitkat", "dar": "", "den": "", "price": "70"}, {"ar": "فراولة", "en": "Strawberry", "dar": "", "den": "", "price": "55"}, {"ar": "بيستاشيو", "en": "Pistachio", "dar": "", "den": "", "price": "80"}, {"ar": "مانجا", "en": "Mango", "dar": "", "den": "", "price": "55"}, {"ar": "كراميل", "en": "Caramel", "dar": "", "den": "", "price": "60"}, {"ar": "بلوبيري", "en": "Blueberry", "dar": "", "den": "", "price": "60"}, {"ar": "موكا", "en": "Mocha", "dar": "", "den": "", "price": "60"}, {"ar": "سنيكر", "en": "Snickers", "dar": "", "den": "", "price": "60"}, {"ar": "لوتس", "en": "Lotus", "dar": "", "den": "", "price": "65"}, {"ar": "اوريو", "en": "Oreo", "dar": "", "den": "", "price": "65"}, {"ar": "هوهوز", "en": "HoHos", "dar": "", "den": "", "price": "65"}, {"ar": "نوتيلا", "en": "Nutella", "dar": "", "den": "", "price": "65"}, {"ar": "خوخ", "en": "Peach", "dar": "", "den": "", "price": "65"}, {"ar": "كيوي", "en": "Kiwi", "dar": "", "den": "", "price": "65"}, {"ar": "باشون فروت", "en": "Passion Fruit", "dar": "", "den": "", "price": "65"}, {"ar": "توينكيز", "en": "Twinkies", "dar": "", "den": "", "price": "65"}, {"ar": "ميكس بيري", "en": "Mix Berry", "dar": "", "den": "", "price": "65"}, {"ar": "كوفي", "en": "Coffee", "dar": "", "den": "", "price": "65"}]}, {"id": "boba", "ar": "بوبا جديدة", "en": "New Boba", "icon": "fa-solid fa-circle-dot", "items": [{"ar": "بوبا بلوبيري", "en": "Boba Blueberry", "dar": "", "den": "", "price": "70"}, {"ar": "بوبا مانجو", "en": "Boba Mango", "dar": "", "den": "", "price": "70"}, {"ar": "بوبا باشون", "en": "Boba Passion", "dar": "", "den": "", "price": "70"}, {"ar": "بوبا بلوبيري ميلك شيك", "en": "Boba Blueberry Milkshake", "dar": "", "den": "", "price": "75"}, {"ar": "بوبا مانجو ميلك شيك", "en": "Boba Mango Milkshake", "dar": "", "den": "", "price": "75"}, {"ar": "بوبا باشون ميلك شيك", "en": "Boba Passion Milkshake", "dar": "", "den": "", "price": "75"}, {"ar": "بوبا فانيليا ميلك شيك", "en": "Boba Vanilla Milkshake", "dar": "", "den": "", "price": "75"}]}, {"id": "juices", "ar": "عصائر وساموزي", "en": "Juices & Smoothies", "icon": "fa-solid fa-lemon", "items": [{"ar": "افوكادو", "en": "Avocado", "dar": "", "den": "", "price": "80"}, {"ar": "كيوي", "en": "Kiwi", "dar": "", "den": "", "price": "70"}, {"ar": "مانجو", "en": "Mango", "dar": "", "den": "", "price": "50"}, {"ar": "فراولة", "en": "Strawberry", "dar": "", "den": "", "price": "50"}, {"ar": "فراولة حليب", "en": "Strawberry Milk", "dar": "", "den": "", "price": "55"}, {"ar": "فراولة شوكلت", "en": "Strawberry Chocolate", "dar": "", "den": "", "price": "60"}, {"ar": "جوافة", "en": "Guava", "dar": "", "den": "", "price": "50"}, {"ar": "جوافة حليب", "en": "Guava Milk", "dar": "", "den": "", "price": "55"}, {"ar": "موز حليب", "en": "Banana Milk", "dar": "", "den": "", "price": "55"}, {"ar": "موز شوكلت", "en": "Banana Chocolate", "dar": "", "den": "", "price": "60"}, {"ar": "بلح حليب", "en": "Dates Milk", "dar": "", "den": "", "price": "55"}, {"ar": "بلح شوكلت", "en": "Dates Chocolate", "dar": "", "den": "", "price": "60"}, {"ar": "ليمون", "en": "Lemon", "dar": "", "den": "", "price": "40"}, {"ar": "ليمون نعناع", "en": "Lemon Mint", "dar": "", "den": "", "price": "45"}, {"ar": "ليمون توت", "en": "Lemon Berry", "dar": "", "den": "", "price": "50"}, {"ar": "ميكس بيري", "en": "Mix Berry", "dar": "", "den": "", "price": "50"}, {"ar": "بطيخ", "en": "Watermelon", "dar": "", "den": "", "price": "50"}, {"ar": "توت", "en": "Berry", "dar": "", "den": "", "price": "50"}, {"ar": "لوليتا (مانجو+فراولة+لوتس)", "en": "Lolita (Mango+Strawberry+Lotus)", "dar": "", "den": "", "price": "50"}]}, {"id": "cocktails", "ar": "كوكتيلات", "en": "Cocktails", "icon": "fa-solid fa-martini-glass-citrus", "items": [{"ar": "مالديف", "en": "Maldives", "dar": "مانجو - جوز هند", "den": "Mango - Coconut", "price": "60"}, {"ar": "جولد", "en": "Gold", "dar": "برتقال - باشون فروت", "den": "Orange - Passion Fruit", "price": "55"}, {"ar": "فلورينجو", "en": "Florinjo", "dar": "مانجو - اناناس - باشون فروت", "den": "Mango - Pineapple - Passion Fruit", "price": "60"}, {"ar": "بينك روز", "en": "Pink Rose", "dar": "بطيخ - فراولة - ايس فراولة", "den": "Watermelon - Strawberry - Strawberry Ice Cream", "price": "60"}, {"ar": "جرين مانجو", "en": "Green Mango", "dar": "مانجو - باشون فروت", "den": "Mango - Passion Fruit", "price": "60"}, {"ar": "ستروبري", "en": "Strawberry", "dar": "فراولة - توت ازرق", "den": "Strawberry - Blue Berry", "price": "60"}, {"ar": "باور", "en": "Power", "dar": "بلح - موز - ايس فانيليا", "den": "Dates - Banana - Vanilla Ice Cream", "price": "55"}, {"ar": "مورنينج", "en": "Morning", "dar": "مانجو - كيوي", "den": "Mango - Kiwi", "price": "60"}, {"ar": "بيتش", "en": "Peach", "dar": "مانجو - خوخ", "den": "Mango - Peach", "price": "60"}, {"ar": "ليمونادا", "en": "Lemonade", "dar": "ليمون - جوز هند", "den": "Lemon - Coconut", "price": "55"}, {"ar": "سبیشال", "en": "Special", "dar": "فراولة - موز - مانجو - ايس", "den": "Strawberry - Banana - Mango - Ice Cream", "price": "60"}, {"ar": "منعش", "en": "Refresh", "dar": "بطيخ - نعناع", "den": "Watermelon - Mint", "price": "55"}, {"ar": "فروت سلاد", "en": "Fruit Salad", "dar": "", "den": "", "price": "50"}, {"ar": "فلوريدا", "en": "Florida", "dar": "مانجا - جوافة - فراولة", "den": "Mango - Guava - Strawberry", "price": "60"}]}, {"id": "cocktail-soda", "ar": "كوكتيل صودا", "en": "Cocktail Soda", "icon": "fa-solid fa-wine-bottle", "items": [{"ar": "موجيتو فليفر", "en": "Mojito Flavor", "dar": "بلو بيري - فراولة - نعناع - رمان", "den": "Blueberry - Strawberry - Mint - Pomegranate", "price": "50"}, {"ar": "ايس تي فليفر", "en": "Ice Tea Flavor", "dar": "خوخ - باشون فروت - فراولة", "den": "Peach - Passion Fruit - Strawberry", "price": "60"}, {"ar": "كارولينا", "en": "Carolina", "dar": "عنب - ميكس بيري - صودا - ليمون", "den": "Grapes - Mix Berry - Soda - Lemon", "price": "60"}, {"ar": "مارغريتا", "en": "Margarita", "dar": "فراولة - باشون فروت - صودا - ليمون", "den": "Strawberry - Passion Fruit - Soda - Lemon", "price": "65"}, {"ar": "هامرهيد", "en": "Hammerhead", "dar": "ريدبول - اسبريسو", "den": "Redbull - Espresso", "price": "90"}, {"ar": "صن شاين", "en": "Sunshine", "dar": "رمان - ليمون - صودا", "den": "Pomegranate - Lemon - Soda", "price": "55"}]}, {"id": "dessert", "ar": "حلويات", "en": "Dessert", "icon": "fa-solid fa-cake-candles", "items": [{"ar": "مولتن كيك نوتيلا", "en": "Nutella Molten Cake", "dar": "", "den": "", "price": "90"}, {"ar": "مولتن كيك بيستاشيو", "en": "Pistachio Molten Cake", "dar": "", "den": "", "price": "90"}, {"ar": "مولتن كيك لوتس", "en": "Lotus Molten Cake", "dar": "", "den": "", "price": "90"}, {"ar": "مولتن كيك عيد الميلاد", "en": "Birthday Molten Cake", "dar": "", "den": "", "price": "100"}, {"ar": "مولتن كيك ايس", "en": "Ice Cream Molten Cake", "dar": "", "den": "", "price": "100"}, {"ar": "تشيز كيك لوتس", "en": "Lotus Cheesecake", "dar": "", "den": "", "price": "70"}, {"ar": "تشيز كيك فراولة", "en": "Strawberry Cheesecake", "dar": "", "den": "", "price": "70"}, {"ar": "تشيز كيك توت", "en": "Berry Cheesecake", "dar": "", "den": "", "price": "70"}, {"ar": "تشيز كيك مانجو", "en": "Mango Cheesecake", "dar": "", "den": "", "price": "70"}, {"ar": "سينابون صوص", "en": "Cinnabon with Sauce", "dar": "", "den": "", "price": "90"}, {"ar": "فادج كيك", "en": "Fudge Cake", "dar": "", "den": "", "price": "65"}]}, {"id": "fresca", "ar": "فريسكا", "en": "Fresca", "icon": "fa-solid fa-cookie-bite", "items": [{"ar": "فريسكا هوهوز", "en": "Fresca HoHos", "dar": "", "den": "", "price": "25"}, {"ar": "فريسكا توينكز", "en": "Fresca Twinkies", "dar": "", "den": "", "price": "25"}, {"ar": "فريسكا ميكس لوتس", "en": "Fresca Mix Lotus", "dar": "", "den": "", "price": "30"}, {"ar": "فريسكا وايت", "en": "Fresca White Chocolate", "dar": "", "den": "", "price": "30"}, {"ar": "فريسكا كراميل", "en": "Fresca Caramel", "dar": "", "den": "", "price": "30"}, {"ar": "فريسكا كيندر", "en": "Fresca Kinder", "dar": "", "den": "", "price": "30"}, {"ar": "فريسكا بيستاشيو", "en": "Fresca Pistachio", "dar": "", "den": "", "price": "35"}, {"ar": "فريسكا ميكس فروت", "en": "Fresca Mix Fruit", "dar": "", "den": "", "price": "35"}]}, {"id": "pancake", "ar": "بان كيك", "en": "Pancake", "icon": "fa-solid fa-circle-dot", "items": [{"ar": "نوتيلا", "en": "Nutella", "dar": "10 / 15 / 25 قطعة", "den": "10 / 15 / 25 pcs", "price": "40/60/80"}, {"ar": "وايت شوكلت", "en": "White Chocolate", "dar": "10 / 15 / 25 قطعة", "den": "10 / 15 / 25 pcs", "price": "45/65/90"}, {"ar": "ميكس", "en": "Mix", "dar": "10 / 15 / 25 قطعة", "den": "10 / 15 / 25 pcs", "price": "45/65/90"}, {"ar": "اوريو", "en": "Oreo", "dar": "10 / 15 / 25 قطعة", "den": "10 / 15 / 25 pcs", "price": "50/75/100"}, {"ar": "لوتس", "en": "Lotus", "dar": "10 / 15 / 25 قطعة", "den": "10 / 15 / 25 pcs", "price": "50/75/100"}, {"ar": "بيستاشيو", "en": "Pistachio", "dar": "10 / 15 / 25 قطعة", "den": "10 / 15 / 25 pcs", "price": "60/90/130"}]}, {"id": "waffle", "ar": "وافل", "en": "Waffle", "icon": "fa-solid fa-grip", "items": [{"ar": "وافل ساندوتش", "en": "Waffle Sandwich", "dar": "", "den": "", "price": "45"}, {"ar": "وافليتا - ايسكريم", "en": "Waffleita - Icecream", "dar": "", "den": "", "price": "35"}, {"ar": "وافليتا فواكه", "en": "Waffleita Fruits", "dar": "", "den": "", "price": "45"}, {"ar": "نوتيلا", "en": "Nutella", "dar": "", "den": "", "price": "50"}, {"ar": "وايت شوكلت", "en": "White Chocolate", "dar": "", "den": "", "price": "55"}, {"ar": "لوتس", "en": "Lotus", "dar": "", "den": "", "price": "65"}, {"ar": "بيستاشيو", "en": "Pistachio", "dar": "", "den": "", "price": "80"}, {"ar": "كراميل", "en": "Caramel", "dar": "", "den": "", "price": "50"}, {"ar": "موز", "en": "Banana", "dar": "", "den": "", "price": "65"}, {"ar": "فواكه", "en": "Fruits", "dar": "", "den": "", "price": "85"}, {"ar": "توت", "en": "Berries", "dar": "", "den": "", "price": "75"}, {"ar": "اوريو - هوهوز", "en": "Oreo - HoHos", "dar": "", "den": "", "price": "80"}, {"ar": "كيت كات", "en": "Kitkat", "dar": "", "den": "", "price": "100"}, {"ar": "فتة وافل", "en": "Waffle Fatteh", "dar": "", "den": "", "price": "60"}, {"ar": "ميكس شوكلت لوتس", "en": "Mix Chocolate Lotus", "dar": "", "den": "", "price": "70"}, {"ar": "ميكس وايت لوتس", "en": "Mix White Chocolate Lotus", "dar": "", "den": "", "price": "70"}, {"ar": "ميكس صوصات", "en": "Mix Sauces", "dar": "", "den": "", "price": "70"}, {"ar": "ميكس شوكلت بيستاشيو", "en": "Mix Chocolate Pistachio", "dar": "", "den": "", "price": "90"}, {"ar": "ميكس لوتس بيستاشيو", "en": "Mix Lotus Pistachio", "dar": "", "den": "", "price": "90"}, {"ar": "ميكس وايت توت", "en": "Mix White Chocolate Berries", "dar": "", "den": "", "price": "90"}]}, {"id": "icecream", "ar": "آيس كريم", "en": "Ice Cream", "icon": "fa-solid fa-ice-cream", "items": [{"ar": "بولة 1", "en": "1 Scoop", "dar": "", "den": "", "price": "20"}, {"ar": "بولة 2", "en": "2 Scoops", "dar": "", "den": "", "price": "40"}, {"ar": "بولة 3", "en": "3 Scoops", "dar": "من اختيارك + صوص + فواكه", "den": "Your choice + sauce + fruits", "price": "55"}, {"ar": "بولة 4", "en": "4 Scoops", "dar": "", "den": "", "price": "70"}, {"ar": "روبوستا آيس كريم", "en": "Robusta Ice Cream", "dar": "", "den": "", "price": "75"}]}, {"id": "lomma-box", "ar": "بوكس اللمة", "en": "Lomma Box", "icon": "fa-solid fa-gift", "items": [{"ar": "بوكس اللمة", "en": "Lomma Box", "dar": "وافل - بان كيك 10 قطع - فريسكا هوهوز / توينكز", "den": "Waffle - Pancake 10 pcs - Fresca HoHos / Twinkies", "price": "110"}]}]}</script>
+    <script type="application/json" id="siteSettings">{"instagram": "", "tiktok": "", "facebook": "", "whatsapp": "", "phone": "01214110596", "addressAr": "كوبرى الحجاجية بجوار سور عمارة حمزة", "addressEn": "Al-Hajjajiah Bridge, next to Hamza Building wall", "logo": "logo.png.png"}</script>
+
+    <div class="top-controls">
+        <div class="control-group">
+            <button class="control-btn" onclick="handleAdminButton()" id="adminBtn" title="لوحة الأدمن">
+                <i class="fa-solid fa-lock" id="adminIcon"></i>
+                <span id="adminText" data-ar="أدمن" data-en="Admin">أدمن</span>
+            </button>
         </div>
         <div class="control-group">
              <select class="sort-select" id="sortSelect" onchange="sortActiveSection()">
@@ -555,618 +870,1055 @@
             </svg>
         </div>
         <div class="logo-container">
-            <!-- Replace the src below with your own logo/photo path or URL -->
-            <img src="logo.png.png" alt="Robusta Café logo">
+            <img src="logo.png.png" alt="Robusta Café logo" id="siteLogo">
         </div>
         <h1>ROBUSTA</h1>
-        <div class="subtitle"><span data-ar="كافيه" data-en="Cafe">Cafe</span><span class="bean"><i class="fa-solid fa-circle"></i></span><span data-ar="جودة ممتازة" data-en="Premium Quality">Premium Quality</span></div>
+        <div class="subtitle"><span data-ar="كافيه" data-en="Cafe">كافيه</span><span class="bean"><i class="fa-solid fa-circle"></i></span><span data-ar="جودة ممتازة" data-en="Premium Quality">جودة ممتازة</span></div>
         <div class="cafe-info">
-            <div><i class="fa-solid fa-location-dot"></i> <span data-ar="كوبرى الحجاجية بجوار سور عمارة حمزة" data-en="Al-Hajjajiah Bridge, next to Hamza Building wall">كوبرى الحجاجية بجوار سور عمارة حمزة</span></div>
-            <div><i class="fa-solid fa-phone"></i> 01214110596</div>
+            <div><i class="fa-solid fa-location-dot"></i> <span id="cafeAddress"></span></div>
+            <div><i class="fa-solid fa-phone"></i> <span id="cafePhone"></span></div>
         </div>
+        <div class="social-links" id="headerSocial"></div>
     </header>
 
-    <div class="category-nav" id="categoryNav">
-        <button class="nav-btn active" onclick="switchTab('hot-drinks')"><i class="fa-solid fa-mug-hot"></i><span data-ar="مشروبات ساخنة" data-en="Hot Drinks">Hot Drinks</span></button>
-        <button class="nav-btn" onclick="switchTab('soft-drinks')"><i class="fa-solid fa-bottle-water"></i><span data-ar="مشروبات غازية" data-en="Soft Drinks">Soft Drinks</span></button>
-        <button class="nav-btn" onclick="switchTab('ice-drinks')"><i class="fa-solid fa-snowflake"></i><span data-ar="مشروبات مثلجة" data-en="Ice Drinks">Ice Drinks</span></button>
-        <button class="nav-btn" onclick="switchTab('zabady')"><i class="fa-solid fa-blender"></i><span data-ar="زبادي خلاط" data-en="Zabady Khallat">Zabady Khallat</span></button>
-        <button class="nav-btn" onclick="switchTab('milkshake')"><i class="fa-solid fa-ice-cream"></i><span data-ar="ميلك شيك" data-en="Milkshake">Milkshake</span></button>
-        <button class="nav-btn" onclick="switchTab('boba')"><i class="fa-solid fa-circle-dot"></i><span data-ar="بوبا جديدة" data-en="New Boba">New Boba</span></button>
-        <button class="nav-btn" onclick="switchTab('juices')"><i class="fa-solid fa-lemon"></i><span data-ar="عصائر وساموزي" data-en="Juices & Smoothies">Juices & Smoothies</span></button>
-        <button class="nav-btn" onclick="switchTab('cocktails')"><i class="fa-solid fa-martini-glass-citrus"></i><span data-ar="كوكتيلات" data-en="Cocktails">Cocktails</span></button>
-        <button class="nav-btn" onclick="switchTab('cocktail-soda')"><i class="fa-solid fa-wine-bottle"></i><span data-ar="كوكتيل صودا" data-en="Cocktail Soda">Cocktail Soda</span></button>
-        <button class="nav-btn" onclick="switchTab('dessert')"><i class="fa-solid fa-cake-candles"></i><span data-ar="حلويات" data-en="Dessert">Dessert</span></button>
-        <button class="nav-btn" onclick="switchTab('fresca')"><i class="fa-solid fa-cookie-bite"></i><span data-ar="فريسكا" data-en="Fresca">Fresca</span></button>
-        <button class="nav-btn" onclick="switchTab('pancake')"><i class="fa-solid fa-circle-dot"></i><span data-ar="بان كيك" data-en="Pancake">Pancake</span></button>
-        <button class="nav-btn" onclick="switchTab('waffle')"><i class="fa-solid fa-grip"></i><span data-ar="وافل" data-en="Waffle">Waffle</span></button>
-        <button class="nav-btn" onclick="switchTab('icecream')"><i class="fa-solid fa-ice-cream"></i><span data-ar="آيس كريم" data-en="Ice Cream">Ice Cream</span></button>
-        <button class="nav-btn" onclick="switchTab('lomma-box')"><i class="fa-solid fa-gift"></i><span data-ar="بوكس اللمة" data-en="Lomma Box">Lomma Box</span></button>
-    </div>
+    <div class="category-nav" id="categoryNav"></div>
 
-    <div class="container">
-        <!-- Hot Drinks -->
-        <div id="hot-drinks" class="menu-section active">
-            <div class="section-header"><h2 data-ar="مشروبات ساخنة" data-en="Hot Drinks">Hot Drinks</h2></div>
-            <div class="menu-grid">
-                <div class="menu-item"><div class="item-details"><h3 data-ar="قهوة تركي" data-en="Turkish Coffee">قهوة تركي</h3></div><div class="leader"></div><div class="item-price">35/25</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="قهوة فرنساوي" data-en="French Coffee">قهوة فرنساوي</h3></div><div class="leader"></div><div class="item-price">40</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="قهوة بندق" data-en="Hazelnut Coffee">قهوة بندق</h3></div><div class="leader"></div><div class="item-price">40</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="قهوة نوتيلا" data-en="Nutella Coffee">قهوة نوتيلا</h3></div><div class="leader"></div><div class="item-price">40</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="شاي" data-en="Tea">شاي</h3></div><div class="leader"></div><div class="item-price">15</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="شاي نكهات" data-en="Flavored Tea">شاي نكهات</h3></div><div class="leader"></div><div class="item-price">20</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="نعناع" data-en="Mint">نعناع</h3></div><div class="leader"></div><div class="item-price">15</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="ينسون / كركديه / تفاح / ليمون" data-en="Anise / Hibiscus / Apple / Lemon">ينسون / كركديه / تفاح / ليمون</h3></div><div class="leader"></div><div class="item-price">15</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="زنجبيل" data-en="Ginger">زنجبيل</h3></div><div class="leader"></div><div class="item-price">15</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="كوكتيل اعشاب" data-en="Herbal Cocktail">كوكتيل اعشاب</h3></div><div class="leader"></div><div class="item-price">25</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="هوت سيدر" data-en="Hot Cider">هوت سيدر</h3></div><div class="leader"></div><div class="item-price">30</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="سحلب مكسرات" data-en="Sahlab with Nuts">سحلب مكسرات</h3></div><div class="leader"></div><div class="item-price">35</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="سحلب اوريو" data-en="Sahlab Oreo">سحلب اوريو</h3></div><div class="leader"></div><div class="item-price">40</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="سحلب فواكه" data-en="Sahlab Fruits">سحلب فواكه</h3></div><div class="leader"></div><div class="item-price">40</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="نسكافية" data-en="Nescafe">نسكافية</h3></div><div class="leader"></div><div class="item-price">40</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="اسبريسو" data-en="Espresso">اسبريسو</h3></div><div class="leader"></div><div class="item-price">40/30</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="اسبريسو حليب" data-en="Espresso Milk">اسبريسو حليب</h3></div><div class="leader"></div><div class="item-price">50</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="امريكان كوفي" data-en="American Coffee">امريكان كوفي</h3></div><div class="leader"></div><div class="item-price">35</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="اسبريسو ميكاتو" data-en="Espresso Macchiato">اسبريسو ميكاتو</h3></div><div class="leader"></div><div class="item-price">40</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="كورتادو" data-en="Cortado">كورتادو</h3></div><div class="leader"></div><div class="item-price">45</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="فلات وايت" data-en="Flat White">فلات وايت</h3></div><div class="leader"></div><div class="item-price">55</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="كابتشينو" data-en="Cappuccino">كابتشينو</h3></div><div class="leader"></div><div class="item-price">50</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="لاتيه" data-en="Latte">لاتيه</h3></div><div class="leader"></div><div class="item-price">50</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="اسبانش لاتيه" data-en="Spanish Latte">اسبانش لاتيه</h3></div><div class="leader"></div><div class="item-price">60</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="موكا (وايت/دارك)" data-en="Mocha (White/Dark)">موكا (وايت/دارك)</h3></div><div class="leader"></div><div class="item-price">60</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="هوت شوكلت" data-en="Hot Chocolate">هوت شوكلت</h3></div><div class="leader"></div><div class="item-price">50</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="هوت لوتس" data-en="Hot Lotus">هوت لوتس</h3></div><div class="leader"></div><div class="item-price">60</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="هوت اوريو" data-en="Hot Oreo">هوت اوريو</h3></div><div class="leader"></div><div class="item-price">60</div></div>
-            </div>
-        </div>
+    <div class="container" id="menuContainer"></div>
 
-        <!-- Soft Drinks -->
-        <div id="soft-drinks" class="menu-section">
-            <div class="section-header"><h2 data-ar="مشروبات غازية" data-en="Soft Drinks">Soft Drinks</h2></div>
-            <div class="menu-grid">
-                <div class="menu-item"><div class="item-details"><h3 data-ar="مياه صغيرة" data-en="Small Water">مياه صغيرة</h3></div><div class="leader"></div><div class="item-price">10</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="كان" data-en="Can">كان</h3></div><div class="leader"></div><div class="item-price">30</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="فيروز" data-en="Fayrouz">فيروز</h3></div><div class="leader"></div><div class="item-price">35</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="بريل" data-en="Birell">بريل</h3></div><div class="leader"></div><div class="item-price">35</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="تويست توت" data-en="Twist Berry">تويست توت</h3></div><div class="leader"></div><div class="item-price">25</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="تويست فراولة" data-en="Twist Strawberry">تويست فراولة</h3></div><div class="leader"></div><div class="item-price">25</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="ستنج" data-en="Sting">ستنج</h3></div><div class="leader"></div><div class="item-price">25</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="ريدبول" data-en="Redbull">ريدبول</h3></div><div class="leader"></div><div class="item-price">75</div></div>
-            </div>
-        </div>
-
-        <!-- Ice Drinks -->
-        <div id="ice-drinks" class="menu-section">
-            <div class="section-header"><h2 data-ar="مشروبات مثلجة" data-en="Ice Drinks">Ice Drinks</h2></div>
-            <div class="menu-grid">
-                <div class="menu-item"><div class="item-details"><h3 data-ar="ايس كوفي" data-en="Ice Coffee">ايس كوفي</h3></div><div class="leader"></div><div class="item-price">50</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="ايس لاتيه" data-en="Ice Latte">ايس لاتيه</h3></div><div class="leader"></div><div class="item-price">50</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="وايت ايس موكا" data-en="White Ice Mocha">وايت ايس موكا</h3></div><div class="leader"></div><div class="item-price">50</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="دارك ايس موكا" data-en="Dark Ice Mocha">دارك ايس موكا</h3></div><div class="leader"></div><div class="item-price">50</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="ايس امريكانو" data-en="Ice Americano">ايس امريكانو</h3></div><div class="leader"></div><div class="item-price">45</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="ايس سبانش لاتيه" data-en="Ice Spanish Latte">ايس سبانش لاتيه</h3></div><div class="leader"></div><div class="item-price">65</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="ايس لاتيه فراولة" data-en="Ice Strawberry Latte">ايس لاتيه فراولة</h3></div><div class="leader"></div><div class="item-price">65</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="فرابتشينو نسكافيه/فانيليا/فراولة" data-en="Frappuccino Nescafe/Vanilla/Strawberry">فرابتشينو نسكافيه/فانيليا/فراولة</h3></div><div class="leader"></div><div class="item-price">55</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="فرابتشينو اوريو/كراميل/لوتس" data-en="Frappuccino Oreo/Caramel/Lotus">فرابتشينو اوريو/كراميل/لوتس</h3></div><div class="leader"></div><div class="item-price">60</div></div>
-            </div>
-        </div>
-
-        <!-- Zabady Khallat -->
-        <div id="zabady" class="menu-section">
-            <div class="section-header"><h2 data-ar="زبادي خلاط" data-en="Zabady Khallat">Zabady Khallat</h2></div>
-            <div class="menu-grid">
-                <div class="menu-item"><div class="item-details"><h3 data-ar="كلاسيك" data-en="Classic">كلاسيك</h3></div><div class="leader"></div><div class="item-price">45</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="توت" data-en="Berry">توت</h3></div><div class="leader"></div><div class="item-price">45</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="لوتس" data-en="Lotus">لوتس</h3></div><div class="leader"></div><div class="item-price">45</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="كارميل" data-en="Caramel">كارميل</h3></div><div class="leader"></div><div class="item-price">45</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="خوخ" data-en="Peach">خوخ</h3></div><div class="leader"></div><div class="item-price">45</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="فراولة" data-en="Strawberry">فراولة</h3></div><div class="leader"></div><div class="item-price">45</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="باشون فروت" data-en="Passion Fruit">باشون فروت</h3></div><div class="leader"></div><div class="item-price">50</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="كيوي" data-en="Kiwi">كيوي</h3></div><div class="leader"></div><div class="item-price">50</div></div>
-            </div>
-        </div>
-
-        <!-- Milkshake -->
-        <div id="milkshake" class="menu-section">
-            <div class="section-header"><h2 data-ar="ميلك شيك" data-en="Milkshake">Milkshake</h2></div>
-            <div class="menu-grid">
-                <div class="menu-item"><div class="item-details"><h3 data-ar="فانيليا" data-en="Vanilla">فانيليا</h3></div><div class="leader"></div><div class="item-price">55</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="تشيز كيك" data-en="Cheesecake">تشيز كيك</h3></div><div class="leader"></div><div class="item-price">100</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="شوكولا" data-en="Chocolate">شوكولا</h3></div><div class="leader"></div><div class="item-price">55</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="كيت كات" data-en="Kitkat">كيت كات</h3></div><div class="leader"></div><div class="item-price">70</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="فراولة" data-en="Strawberry">فراولة</h3></div><div class="leader"></div><div class="item-price">55</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="بيستاشيو" data-en="Pistachio">بيستاشيو</h3></div><div class="leader"></div><div class="item-price">80</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="مانجا" data-en="Mango">مانجا</h3></div><div class="leader"></div><div class="item-price">55</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="كراميل" data-en="Caramel">كراميل</h3></div><div class="leader"></div><div class="item-price">60</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="بلوبيري" data-en="Blueberry">بلوبيري</h3></div><div class="leader"></div><div class="item-price">60</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="موكا" data-en="Mocha">موكا</h3></div><div class="leader"></div><div class="item-price">60</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="سنيكر" data-en="Snickers">سنيكر</h3></div><div class="leader"></div><div class="item-price">60</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="لوتس" data-en="Lotus">لوتس</h3></div><div class="leader"></div><div class="item-price">65</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="اوريو" data-en="Oreo">اوريو</h3></div><div class="leader"></div><div class="item-price">65</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="هوهوز" data-en="HoHos">هوهوز</h3></div><div class="leader"></div><div class="item-price">65</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="نوتيلا" data-en="Nutella">نوتيلا</h3></div><div class="leader"></div><div class="item-price">65</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="خوخ" data-en="Peach">خوخ</h3></div><div class="leader"></div><div class="item-price">65</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="كيوي" data-en="Kiwi">كيوي</h3></div><div class="leader"></div><div class="item-price">65</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="باشون فروت" data-en="Passion Fruit">باشون فروت</h3></div><div class="leader"></div><div class="item-price">65</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="توينكيز" data-en="Twinkies">توينكيز</h3></div><div class="leader"></div><div class="item-price">65</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="ميكس بيري" data-en="Mix Berry">ميكس بيري</h3></div><div class="leader"></div><div class="item-price">65</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="كوفي" data-en="Coffee">كوفي</h3></div><div class="leader"></div><div class="item-price">65</div></div>
-            </div>
-        </div>
-
-        <!-- New Boba -->
-        <div id="boba" class="menu-section">
-            <div class="section-header"><h2 data-ar="بوبا جديدة" data-en="New Boba">New Boba</h2></div>
-            <div class="menu-grid">
-                <div class="menu-item"><div class="item-details"><h3 data-ar="بوبا بلوبيري" data-en="Boba Blueberry">بوبا بلوبيري</h3></div><div class="leader"></div><div class="item-price">70</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="بوبا مانجو" data-en="Boba Mango">بوبا مانجو</h3></div><div class="leader"></div><div class="item-price">70</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="بوبا باشون" data-en="Boba Passion">بوبا باشون</h3></div><div class="leader"></div><div class="item-price">70</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="بوبا بلوبيري ميلك شيك" data-en="Boba Blueberry Milkshake">بوبا بلوبيري ميلك شيك</h3></div><div class="leader"></div><div class="item-price">75</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="بوبا مانجو ميلك شيك" data-en="Boba Mango Milkshake">بوبا مانجو ميلك شيك</h3></div><div class="leader"></div><div class="item-price">75</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="بوبا باشون ميلك شيك" data-en="Boba Passion Milkshake">بوبا باشون ميلك شيك</h3></div><div class="leader"></div><div class="item-price">75</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="بوبا فانيليا ميلك شيك" data-en="Boba Vanilla Milkshake">بوبا فانيليا ميلك شيك</h3></div><div class="leader"></div><div class="item-price">75</div></div>
-            </div>
-        </div>
-
-        <!-- Juices & Smoothies -->
-        <div id="juices" class="menu-section">
-            <div class="section-header"><h2 data-ar="عصائر وساموزي" data-en="Juices & Smoothies">Juices & Smoothies</h2></div>
-            <div class="menu-grid">
-                <div class="menu-item"><div class="item-details"><h3 data-ar="افوكادو" data-en="Avocado">افوكادو</h3></div><div class="leader"></div><div class="item-price">80</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="كيوي" data-en="Kiwi">كيوي</h3></div><div class="leader"></div><div class="item-price">70</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="مانجو" data-en="Mango">مانجو</h3></div><div class="leader"></div><div class="item-price">50</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="فراولة" data-en="Strawberry">فراولة</h3></div><div class="leader"></div><div class="item-price">50</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="فراولة حليب" data-en="Strawberry Milk">فراولة حليب</h3></div><div class="leader"></div><div class="item-price">55</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="فراولة شوكلت" data-en="Strawberry Chocolate">فراولة شوكلت</h3></div><div class="leader"></div><div class="item-price">60</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="جوافة" data-en="Guava">جوافة</h3></div><div class="leader"></div><div class="item-price">50</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="جوافة حليب" data-en="Guava Milk">جوافة حليب</h3></div><div class="leader"></div><div class="item-price">55</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="موز حليب" data-en="Banana Milk">موز حليب</h3></div><div class="leader"></div><div class="item-price">55</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="موز شوكلت" data-en="Banana Chocolate">موز شوكلت</h3></div><div class="leader"></div><div class="item-price">60</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="بلح حليب" data-en="Dates Milk">بلح حليب</h3></div><div class="leader"></div><div class="item-price">55</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="بلح شوكلت" data-en="Dates Chocolate">بلح شوكلت</h3></div><div class="leader"></div><div class="item-price">60</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="ليمون" data-en="Lemon">ليمون</h3></div><div class="leader"></div><div class="item-price">40</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="ليمون نعناع" data-en="Lemon Mint">ليمون نعناع</h3></div><div class="leader"></div><div class="item-price">45</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="ليمون توت" data-en="Lemon Berry">ليمون توت</h3></div><div class="leader"></div><div class="item-price">50</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="ميكس بيري" data-en="Mix Berry">ميكس بيري</h3></div><div class="leader"></div><div class="item-price">50</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="بطيخ" data-en="Watermelon">بطيخ</h3></div><div class="leader"></div><div class="item-price">50</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="توت" data-en="Berry">توت</h3></div><div class="leader"></div><div class="item-price">50</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="لوليتا (مانجو+فراولة+لوتس)" data-en="Lolita (Mango+Strawberry+Lotus)">لوليتا (مانجو+فراولة+لوتس)</h3></div><div class="leader"></div><div class="item-price">50</div></div>
-            </div>
-        </div>
-
-        <!-- Cocktails -->
-        <div id="cocktails" class="menu-section">
-            <div class="section-header"><h2 data-ar="كوكتيلات" data-en="Cocktails">Cocktails</h2></div>
-            <div class="menu-grid">
-                <div class="menu-item">
-                    <div class="item-details">
-                        <h3 data-ar="مالديف" data-en="Maldives">مالديف</h3>
-                        <p data-ar="مانجو - جوز هند" data-en="Mango - Coconut">مانجو - جوز هند</p>
-                    </div>
-                    <div class="item-price">60</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-details">
-                        <h3 data-ar="جولد" data-en="Gold">جولد</h3>
-                        <p data-ar="برتقال - باشون فروت" data-en="Orange - Passion Fruit">برتقال - باشون فروت</p>
-                    </div>
-                    <div class="item-price">55</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-details">
-                        <h3 data-ar="فلورينجو" data-en="Florinjo">فلورينجو</h3>
-                        <p data-ar="مانجو - اناناس - باشون فروت" data-en="Mango - Pineapple - Passion Fruit">مانجو - اناناس - باشون فروت</p>
-                    </div>
-                    <div class="item-price">60</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-details">
-                        <h3 data-ar="بينك روز" data-en="Pink Rose">بينك روز</h3>
-                        <p data-ar="بطيخ - فراولة - ايس فراولة" data-en="Watermelon - Strawberry - Strawberry Ice Cream">بطيخ - فراولة - ايس فراولة</p>
-                    </div>
-                    <div class="item-price">60</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-details">
-                        <h3 data-ar="جرين مانجو" data-en="Green Mango">جرين مانجو</h3>
-                        <p data-ar="مانجو - باشون فروت" data-en="Mango - Passion Fruit">مانجو - باشون فروت</p>
-                    </div>
-                    <div class="item-price">60</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-details">
-                        <h3 data-ar="ستروبري" data-en="Strawberry">ستروبري</h3>
-                        <p data-ar="فراولة - توت ازرق" data-en="Strawberry - Blue Berry">فراولة - توت ازرق</p>
-                    </div>
-                    <div class="item-price">60</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-details">
-                        <h3 data-ar="باور" data-en="Power">باور</h3>
-                        <p data-ar="بلح - موز - ايس فانيليا" data-en="Dates - Banana - Vanilla Ice Cream">بلح - موز - ايس فانيليا</p>
-                    </div>
-                    <div class="item-price">55</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-details">
-                        <h3 data-ar="مورنينج" data-en="Morning">مورنينج</h3>
-                        <p data-ar="مانجو - كيوي" data-en="Mango - Kiwi">مانجو - كيوي</p>
-                    </div>
-                    <div class="item-price">60</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-details">
-                        <h3 data-ar="بيتش" data-en="Peach">بيتش</h3>
-                        <p data-ar="مانجو - خوخ" data-en="Mango - Peach">مانجو - خوخ</p>
-                    </div>
-                    <div class="item-price">60</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-details">
-                        <h3 data-ar="ليمونادا" data-en="Lemonade">ليمونادا</h3>
-                        <p data-ar="ليمون - جوز هند" data-en="Lemon - Coconut">ليمون - جوز هند</p>
-                    </div>
-                    <div class="item-price">55</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-details">
-                        <h3 data-ar="سبیشال" data-en="Special">سبیشال</h3>
-                        <p data-ar="فراولة - موز - مانجو - ايس" data-en="Strawberry - Banana - Mango - Ice Cream">فراولة - موز - مانجو - ايس</p>
-                    </div>
-                    <div class="item-price">60</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-details">
-                        <h3 data-ar="منعش" data-en="Refresh">منعش</h3>
-                        <p data-ar="بطيخ - نعناع" data-en="Watermelon - Mint">بطيخ - نعناع</p>
-                    </div>
-                    <div class="item-price">55</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-details">
-                        <h3 data-ar="فروت سلاد" data-en="Fruit Salad">فروت سلاد</h3>
-                    </div>
-                    <div class="item-price">50</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-details">
-                        <h3 data-ar="فلوريدا" data-en="Florida">فلوريدا</h3>
-                        <p data-ar="مانجا - جوافة - فراولة" data-en="Mango - Guava - Strawberry">مانجا - جوافة - فراولة</p>
-                    </div>
-                    <div class="item-price">60</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Cocktail Soda -->
-        <div id="cocktail-soda" class="menu-section">
-            <div class="section-header"><h2 data-ar="كوكتيل صودا" data-en="Cocktail Soda">Cocktail Soda</h2></div>
-            <div class="menu-grid">
-                <div class="menu-item">
-                    <div class="item-details">
-                        <h3 data-ar="موجيتو فليفر" data-en="Mojito Flavor">موجيتو فليفر</h3>
-                        <p data-ar="بلو بيري - فراولة - نعناع - رمان" data-en="Blueberry - Strawberry - Mint - Pomegranate">بلو بيري - فراولة - نعناع - رمان</p>
-                    </div>
-                    <div class="item-price">50</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-details">
-                        <h3 data-ar="ايس تي فليفر" data-en="Ice Tea Flavor">ايس تي فليفر</h3>
-                        <p data-ar="خوخ - باشون فروت - فراولة" data-en="Peach - Passion Fruit - Strawberry">خوخ - باشون فروت - فراولة</p>
-                    </div>
-                    <div class="item-price">60</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-details">
-                        <h3 data-ar="كارولينا" data-en="Carolina">كارولينا</h3>
-                        <p data-ar="عنب - ميكس بيري - صودا - ليمون" data-en="Grapes - Mix Berry - Soda - Lemon">عنب - ميكس بيري - صودا - ليمون</p>
-                    </div>
-                    <div class="item-price">60</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-details">
-                        <h3 data-ar="مارغريتا" data-en="Margarita">مارغريتا</h3>
-                        <p data-ar="فراولة - باشون فروت - صودا - ليمون" data-en="Strawberry - Passion Fruit - Soda - Lemon">فراولة - باشون فروت - صودا - ليمون</p>
-                    </div>
-                    <div class="item-price">65</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-details">
-                        <h3 data-ar="هامرهيد" data-en="Hammerhead">هامرهيد</h3>
-                        <p data-ar="ريدبول - اسبريسو" data-en="Redbull - Espresso">ريدبول - اسبريسو</p>
-                    </div>
-                    <div class="item-price">90</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-details">
-                        <h3 data-ar="صن شاين" data-en="Sunshine">صن شاين</h3>
-                        <p data-ar="رمان - ليمون - صودا" data-en="Pomegranate - Lemon - Soda">رمان - ليمون - صودا</p>
-                    </div>
-                    <div class="item-price">55</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Dessert -->
-        <div id="dessert" class="menu-section">
-            <div class="section-header"><h2 data-ar="حلويات" data-en="Dessert">Dessert</h2></div>
-            <div class="menu-grid">
-                <div class="menu-item"><div class="item-details"><h3 data-ar="مولتن كيك نوتيلا" data-en="Nutella Molten Cake">مولتن كيك نوتيلا</h3></div><div class="leader"></div><div class="item-price">90</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="مولتن كيك بيستاشيو" data-en="Pistachio Molten Cake">مولتن كيك بيستاشيو</h3></div><div class="leader"></div><div class="item-price">90</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="مولتن كيك لوتس" data-en="Lotus Molten Cake">مولتن كيك لوتس</h3></div><div class="leader"></div><div class="item-price">90</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="مولتن كيك عيد الميلاد" data-en="Birthday Molten Cake">مولتن كيك عيد الميلاد</h3></div><div class="leader"></div><div class="item-price">100</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="مولتن كيك ايس" data-en="Ice Cream Molten Cake">مولتن كيك ايس</h3></div><div class="leader"></div><div class="item-price">100</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="تشيز كيك لوتس" data-en="Lotus Cheesecake">تشيز كيك لوتس</h3></div><div class="leader"></div><div class="item-price">70</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="تشيز كيك فراولة" data-en="Strawberry Cheesecake">تشيز كيك فراولة</h3></div><div class="leader"></div><div class="item-price">70</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="تشيز كيك توت" data-en="Berry Cheesecake">تشيز كيك توت</h3></div><div class="leader"></div><div class="item-price">70</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="تشيز كيك مانجو" data-en="Mango Cheesecake">تشيز كيك مانجو</h3></div><div class="leader"></div><div class="item-price">70</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="سينابون صوص" data-en="Cinnabon with Sauce">سينابون صوص</h3></div><div class="leader"></div><div class="item-price">90</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="فادج كيك" data-en="Fudge Cake">فادج كيك</h3></div><div class="leader"></div><div class="item-price">65</div></div>
-            </div>
-        </div>
-
-        <!-- Fresca -->
-        <div id="fresca" class="menu-section">
-            <div class="section-header"><h2 data-ar="فريسكا" data-en="Fresca">Fresca</h2></div>
-            <div class="menu-grid">
-                <div class="menu-item"><div class="item-details"><h3 data-ar="فريسكا هوهوز" data-en="Fresca HoHos">فريسكا هوهوز</h3></div><div class="leader"></div><div class="item-price">25</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="فريسكا توينكز" data-en="Fresca Twinkies">فريسكا توينكز</h3></div><div class="leader"></div><div class="item-price">25</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="فريسكا ميكس لوتس" data-en="Fresca Mix Lotus">فريسكا ميكس لوتس</h3></div><div class="leader"></div><div class="item-price">30</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="فريسكا وايت" data-en="Fresca White Chocolate">فريسكا وايت</h3></div><div class="leader"></div><div class="item-price">30</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="فريسكا كراميل" data-en="Fresca Caramel">فريسكا كراميل</h3></div><div class="leader"></div><div class="item-price">30</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="فريسكا كيندر" data-en="Fresca Kinder">فريسكا كيندر</h3></div><div class="leader"></div><div class="item-price">30</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="فريسكا بيستاشيو" data-en="Fresca Pistachio">فريسكا بيستاشيو</h3></div><div class="leader"></div><div class="item-price">35</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="فريسكا ميكس فروت" data-en="Fresca Mix Fruit">فريسكا ميكس فروت</h3></div><div class="leader"></div><div class="item-price">35</div></div>
-            </div>
-        </div>
-
-        <!-- Pancake -->
-        <div id="pancake" class="menu-section">
-            <div class="section-header"><h2 data-ar="بان كيك" data-en="Pancake">Pancake</h2></div>
-            <div class="menu-grid">
-                <div class="menu-item">
-                    <div class="item-details">
-                        <h3 data-ar="نوتيلا" data-en="Nutella">نوتيلا</h3>
-                        <p data-ar="10 / 15 / 25 قطعة" data-en="10 / 15 / 25 pcs">10 / 15 / 25 قطعة</p>
-                    </div>
-                    <div class="leader"></div><div class="item-price">40/60/80</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-details">
-                        <h3 data-ar="وايت شوكلت" data-en="White Chocolate">وايت شوكلت</h3>
-                        <p data-ar="10 / 15 / 25 قطعة" data-en="10 / 15 / 25 pcs">10 / 15 / 25 قطعة</p>
-                    </div>
-                    <div class="leader"></div><div class="item-price">45/65/90</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-details">
-                        <h3 data-ar="ميكس" data-en="Mix">ميكس</h3>
-                        <p data-ar="10 / 15 / 25 قطعة" data-en="10 / 15 / 25 pcs">10 / 15 / 25 قطعة</p>
-                    </div>
-                    <div class="leader"></div><div class="item-price">45/65/90</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-details">
-                        <h3 data-ar="اوريو" data-en="Oreo">اوريو</h3>
-                        <p data-ar="10 / 15 / 25 قطعة" data-en="10 / 15 / 25 pcs">10 / 15 / 25 قطعة</p>
-                    </div>
-                    <div class="leader"></div><div class="item-price">50/75/100</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-details">
-                        <h3 data-ar="لوتس" data-en="Lotus">لوتس</h3>
-                        <p data-ar="10 / 15 / 25 قطعة" data-en="10 / 15 / 25 pcs">10 / 15 / 25 قطعة</p>
-                    </div>
-                    <div class="leader"></div><div class="item-price">50/75/100</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-details">
-                        <h3 data-ar="بيستاشيو" data-en="Pistachio">بيستاشيو</h3>
-                        <p data-ar="10 / 15 / 25 قطعة" data-en="10 / 15 / 25 pcs">10 / 15 / 25 قطعة</p>
-                    </div>
-                    <div class="leader"></div><div class="item-price">60/90/130</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Waffle -->
-        <div id="waffle" class="menu-section">
-            <div class="section-header"><h2 data-ar="وافل" data-en="Waffle">Waffle</h2></div>
-            <div class="menu-grid">
-                <div class="menu-item"><div class="item-details"><h3 data-ar="وافل ساندوتش" data-en="Waffle Sandwich">وافل ساندوتش</h3></div><div class="leader"></div><div class="item-price">45</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="وافليتا - ايسكريم" data-en="Waffleita - Icecream">وافليتا - ايسكريم</h3></div><div class="leader"></div><div class="item-price">35</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="وافليتا فواكه" data-en="Waffleita Fruits">وافليتا فواكه</h3></div><div class="leader"></div><div class="item-price">45</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="نوتيلا" data-en="Nutella">نوتيلا</h3></div><div class="leader"></div><div class="item-price">50</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="وايت شوكلت" data-en="White Chocolate">وايت شوكلت</h3></div><div class="leader"></div><div class="item-price">55</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="لوتس" data-en="Lotus">لوتس</h3></div><div class="leader"></div><div class="item-price">65</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="بيستاشيو" data-en="Pistachio">بيستاشيو</h3></div><div class="leader"></div><div class="item-price">80</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="كراميل" data-en="Caramel">كراميل</h3></div><div class="leader"></div><div class="item-price">50</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="موز" data-en="Banana">موز</h3></div><div class="leader"></div><div class="item-price">65</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="فواكه" data-en="Fruits">فواكه</h3></div><div class="leader"></div><div class="item-price">85</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="توت" data-en="Berries">توت</h3></div><div class="leader"></div><div class="item-price">75</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="اوريو - هوهوز" data-en="Oreo - HoHos">اوريو - هوهوز</h3></div><div class="leader"></div><div class="item-price">80</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="كيت كات" data-en="Kitkat">كيت كات</h3></div><div class="leader"></div><div class="item-price">100</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="فتة وافل" data-en="Waffle Fatteh">فتة وافل</h3></div><div class="leader"></div><div class="item-price">60</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="ميكس شوكلت لوتس" data-en="Mix Chocolate Lotus">ميكس شوكلت لوتس</h3></div><div class="leader"></div><div class="item-price">70</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="ميكس وايت لوتس" data-en="Mix White Chocolate Lotus">ميكس وايت لوتس</h3></div><div class="leader"></div><div class="item-price">70</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="ميكس صوصات" data-en="Mix Sauces">ميكس صوصات</h3></div><div class="leader"></div><div class="item-price">70</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="ميكس شوكلت بيستاشيو" data-en="Mix Chocolate Pistachio">ميكس شوكلت بيستاشيو</h3></div><div class="leader"></div><div class="item-price">90</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="ميكس لوتس بيستاشيو" data-en="Mix Lotus Pistachio">ميكس لوتس بيستاشيو</h3></div><div class="leader"></div><div class="item-price">90</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="ميكس وايت توت" data-en="Mix White Chocolate Berries">ميكس وايت توت</h3></div><div class="leader"></div><div class="item-price">90</div></div>
-            </div>
-        </div>
-
-        <!-- Ice Cream -->
-        <div id="icecream" class="menu-section">
-            <div class="section-header"><h2 data-ar="آيس كريم" data-en="Ice Cream">Ice Cream</h2></div>
-            <div class="menu-grid">
-                <div class="menu-item"><div class="item-details"><h3 data-ar="بولة 1" data-en="1 Scoop">بولة 1</h3></div><div class="leader"></div><div class="item-price">20</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="بولة 2" data-en="2 Scoops">بولة 2</h3></div><div class="leader"></div><div class="item-price">40</div></div>
-                <div class="menu-item">
-                    <div class="item-details">
-                        <h3 data-ar="بولة 3" data-en="3 Scoops">بولة 3</h3>
-                        <p data-ar="من اختيارك + صوص + فواكه" data-en="Your choice + sauce + fruits">من اختيارك + صوص + فواكه</p>
-                    </div>
-                    <div class="leader"></div><div class="item-price">55</div>
-                </div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="بولة 4" data-en="4 Scoops">بولة 4</h3></div><div class="leader"></div><div class="item-price">70</div></div>
-                <div class="menu-item"><div class="item-details"><h3 data-ar="روبوستا آيس كريم" data-en="Robusta Ice Cream">روبوستا آيس كريم</h3></div><div class="leader"></div><div class="item-price">75</div></div>
-            </div>
-        </div>
-
-        <!-- Lomma Box -->
-        <div id="lomma-box" class="menu-section">
-            <div class="section-header"><h2 data-ar="بوكس اللمة" data-en="Lomma Box">Lomma Box</h2></div>
-            <div class="menu-grid">
-                <div class="menu-item">
-                    <div class="item-details">
-                        <h3 data-ar="بوكس اللمة" data-en="Lomma Box">بوكس اللمة</h3>
-                        <p data-ar="وافل - بان كيك 10 قطع - فريسكا هوهوز / توينكز" data-en="Waffle - Pancake 10 pcs - Fresca HoHos / Twinkies">وافل - بان كيك 10 قطع - فريسكا هوهوز / توينكز</p>
-                    </div>
-                    <div class="leader"></div><div class="item-price">110</div>
-                </div>
-            </div>
-        </div>
+    <div class="add-section-row">
+        <button class="btn btn-primary" onclick="openSectionModal(null)">
+            <i class="fa-solid fa-folder-plus"></i>
+            <span data-ar="إضافة قسم جديد" data-en="Add new category">إضافة قسم جديد</span>
+        </button>
     </div>
 
     <footer>
-        <p>&copy; 2026 <span data-ar="روبوستا كافيه" data-en="Robusta Café">Robusta Café</span>. <span data-ar="جميع الحقوق محفوظة." data-en="All Rights Reserved.">All Rights Reserved.</span></p>
+        <div class="social-links" id="footerSocial"></div>
+        <p>&copy; 2026 <span data-ar="روبوستا كافيه" data-en="Robusta Café">روبوستا كافيه</span>. <span data-ar="جميع الحقوق محفوظة." data-en="All Rights Reserved.">جميع الحقوق محفوظة.</span></p>
     </footer>
 
+    <!-- ============ Admin bar ============ -->
+    <div class="admin-bar" id="adminBar">
+        <div class="admin-badge">
+            <i class="fa-solid fa-user-shield"></i>
+            <span data-ar="وضع الأدمن مفعّل" data-en="Admin mode active">وضع الأدمن مفعّل</span>
+            <span class="gh-status off" id="ghStatus"></span>
+        </div>
+        <button class="btn" onclick="openSettingsModal()"><i class="fa-solid fa-gear"></i> <span data-ar="الإعدادات والروابط" data-en="Settings & links">الإعدادات والروابط</span></button>
+        <button class="btn" id="ghPushBtn" onclick="ghPush(true)" style="display:none"><i class="fa-brands fa-github"></i> <span data-ar="ارفع على GitHub" data-en="Push to GitHub">ارفع على GitHub</span></button>
+        <button class="btn" id="ghPullBtn" onclick="ghPull()" style="display:none"><i class="fa-solid fa-cloud-arrow-down"></i> <span data-ar="اسحب آخر نسخة" data-en="Pull latest">اسحب آخر نسخة</span></button>
+        <button class="btn" onclick="exportHTML()"><i class="fa-solid fa-file-code"></i> <span data-ar="تنزيل نسخة HTML" data-en="Download HTML">تنزيل نسخة HTML</span></button>
+        <button class="btn" onclick="exportJSON()"><i class="fa-solid fa-download"></i> <span data-ar="حفظ نسخة JSON" data-en="Backup JSON">حفظ نسخة JSON</span></button>
+        <button class="btn" onclick="document.getElementById('importFile').click()"><i class="fa-solid fa-upload"></i> <span data-ar="استعادة نسخة" data-en="Restore backup">استعادة نسخة</span></button>
+        <button class="btn btn-danger" onclick="confirmReset()"><i class="fa-solid fa-rotate-left"></i> <span data-ar="استرجاع الأصلي" data-en="Reset">استرجاع الأصلي</span></button>
+        <button class="btn" onclick="logoutAdmin()"><i class="fa-solid fa-right-from-bracket"></i> <span data-ar="خروج" data-en="Logout">خروج</span></button>
+        <input type="file" id="importFile" accept="application/json,.json" style="display:none" onchange="importJSON(this)">
+    </div>
+
+    <!-- ============ Login modal ============ -->
+    <div class="modal-overlay" id="loginModal" onclick="closeOnBackdrop(event,'loginModal')">
+        <div class="modal" style="max-width:400px">
+            <h3><i class="fa-solid fa-lock"></i> <span data-ar="دخول الأدمن" data-en="Admin login">دخول الأدمن</span></h3>
+            <p class="modal-sub" data-ar="اكتب كلمة السر عشان تقدر تضيف وتعدّل وتحذف الأصناف." data-en="Enter the password to add, edit and delete items.">اكتب كلمة السر عشان تقدر تضيف وتعدّل وتحذف الأصناف.</p>
+            <div class="form-group">
+                <label data-ar="كلمة السر" data-en="Password">كلمة السر</label>
+                <input type="password" id="adminPass" onkeydown="if(event.key==='Enter')doLogin()" autocomplete="current-password">
+                <div class="field-hint" id="loginError" style="color:#e05a4b;display:none" data-ar="كلمة السر غلط" data-en="Wrong password">كلمة السر غلط</div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-primary" onclick="doLogin()"><i class="fa-solid fa-right-to-bracket"></i> <span data-ar="دخول" data-en="Login">دخول</span></button>
+                <button class="btn" onclick="closeModal('loginModal')"><span data-ar="إلغاء" data-en="Cancel">إلغاء</span></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ Item modal ============ -->
+    <div class="modal-overlay" id="itemModal" onclick="closeOnBackdrop(event,'itemModal')">
+        <div class="modal">
+            <h3><i class="fa-solid fa-mug-saucer"></i> <span id="itemModalTitle">صنف جديد</span></h3>
+            <p class="modal-sub" data-ar="الاسم بالعربي مطلوب. لو سبت الإنجليزي فاضي هيتحط العربي مكانه." data-en="Arabic name is required. If English is empty, Arabic is used instead.">الاسم بالعربي مطلوب. لو سبت الإنجليزي فاضي هيتحط العربي مكانه.</p>
+            <div class="form-row">
+                <div class="form-group">
+                    <label data-ar="الاسم بالعربي *" data-en="Name (Arabic) *">الاسم بالعربي *</label>
+                    <input type="text" id="itemAr">
+                </div>
+                <div class="form-group">
+                    <label data-ar="الاسم بالإنجليزي" data-en="Name (English)">الاسم بالإنجليزي</label>
+                    <input type="text" id="itemEn" dir="ltr">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label data-ar="الوصف بالعربي" data-en="Description (Arabic)">الوصف بالعربي</label>
+                    <input type="text" id="itemDar">
+                </div>
+                <div class="form-group">
+                    <label data-ar="الوصف بالإنجليزي" data-en="Description (English)">الوصف بالإنجليزي</label>
+                    <input type="text" id="itemDen" dir="ltr">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label data-ar="السعر *" data-en="Price *">السعر *</label>
+                    <input type="text" id="itemPrice" dir="ltr" placeholder="60  /  35/25">
+                    <div class="field-hint" data-ar="لو فيه حجمين اكتبهم كده: 40/30" data-en="Two sizes? write it like: 40/30">لو فيه حجمين اكتبهم كده: 40/30</div>
+                </div>
+                <div class="form-group">
+                    <label data-ar="القسم" data-en="Category">القسم</label>
+                    <select id="itemSection"></select>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-primary" onclick="saveItem()"><i class="fa-solid fa-floppy-disk"></i> <span data-ar="حفظ" data-en="Save">حفظ</span></button>
+                <button class="btn" onclick="closeModal('itemModal')"><span data-ar="إلغاء" data-en="Cancel">إلغاء</span></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ Section modal ============ -->
+    <div class="modal-overlay" id="sectionModal" onclick="closeOnBackdrop(event,'sectionModal')">
+        <div class="modal">
+            <h3><i class="fa-solid fa-folder"></i> <span id="sectionModalTitle">قسم جديد</span></h3>
+            <p class="modal-sub" data-ar="القسم هو التبويب اللي بيظهر فوق في شريط الأقسام." data-en="A category is a tab in the top navigation bar.">القسم هو التبويب اللي بيظهر فوق في شريط الأقسام.</p>
+            <div class="form-row">
+                <div class="form-group">
+                    <label data-ar="الاسم بالعربي *" data-en="Name (Arabic) *">الاسم بالعربي *</label>
+                    <input type="text" id="sectionAr">
+                </div>
+                <div class="form-group">
+                    <label data-ar="الاسم بالإنجليزي" data-en="Name (English)">الاسم بالإنجليزي</label>
+                    <input type="text" id="sectionEn" dir="ltr">
+                </div>
+            </div>
+            <div class="form-group">
+                <label data-ar="الأيقونة" data-en="Icon">الأيقونة</label>
+                <select id="sectionIcon"></select>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-primary" onclick="saveSection()"><i class="fa-solid fa-floppy-disk"></i> <span data-ar="حفظ" data-en="Save">حفظ</span></button>
+                <button class="btn" onclick="closeModal('sectionModal')"><span data-ar="إلغاء" data-en="Cancel">إلغاء</span></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ Settings modal ============ -->
+    <div class="modal-overlay" id="settingsModal" onclick="closeOnBackdrop(event,'settingsModal')">
+        <div class="modal">
+            <h3><i class="fa-solid fa-gear"></i> <span data-ar="إعدادات الموقع" data-en="Site settings">إعدادات الموقع</span></h3>
+            <p class="modal-sub" data-ar="روابط السوشيال بتظهر في الهيدر وتحت في الفوتر. سيب الخانة فاضية عشان تخفي الزرار." data-en="Social buttons show in the header and footer. Leave a field empty to hide that button.">روابط السوشيال بتظهر في الهيدر وتحت في الفوتر. سيب الخانة فاضية عشان تخفي الزرار.</p>
+            <div class="form-group">
+                <label><i class="fa-brands fa-instagram"></i> Instagram</label>
+                <input type="text" id="setInstagram" dir="ltr" placeholder="https://instagram.com/username">
+            </div>
+            <div class="form-group">
+                <label><i class="fa-brands fa-tiktok"></i> TikTok</label>
+                <input type="text" id="setTiktok" dir="ltr" placeholder="https://tiktok.com/@username">
+            </div>
+            <div class="form-group">
+                <label><i class="fa-brands fa-facebook"></i> Facebook</label>
+                <input type="text" id="setFacebook" dir="ltr" placeholder="https://facebook.com/pagename">
+            </div>
+            <div class="form-group">
+                <label><i class="fa-brands fa-whatsapp"></i> WhatsApp <span data-ar="(اختياري)" data-en="(optional)">(اختياري)</span></label>
+                <input type="text" id="setWhatsapp" dir="ltr" placeholder="https://wa.me/201214110596">
+            </div>
+            <div class="divider"></div>
+            <div class="form-group">
+                <label data-ar="رقم التليفون" data-en="Phone">رقم التليفون</label>
+                <input type="text" id="setPhone" dir="ltr">
+            </div>
+            <div class="form-group">
+                <label data-ar="العنوان بالعربي" data-en="Address (Arabic)">العنوان بالعربي</label>
+                <input type="text" id="setAddressAr">
+            </div>
+            <div class="form-group">
+                <label data-ar="العنوان بالإنجليزي" data-en="Address (English)">العنوان بالإنجليزي</label>
+                <input type="text" id="setAddressEn" dir="ltr">
+            </div>
+
+            <div class="divider"></div>
+            <div class="section-title"><i class="fa-brands fa-github"></i> <span data-ar="الحفظ التلقائي على GitHub" data-en="Auto-save to GitHub">الحفظ التلقائي على GitHub</span></div>
+            <p class="modal-sub" data-ar="لما تظبط الخانات دي، أي تعديل هيترفع للريبو لوحده والزباين هيشوفوه خلال دقيقة. التوكن بيتخزن على الجهاز ده بس، ومش بيتحط في أي ملف بتنزّله." data-en="Once set, every change is pushed to your repo automatically. The token is stored on this device only and is never written into any downloaded file.">لما تظبط الخانات دي، أي تعديل هيترفع للريبو لوحده والزباين هيشوفوه خلال دقيقة. التوكن بيتخزن على الجهاز ده بس، ومش بيتحط في أي ملف بتنزّله.</p>
+            <div class="form-row">
+                <div class="form-group">
+                    <label data-ar="حساب GitHub (owner)" data-en="GitHub owner">حساب GitHub (owner)</label>
+                    <input type="text" id="setGhOwner" dir="ltr" placeholder="my-username">
+                </div>
+                <div class="form-group">
+                    <label data-ar="اسم الريبو" data-en="Repository">اسم الريبو</label>
+                    <input type="text" id="setGhRepo" dir="ltr" placeholder="robusta-menu">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label data-ar="البرانش" data-en="Branch">البرانش</label>
+                    <input type="text" id="setGhBranch" dir="ltr" placeholder="main">
+                </div>
+                <div class="form-group">
+                    <label data-ar="مسار الملف" data-en="File path">مسار الملف</label>
+                    <input type="text" id="setGhPath" dir="ltr" placeholder="menu-data.json">
+                </div>
+            </div>
+            <div class="form-group">
+                <label data-ar="التوكن (Fine-grained token)" data-en="Token (fine-grained)">التوكن (Fine-grained token)</label>
+                <input type="password" id="setGhToken" dir="ltr" placeholder="github_pat_..." autocomplete="off">
+                <div class="field-hint">
+                    <span data-ar="اعمله من:" data-en="Create one at:">اعمله من:</span>
+                    <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener" dir="ltr">github.com/settings/personal-access-tokens</a>
+                    <span data-ar="— اختار الريبو بتاعك بس، وصلاحية Contents: Read and write." data-en="— select only your repo, with Contents: Read and write.">— اختار الريبو بتاعك بس، وصلاحية Contents: Read and write.</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="checkbox-row">
+                    <input type="checkbox" id="setGhAuto">
+                    <span data-ar="ارفع أي تعديل على GitHub تلقائيًا" data-en="Push every change to GitHub automatically">ارفع أي تعديل على GitHub تلقائيًا</span>
+                </label>
+            </div>
+            <div class="btn-row">
+                <button class="btn" onclick="ghTest()"><i class="fa-solid fa-plug-circle-check"></i> <span data-ar="اختبار الاتصال" data-en="Test connection">اختبار الاتصال</span></button>
+                <button class="btn btn-danger" onclick="ghForgetToken()"><i class="fa-solid fa-key"></i> <span data-ar="امسح التوكن من الجهاز" data-en="Forget token">امسح التوكن من الجهاز</span></button>
+            </div>
+
+            <div class="modal-actions">
+                <button class="btn btn-primary" onclick="saveSettings()"><i class="fa-solid fa-floppy-disk"></i> <span data-ar="حفظ" data-en="Save">حفظ</span></button>
+                <button class="btn" onclick="closeModal('settingsModal')"><span data-ar="إلغاء" data-en="Cancel">إلغاء</span></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ Confirm modal ============ -->
+    <div class="modal-overlay" id="confirmModal" onclick="closeOnBackdrop(event,'confirmModal')">
+        <div class="modal" style="max-width:400px">
+            <h3><i class="fa-solid fa-triangle-exclamation"></i> <span data-ar="تأكيد" data-en="Confirm">تأكيد</span></h3>
+            <p class="modal-sub" id="confirmText"></p>
+            <div class="modal-actions">
+                <button class="btn btn-danger" id="confirmYes"><i class="fa-solid fa-check"></i> <span data-ar="أيوه، نفّذ" data-en="Yes, do it">أيوه، نفّذ</span></button>
+                <button class="btn" onclick="closeModal('confirmModal')"><span data-ar="إلغاء" data-en="Cancel">إلغاء</span></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
     <script>
-        let currentLang = 'ar';
+    /* =======================================================================
+       ROBUSTA CAFÉ – Menu + Admin panel
+       -----------------------------------------------------------------------
+       ADMIN PASSWORD: change the line below to whatever you want.
+       ======================================================================= */
+    const ADMIN_PASSWORD = 'robusta2026';
+    /* ===================================================================== */
 
-        // Ensure the page actually shows Arabic text on first load
+    const STORAGE_KEY   = 'robusta_menu_v1';
+    const TOKEN_KEY     = 'robusta_gh_token';   // stored on this device only, never exported
+    const SESSION_KEY   = 'robusta_admin_session';
+    const EXTERNAL_DATA = 'menu-data.json'; // default; overridden by settings.ghPath
+
+    const DEFAULT_SETTINGS = {
+        instagram: '', tiktok: '', facebook: '', whatsapp: '',
+        phone: '01214110596',
+        addressAr: 'كوبرى الحجاجية بجوار سور عمارة حمزة',
+        addressEn: 'Al-Hajjajiah Bridge, next to Hamza Building wall',
+        logo: 'logo.png.png',
+        ghOwner: '', ghRepo: '', ghBranch: 'main', ghPath: 'menu-data.json', ghAuto: true
+    };
+
+    const ICON_CHOICES = [
+        ['fa-solid fa-mug-hot', 'مشروب ساخن'], ['fa-solid fa-bottle-water', 'مشروب غازي'],
+        ['fa-solid fa-snowflake', 'مثلجات'], ['fa-solid fa-blender', 'خلاط'],
+        ['fa-solid fa-ice-cream', 'آيس كريم'], ['fa-solid fa-circle-dot', 'بوبا'],
+        ['fa-solid fa-lemon', 'عصائر'], ['fa-solid fa-martini-glass-citrus', 'كوكتيل'],
+        ['fa-solid fa-wine-bottle', 'صودا'], ['fa-solid fa-cake-candles', 'حلويات'],
+        ['fa-solid fa-cookie-bite', 'بسكويت'], ['fa-solid fa-grip', 'وافل'],
+        ['fa-solid fa-gift', 'بوكس / عروض'], ['fa-solid fa-utensils', 'أكل'],
+        ['fa-solid fa-burger', 'برجر'], ['fa-solid fa-pizza-slice', 'بيتزا'],
+        ['fa-solid fa-bowl-food', 'أطباق'], ['fa-solid fa-mug-saucer', 'قهوة'],
+        ['fa-solid fa-glass-water', 'مياه'], ['fa-solid fa-star', 'مميز']
+    ];
+
+    const SOCIALS = [
+        { key: 'instagram', cls: 'instagram', icon: 'fa-brands fa-instagram', label: 'Instagram' },
+        { key: 'tiktok',    cls: 'tiktok',    icon: 'fa-brands fa-tiktok',    label: 'TikTok' },
+        { key: 'facebook',  cls: 'facebook',  icon: 'fa-brands fa-facebook-f',label: 'Facebook' },
+        { key: 'whatsapp',  cls: 'whatsapp',  icon: 'fa-brands fa-whatsapp',  label: 'WhatsApp' }
+    ];
+
+    /* ------------------------------ state ------------------------------ */
+    const bakedMenu     = JSON.parse(document.getElementById('menuData').textContent);
+    const bakedSettings = JSON.parse(document.getElementById('siteSettings').textContent);
+
+    let menu = [];
+    let settings = {};
+    let currentLang = 'ar';
+    let isDarkTheme = true;
+    let isAdmin = false;
+    let activeSection = null;
+    let currentSort = 'default';
+    let editing = { section: null, index: null };
+    let editingSection = null;
+
+    /* ------------------------------ helpers ---------------------------- */
+    const clone = obj => JSON.parse(JSON.stringify(obj));
+    const esc = s => String(s == null ? '' : s)
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+    const t = (ar, en) => currentLang === 'ar' ? ar : en;
+    const nameOf = o => (currentLang === 'ar' ? (o.ar || o.en) : (o.en || o.ar)) || '';
+    const descOf = o => (currentLang === 'ar' ? (o.dar || o.den) : (o.den || o.dar)) || '';
+
+    function toast(msg) {
+        const el = document.getElementById('toast');
+        el.textContent = msg;
+        el.classList.add('show');
+        clearTimeout(el._tm);
+        el._tm = setTimeout(() => el.classList.remove('show'), 2600);
+    }
+
+    function slugify(text) {
+        const base = (text || '').toString().trim().toLowerCase()
+            .replace(/[^\w؀-ۿ]+/g, '-').replace(/^-+|-+$/g, '');
+        let id = base || ('cat-' + Date.now());
+        let n = 2;
+        while (menu.some(s => s.id === id && s !== editingSection)) { id = base + '-' + n; n++; }
+        return id;
+    }
+
+    /* --------------------------- load / save --------------------------- */
+    function loadState() {
+        let draft = null;
+        try { draft = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null'); } catch (e) { draft = null; }
+
+        const bakedTime = Date.parse(bakedMenu.updatedAt || 0) || 0;
+        const draftTime = draft ? (Date.parse(draft.updatedAt || 0) || 0) : -1;
+
+        if (draft && Array.isArray(draft.sections) && draftTime >= bakedTime) {
+            menu = draft.sections;
+            settings = Object.assign({}, DEFAULT_SETTINGS, bakedSettings, draft.settings || {});
+        } else {
+            if (draft) { try { localStorage.removeItem(STORAGE_KEY); } catch (e) {} }
+            menu = clone(bakedMenu.sections);
+            settings = Object.assign({}, DEFAULT_SETTINGS, bakedSettings);
+        }
+        if (!menu.length) menu = clone(bakedMenu.sections);
+        activeSection = menu[0] ? menu[0].id : null;
+    }
+
+    function saveState() {
+        try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify({
+                updatedAt: new Date().toISOString(), sections: menu, settings: settings
+            }));
+        } catch (e) {
+            toast(t('مساحة المتصفح ممتلئة — التعديل اتعمل بس مش هيتحفظ', 'Browser storage is full — change applied but not saved'));
+        }
+        scheduleGhPush();
+    }
+
+    /* Optional: a menu-data.json published next to index.html wins if it is newer. */
+    function tryExternalData() {
+        if (!window.fetch || location.protocol === 'file:') return;
+        const path = (settings.ghPath || EXTERNAL_DATA).replace(/^\/+/, '');
+        fetch(path + '?t=' + Date.now(), { cache: 'no-store' }).then(r => r.ok ? r.json() : null).then(data => {
+            if (!data || !Array.isArray(data.sections)) return;
+            let draftTime = -1;
+            try {
+                const d = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
+                if (d) draftTime = Date.parse(d.updatedAt || 0) || 0;
+            } catch (e) {}
+            const extTime = Date.parse(data.updatedAt || 0) || 0;
+            if (extTime > draftTime) {
+                menu = data.sections;
+                settings = Object.assign({}, DEFAULT_SETTINGS, settings, data.settings || {});
+                if (!menu.some(s => s.id === activeSection)) activeSection = menu[0] ? menu[0].id : null;
+                render();
+            }
+        }).catch(() => {});
+    }
+
+    /* ------------------------------ render ----------------------------- */
+    function render() {
+        renderNav();
+        renderSections();
+        renderSocial();
+        applySettings();
+    }
+
+    function renderNav() {
+        document.getElementById('categoryNav').innerHTML = menu.map(s =>
+            '<button class="nav-btn' + (s.id === activeSection ? ' active' : '') + '" onclick="switchTab(\'' + esc(s.id) + '\', this)">' +
+            '<i class="' + esc(s.icon || 'fa-solid fa-utensils') + '"></i><span>' + esc(nameOf(s)) + '</span></button>'
+        ).join('');
+    }
+
+    function priceValue(text) {
+        const nums = String(text).split('/').map(n => parseFloat(String(n).replace(/[^\d.]/g, '')))
+            .filter(n => !isNaN(n));
+        return nums.length ? Math.min.apply(null, nums) : Number.MAX_SAFE_INTEGER;
+    }
+
+    function renderSections() {
+        document.getElementById('menuContainer').innerHTML = menu.map((s, si) => {
+            let list = s.items.map((it, i) => ({ it: it, i: i }));
+            if (s.id === activeSection && currentSort !== 'default') {
+                list = list.slice().sort((a, b) => currentSort === 'low-high'
+                    ? priceValue(a.it.price) - priceValue(b.it.price)
+                    : priceValue(b.it.price) - priceValue(a.it.price));
+            }
+
+            const items = list.length ? list.map(row => {
+                const it = row.it, i = row.i;
+                const d = descOf(it);
+                return '<div class="menu-item">' +
+                    '<div class="item-details"><h3>' + esc(nameOf(it)) + '</h3>' +
+                    (d ? '<p>' + esc(d) + '</p>' : '') + '</div>' +
+                    '<div class="leader"></div>' +
+                    '<div class="item-price">' + esc(it.price) + '</div>' +
+                    '<div class="item-actions">' +
+                        '<button class="icon-btn" title="' + t('تعديل', 'Edit') + '" onclick="openItemModal(\'' + esc(s.id) + '\',' + i + ')"><i class="fa-solid fa-pen"></i></button>' +
+                        '<button class="icon-btn" title="' + t('لفوق', 'Up') + '" onclick="moveItem(\'' + esc(s.id) + '\',' + i + ',-1)"><i class="fa-solid fa-arrow-up"></i></button>' +
+                        '<button class="icon-btn" title="' + t('لتحت', 'Down') + '" onclick="moveItem(\'' + esc(s.id) + '\',' + i + ',1)"><i class="fa-solid fa-arrow-down"></i></button>' +
+                        '<button class="icon-btn danger" title="' + t('حذف', 'Delete') + '" onclick="askDeleteItem(\'' + esc(s.id) + '\',' + i + ')"><i class="fa-solid fa-trash"></i></button>' +
+                    '</div></div>';
+            }).join('') : '<div class="empty-note">' + t('مفيش أصناف في القسم ده لسه.', 'No items in this category yet.') + '</div>';
+
+            return '<div id="' + esc(s.id) + '" class="menu-section' + (s.id === activeSection ? ' active' : '') + '">' +
+                '<div class="section-header"><h2>' + esc(nameOf(s)) + '</h2></div>' +
+                '<div class="section-actions">' +
+                    '<button class="btn" onclick="openSectionModal(\'' + esc(s.id) + '\')"><i class="fa-solid fa-pen"></i> ' + t('تعديل القسم', 'Edit category') + '</button>' +
+                    '<button class="btn" onclick="moveSection(\'' + esc(s.id) + '\',-1)"><i class="fa-solid fa-arrow-right-arrow-left"></i> ' + t('تحريك لبدري', 'Move earlier') + '</button>' +
+                    '<button class="btn" onclick="moveSection(\'' + esc(s.id) + '\',1)"><i class="fa-solid fa-arrow-right-arrow-left"></i> ' + t('تحريك لبعدين', 'Move later') + '</button>' +
+                    '<button class="btn btn-danger" onclick="askDeleteSection(\'' + esc(s.id) + '\')"><i class="fa-solid fa-trash"></i> ' + t('حذف القسم', 'Delete category') + '</button>' +
+                '</div>' +
+                '<div class="menu-grid">' + items + '</div>' +
+                '<div class="add-item-row"><button class="btn btn-primary" onclick="openItemModal(\'' + esc(s.id) + '\', null)">' +
+                    '<i class="fa-solid fa-plus"></i> ' + t('إضافة صنف للقسم ده', 'Add item to this category') + '</button></div>' +
+                '</div>';
+        }).join('');
+    }
+
+    function renderSocial() {
+        const html = SOCIALS.filter(s => s.key !== 'whatsapp' || settings.whatsapp).map(s => {
+            const url = (settings[s.key] || '').trim();
+            const inner = '<i class="' + s.icon + '"></i>';
+            if (url) {
+                return '<a class="social-btn ' + s.cls + '" href="' + esc(url) + '" target="_blank" rel="noopener" ' +
+                    'title="' + s.label + '" aria-label="' + s.label + '">' + inner + '</a>';
+            }
+            return '<button class="social-btn ' + s.cls + '" onclick="socialMissing(\'' + s.label + '\')" ' +
+                'title="' + s.label + '" aria-label="' + s.label + '">' + inner + '</button>';
+        }).join('');
+        document.getElementById('headerSocial').innerHTML = html;
+        document.getElementById('footerSocial').innerHTML = html;
+    }
+
+    function socialMissing(label) {
+        toast(isAdmin
+            ? t('ضيف لينك ' + label + ' من زرار الإعدادات تحت', 'Add the ' + label + ' link from Settings below')
+            : t('لينك ' + label + ' لسه مش متظبط', label + ' link is not set yet'));
+    }
+
+    function applySettings() {
+        document.getElementById('cafePhone').textContent = settings.phone || '';
+        document.getElementById('cafeAddress').textContent = currentLang === 'ar'
+            ? (settings.addressAr || settings.addressEn || '')
+            : (settings.addressEn || settings.addressAr || '');
+        const logo = document.getElementById('siteLogo');
+        if (settings.logo) logo.setAttribute('src', settings.logo);
+    }
+
+    /* --------------------------- language / theme ---------------------- */
+    function applyStaticLang() {
         document.querySelectorAll('[data-ar]').forEach(el => {
-            el.textContent = el.getAttribute('data-ar');
+            const v = el.getAttribute('data-' + currentLang);
+            if (v !== null) el.textContent = v;
         });
-        document.querySelectorAll('#sortSelect option').forEach(opt => {
-            opt.textContent = opt.getAttribute('data-ar');
-        });
-        document.getElementById('langText').textContent = 'English';
+        document.getElementById('langText').textContent = currentLang === 'ar' ? 'English' : 'العربية';
+    }
 
-        const originalOrders = {};
-        document.querySelectorAll('.menu-section').forEach(section => {
-            const grid = section.querySelector('.menu-grid');
-            originalOrders[section.id] = Array.from(grid.children);
-        });
+    function toggleLanguage() {
+        currentLang = currentLang === 'ar' ? 'en' : 'ar';
+        const html = document.documentElement;
+        html.setAttribute('lang', currentLang);
+        html.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
+        applyStaticLang();
+        render();
+        updateThemeLabel();
+    }
 
-        function toggleLanguage() {
-            currentLang = currentLang === 'ar' ? 'en' : 'ar';
-            const html = document.documentElement;
+    const themeLabels = {
+        ar: { dark: 'الوضع الليلي', light: 'الوضع الفاتح' },
+        en: { dark: 'Dark Mode', light: 'Light Mode' }
+    };
 
-            if (currentLang === 'en') {
-                html.setAttribute('lang', 'en');
-                html.setAttribute('dir', 'ltr');
-                document.getElementById('langText').textContent = 'العربية';
-            } else {
-                html.setAttribute('lang', 'ar');
-                html.setAttribute('dir', 'rtl');
-                document.getElementById('langText').textContent = 'English';
-            }
+    function updateThemeLabel() {
+        const btn = document.getElementById('themeBtn');
+        const label = themeLabels[currentLang][isDarkTheme ? 'dark' : 'light'];
+        btn.setAttribute('aria-label', label);
+        btn.setAttribute('title', label);
+    }
 
-            document.querySelectorAll('[data-ar]').forEach(el => {
-                el.textContent = el.getAttribute(`data-${currentLang}`);
-            });
-
-            document.querySelectorAll('#sortSelect option').forEach(opt => {
-                opt.textContent = opt.getAttribute(`data-${currentLang}`);
-            });
-
-            updateThemeLabel();
+    function toggleTheme() {
+        const html = document.documentElement;
+        const icon = document.getElementById('themeIcon');
+        const knob = document.getElementById('themeBtn').querySelector('.switch-knob');
+        if (html.getAttribute('data-theme') === 'dark') {
+            html.setAttribute('data-theme', 'light');
+            icon.className = 'fa-solid fa-sun';
+            isDarkTheme = false;
+        } else {
+            html.setAttribute('data-theme', 'dark');
+            icon.className = 'fa-solid fa-moon';
+            isDarkTheme = true;
         }
+        knob.classList.remove('flip');
+        void knob.offsetWidth;
+        knob.classList.add('flip');
+        updateThemeLabel();
+    }
 
-        function switchTab(sectionId) {
-            const sections = document.querySelectorAll('.menu-section');
-            sections.forEach(sec => sec.classList.remove('active'));
+    /* ------------------------------ tabs / sort ------------------------ */
+    function switchTab(sectionId, btn) {
+        activeSection = sectionId;
+        currentSort = 'default';
+        document.getElementById('sortSelect').value = 'default';
+        render();
+        const nav = document.getElementById('categoryNav');
+        window.scrollTo({ top: nav.offsetTop - 10, behavior: 'smooth' });
+    }
 
-            const buttons = document.querySelectorAll('.nav-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
+    function sortActiveSection() {
+        currentSort = document.getElementById('sortSelect').value;
+        renderSections();
+    }
 
-            document.getElementById(sectionId).classList.add('active');
-            event.currentTarget.classList.add('active');
+    /* ------------------------------ admin ------------------------------ */
+    function handleAdminButton() {
+        if (isAdmin) { openSettingsModal(); return; }
+        openModal('loginModal');
+        setTimeout(() => document.getElementById('adminPass').focus(), 60);
+    }
 
-            document.getElementById('sortSelect').value = 'default';
-
-            window.scrollTo({
-                top: document.getElementById('categoryNav').offsetTop - 10,
-                behavior: 'smooth'
-            });
+    function doLogin() {
+        const val = document.getElementById('adminPass').value;
+        if (val === ADMIN_PASSWORD) {
+            document.getElementById('adminPass').value = '';
+            document.getElementById('loginError').style.display = 'none';
+            setAdmin(true);
+            try { sessionStorage.setItem(SESSION_KEY, '1'); } catch (e) {}
+            closeModal('loginModal');
+            toast(t('أهلاً بيك 👋 دلوقتي تقدر تضيف وتعدّل وتحذف', 'Welcome — you can now add, edit and delete'));
+        } else {
+            document.getElementById('loginError').style.display = 'block';
         }
+    }
 
-        const themeLabels = {
-            ar: { dark: 'الوضع الليلي', light: 'الوضع الفاتح' },
-            en: { dark: 'Dark Mode', light: 'Light Mode' }
+    function logoutAdmin() {
+        setAdmin(false);
+        try { sessionStorage.removeItem(SESSION_KEY); } catch (e) {}
+        toast(t('خرجت من وضع الأدمن', 'Logged out of admin mode'));
+    }
+
+    function setAdmin(v) {
+        isAdmin = v;
+        document.body.classList.toggle('admin-mode', v);
+        const btn = document.getElementById('adminBtn');
+        btn.classList.toggle('admin-on', v);
+        document.getElementById('adminIcon').className = v ? 'fa-solid fa-lock-open' : 'fa-solid fa-lock';
+        const txt = document.getElementById('adminText');
+        txt.setAttribute('data-ar', v ? 'الإعدادات' : 'أدمن');
+        txt.setAttribute('data-en', v ? 'Settings' : 'Admin');
+        txt.textContent = txt.getAttribute('data-' + currentLang);
+        updateGhUI();
+    }
+
+    /* ------------------------------ modals ----------------------------- */
+    function openModal(id) { document.getElementById(id).classList.add('open'); }
+    function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+    function closeOnBackdrop(e, id) { if (e.target.id === id) closeModal(id); }
+
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') document.querySelectorAll('.modal-overlay.open').forEach(m => m.classList.remove('open'));
+    });
+
+    function askConfirm(text, onYes) {
+        document.getElementById('confirmText').textContent = text;
+        const yes = document.getElementById('confirmYes');
+        const fresh = yes.cloneNode(true);
+        yes.parentNode.replaceChild(fresh, yes);
+        fresh.addEventListener('click', () => { closeModal('confirmModal'); onYes(); });
+        openModal('confirmModal');
+    }
+
+    /* --------------------------- item CRUD ----------------------------- */
+    function openItemModal(sectionId, index) {
+        if (!isAdmin) return;
+        editing = { section: sectionId, index: index };
+        const sel = document.getElementById('itemSection');
+        sel.innerHTML = menu.map(s => '<option value="' + esc(s.id) + '">' + esc(nameOf(s)) + '</option>').join('');
+        sel.value = sectionId;
+
+        const isNew = index === null || index === undefined;
+        document.getElementById('itemModalTitle').textContent = isNew ? t('صنف جديد', 'New item') : t('تعديل الصنف', 'Edit item');
+        const it = isNew ? { ar: '', en: '', dar: '', den: '', price: '' } : menu.find(s => s.id === sectionId).items[index];
+        document.getElementById('itemAr').value = it.ar || '';
+        document.getElementById('itemEn').value = it.en || '';
+        document.getElementById('itemDar').value = it.dar || '';
+        document.getElementById('itemDen').value = it.den || '';
+        document.getElementById('itemPrice').value = it.price || '';
+        openModal('itemModal');
+        setTimeout(() => document.getElementById('itemAr').focus(), 60);
+    }
+
+    function saveItem() {
+        const ar = document.getElementById('itemAr').value.trim();
+        const price = document.getElementById('itemPrice').value.trim();
+        if (!ar) { toast(t('لازم تكتب اسم الصنف بالعربي', 'Arabic name is required')); return; }
+        if (!price) { toast(t('لازم تكتب السعر', 'Price is required')); return; }
+
+        const data = {
+            ar: ar,
+            en: document.getElementById('itemEn').value.trim() || ar,
+            dar: document.getElementById('itemDar').value.trim(),
+            den: document.getElementById('itemDen').value.trim(),
+            price: price
         };
-        let isDarkTheme = true;
+        if (!data.den) data.den = data.dar;
+        if (!data.dar) data.dar = data.den;
 
-        function updateThemeLabel() {
-            const themeBtn = document.getElementById('themeBtn');
-            const mode = isDarkTheme ? 'dark' : 'light';
-            const label = themeLabels[currentLang][mode];
-            themeBtn.setAttribute('aria-label', label);
-            themeBtn.setAttribute('title', label);
-        }
+        const targetId = document.getElementById('itemSection').value;
+        const target = menu.find(s => s.id === targetId);
+        const isNew = editing.index === null || editing.index === undefined;
 
-        function toggleTheme() {
-            const html = document.documentElement;
-            const themeIcon = document.getElementById('themeIcon');
-            const themeBtn = document.getElementById('themeBtn');
-            const knob = themeBtn.querySelector('.switch-knob');
-
-            if (html.getAttribute('data-theme') === 'dark') {
-                html.setAttribute('data-theme', 'light');
-                themeIcon.className = 'fa-solid fa-sun';
-                isDarkTheme = false;
+        if (isNew) {
+            target.items.push(data);
+        } else {
+            const src = menu.find(s => s.id === editing.section);
+            if (targetId === editing.section) {
+                src.items[editing.index] = data;
             } else {
-                html.setAttribute('data-theme', 'dark');
-                themeIcon.className = 'fa-solid fa-moon';
-                isDarkTheme = true;
+                src.items.splice(editing.index, 1);
+                target.items.push(data);
             }
-
-            knob.classList.remove('flip');
-            void knob.offsetWidth;
-            knob.classList.add('flip');
-
-            updateThemeLabel();
         }
+        activeSection = targetId;
+        saveState();
+        closeModal('itemModal');
+        render();
+        toast(isNew ? t('الصنف اتضاف ✅', 'Item added ✅') : t('التعديل اتحفظ ✅', 'Changes saved ✅'));
+    }
 
-        function sortActiveSection() {
-            const sortValue = document.getElementById('sortSelect').value;
-            const activeSection = document.querySelector('.menu-section.active');
-            const grid = activeSection.querySelector('.menu-grid');
-            const sectionId = activeSection.id;
+    function askDeleteItem(sectionId, index) {
+        const it = menu.find(s => s.id === sectionId).items[index];
+        askConfirm(t('هتحذف "' + nameOf(it) + '" نهائيًا. متأكد؟', 'Delete "' + nameOf(it) + '" permanently?'), () => {
+            menu.find(s => s.id === sectionId).items.splice(index, 1);
+            saveState();
+            render();
+            toast(t('اتحذف 🗑️', 'Deleted 🗑️'));
+        });
+    }
 
-            if (sortValue === 'default') {
-                grid.innerHTML = '';
-                originalOrders[sectionId].forEach(item => grid.appendChild(item));
-                return;
+    function moveItem(sectionId, index, dir) {
+        const items = menu.find(s => s.id === sectionId).items;
+        const to = index + dir;
+        if (to < 0 || to >= items.length) return;
+        const tmp = items[index];
+        items[index] = items[to];
+        items[to] = tmp;
+        currentSort = 'default';
+        document.getElementById('sortSelect').value = 'default';
+        saveState();
+        renderSections();
+    }
+
+    /* -------------------------- section CRUD --------------------------- */
+    function openSectionModal(sectionId) {
+        if (!isAdmin) return;
+        editingSection = sectionId ? menu.find(s => s.id === sectionId) : null;
+        document.getElementById('sectionModalTitle').textContent = editingSection ? t('تعديل القسم', 'Edit category') : t('قسم جديد', 'New category');
+        document.getElementById('sectionIcon').innerHTML = ICON_CHOICES.map(ic =>
+            '<option value="' + ic[0] + '">' + ic[1] + '</option>').join('');
+        document.getElementById('sectionAr').value = editingSection ? (editingSection.ar || '') : '';
+        document.getElementById('sectionEn').value = editingSection ? (editingSection.en || '') : '';
+        document.getElementById('sectionIcon').value = editingSection ? (editingSection.icon || ICON_CHOICES[0][0]) : ICON_CHOICES[0][0];
+        openModal('sectionModal');
+        setTimeout(() => document.getElementById('sectionAr').focus(), 60);
+    }
+
+    function saveSection() {
+        const ar = document.getElementById('sectionAr').value.trim();
+        if (!ar) { toast(t('لازم تكتب اسم القسم بالعربي', 'Arabic name is required')); return; }
+        const en = document.getElementById('sectionEn').value.trim() || ar;
+        const icon = document.getElementById('sectionIcon').value;
+
+        if (editingSection) {
+            editingSection.ar = ar;
+            editingSection.en = en;
+            editingSection.icon = icon;
+        } else {
+            const id = slugify(en);
+            menu.push({ id: id, ar: ar, en: en, icon: icon, items: [] });
+            activeSection = id;
+        }
+        editingSection = null;
+        saveState();
+        closeModal('sectionModal');
+        render();
+        toast(t('اتحفظ ✅', 'Saved ✅'));
+    }
+
+    function askDeleteSection(sectionId) {
+        const s = menu.find(x => x.id === sectionId);
+        askConfirm(t('هتحذف قسم "' + nameOf(s) + '" و' + s.items.length + ' صنف جواه. متأكد؟',
+                     'Delete "' + nameOf(s) + '" and its ' + s.items.length + ' items?'), () => {
+            menu = menu.filter(x => x.id !== sectionId);
+            if (!menu.length) menu.push({ id: 'new-category', ar: 'قسم جديد', en: 'New category', icon: 'fa-solid fa-utensils', items: [] });
+            if (activeSection === sectionId) activeSection = menu[0].id;
+            saveState();
+            render();
+            toast(t('القسم اتحذف 🗑️', 'Category deleted 🗑️'));
+        });
+    }
+
+    function moveSection(sectionId, dir) {
+        const i = menu.findIndex(s => s.id === sectionId);
+        const to = i + dir;
+        if (to < 0 || to >= menu.length) return;
+        const tmp = menu[i];
+        menu[i] = menu[to];
+        menu[to] = tmp;
+        saveState();
+        render();
+    }
+
+    /* ---------------------------- settings ----------------------------- */
+    function openSettingsModal() {
+        if (!isAdmin) return;
+        document.getElementById('setInstagram').value = settings.instagram || '';
+        document.getElementById('setTiktok').value = settings.tiktok || '';
+        document.getElementById('setFacebook').value = settings.facebook || '';
+        document.getElementById('setWhatsapp').value = settings.whatsapp || '';
+        document.getElementById('setPhone').value = settings.phone || '';
+        document.getElementById('setAddressAr').value = settings.addressAr || '';
+        document.getElementById('setAddressEn').value = settings.addressEn || '';
+        document.getElementById('setGhOwner').value = settings.ghOwner || '';
+        document.getElementById('setGhRepo').value = settings.ghRepo || '';
+        document.getElementById('setGhBranch').value = settings.ghBranch || 'main';
+        document.getElementById('setGhPath').value = settings.ghPath || 'menu-data.json';
+        document.getElementById('setGhToken').value = ghToken();
+        document.getElementById('setGhAuto').checked = settings.ghAuto !== false;
+        openModal('settingsModal');
+    }
+
+    function normalizeUrl(v) {
+        v = (v || '').trim();
+        if (!v) return '';
+        if (/^https?:\/\//i.test(v)) return v;
+        if (/^(www\.|instagram|tiktok|facebook|fb\.|wa\.me|m\.me)/i.test(v)) return 'https://' + v;
+        return 'https://' + v;
+    }
+
+    function saveSettings() {
+        settings.instagram = normalizeUrl(document.getElementById('setInstagram').value);
+        settings.tiktok    = normalizeUrl(document.getElementById('setTiktok').value);
+        settings.facebook  = normalizeUrl(document.getElementById('setFacebook').value);
+        settings.whatsapp  = normalizeUrl(document.getElementById('setWhatsapp').value);
+        settings.phone     = document.getElementById('setPhone').value.trim();
+        settings.addressAr = document.getElementById('setAddressAr').value.trim();
+        settings.addressEn = document.getElementById('setAddressEn').value.trim();
+        settings.ghOwner  = document.getElementById('setGhOwner').value.trim().replace(/^https?:\/\/github\.com\//i, '').replace(/\/.*$/, '');
+        settings.ghRepo   = document.getElementById('setGhRepo').value.trim().replace(/\.git$/i, '');
+        settings.ghBranch = document.getElementById('setGhBranch').value.trim() || 'main';
+        settings.ghPath   = document.getElementById('setGhPath').value.trim().replace(/^\/+/, '') || 'menu-data.json';
+        settings.ghAuto   = document.getElementById('setGhAuto').checked;
+        setGhToken(document.getElementById('setGhToken').value.trim());
+        saveState();
+        closeModal('settingsModal');
+        render();
+        updateGhUI();
+        toast(t('الإعدادات اتحفظت ✅', 'Settings saved ✅'));
+    }
+
+
+    /* ======================================================================
+       GitHub auto-save
+       The token lives in localStorage on the admin device only. It is never
+       written into the exported HTML or the JSON backup.
+       ====================================================================== */
+    let ghTimer = null;
+    let ghBusy = false;
+    let ghPending = false;
+
+    function ghToken() {
+        try { return localStorage.getItem(TOKEN_KEY) || ''; } catch (e) { return ''; }
+    }
+
+    function setGhToken(v) {
+        try { v ? localStorage.setItem(TOKEN_KEY, v) : localStorage.removeItem(TOKEN_KEY); } catch (e) {}
+    }
+
+    function ghReady() {
+        return !!(settings.ghOwner && settings.ghRepo && settings.ghPath && ghToken());
+    }
+
+    function ghApiUrl() {
+        return 'https://api.github.com/repos/' + encodeURIComponent(settings.ghOwner) + '/' +
+               encodeURIComponent(settings.ghRepo) + '/contents/' +
+               settings.ghPath.split('/').map(encodeURIComponent).join('/');
+    }
+
+    function ghHeaders() {
+        return {
+            'Authorization': 'Bearer ' + ghToken(),
+            'Accept': 'application/vnd.github+json',
+            'X-GitHub-Api-Version': '2022-11-28'
+        };
+    }
+
+    function ghStatus(state, text) {
+        const el = document.getElementById('ghStatus');
+        if (!el) return;
+        el.className = 'gh-status ' + state;
+        const icons = { ok: 'fa-solid fa-cloud-arrow-up', busy: 'fa-solid fa-spinner fa-spin', err: 'fa-solid fa-triangle-exclamation', off: '' };
+        el.innerHTML = (icons[state] ? '<i class="' + icons[state] + '"></i>' : '') + '<span>' + esc(text || '') + '</span>';
+    }
+
+    function updateGhUI() {
+        const on = ghReady();
+        const push = document.getElementById('ghPushBtn');
+        const pull = document.getElementById('ghPullBtn');
+        if (push) push.style.display = on ? '' : 'none';
+        if (pull) pull.style.display = on ? '' : 'none';
+        if (!on) ghStatus('off', '');
+        else ghStatus('ok', t('متصل بـ GitHub', 'Connected to GitHub'));
+    }
+
+    function b64encode(str) {
+        const bytes = new TextEncoder().encode(str);
+        let bin = '';
+        const chunk = 0x8000;
+        for (let i = 0; i < bytes.length; i += chunk) {
+            bin += String.fromCharCode.apply(null, bytes.subarray(i, i + chunk));
+        }
+        return btoa(bin);
+    }
+
+    function b64decode(b64) {
+        const bin = atob(String(b64).replace(/\s/g, ''));
+        const bytes = new Uint8Array(bin.length);
+        for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+        return new TextDecoder('utf-8').decode(bytes);
+    }
+
+    function ghError(status) {
+        if (status === 401) return t('التوكن غلط أو انتهت صلاحيته', 'Invalid or expired token');
+        if (status === 403) return t('التوكن مالوش صلاحية Contents: Read and write على الريبو ده', 'Token lacks Contents: Read and write on this repo');
+        if (status === 404) return t('الريبو أو البرانش مش موجود — راجع اسم الحساب والريبو', 'Repo or branch not found — check owner and repo name');
+        if (status === 409 || status === 422) return t('في تعارض في النسخ — اضغط "اسحب آخر نسخة" الأول', 'Version conflict — pull the latest first');
+        return t('فشل الاتصال بـ GitHub (' + status + ')', 'GitHub request failed (' + status + ')');
+    }
+
+    function scheduleGhPush() {
+        if (!isAdmin || settings.ghAuto === false || !ghReady()) return;
+        clearTimeout(ghTimer);
+        ghStatus('busy', t('هيترفع خلال ثواني…', 'Pushing shortly…'));
+        ghTimer = setTimeout(() => ghPush(false), 2000);
+    }
+
+    function ghPush(manual) {
+        if (!ghReady()) {
+            if (manual) toast(t('ظبط بيانات GitHub الأول من الإعدادات', 'Set up GitHub in Settings first'));
+            return;
+        }
+        if (ghBusy) { ghPending = true; return; }
+        ghBusy = true;
+        ghStatus('busy', t('بيرفع…', 'Pushing…'));
+
+        const body = JSON.stringify(currentPayload(), null, 1);
+
+        // get current sha (if the file already exists) then PUT
+        fetch(ghApiUrl() + '?ref=' + encodeURIComponent(settings.ghBranch) + '&t=' + Date.now(),
+              { headers: ghHeaders(), cache: 'no-store' })
+        .then(r => {
+            if (r.status === 404) return null;
+            if (!r.ok) throw r;
+            return r.json();
+        })
+        .then(existing => fetch(ghApiUrl(), {
+            method: 'PUT',
+            headers: Object.assign({ 'Content-Type': 'application/json' }, ghHeaders()),
+            body: JSON.stringify({
+                message: 'Update menu (' + new Date().toLocaleString('en-GB') + ')',
+                content: b64encode(body),
+                branch: settings.ghBranch,
+                sha: existing && existing.sha ? existing.sha : undefined
+            })
+        }))
+        .then(r => { if (!r.ok) throw r; return r.json(); })
+        .then(() => {
+            ghBusy = false;
+            ghStatus('ok', t('اترفع على GitHub ✓', 'Pushed to GitHub ✓'));
+            if (manual) toast(t('اترفع ✅ الزباين هيشوفوه خلال دقيقة تقريبًا', 'Pushed ✅ visitors will see it within a minute'));
+            if (ghPending) { ghPending = false; setTimeout(() => ghPush(false), 400); }
+        })
+        .catch(err => {
+            ghBusy = false;
+            ghPending = false;
+            const status = err && err.status ? err.status : 0;
+            ghStatus('err', t('الرفع فشل', 'Push failed'));
+            toast(status ? ghError(status) : t('مفيش إنترنت أو الاتصال اتقطع', 'No connection to GitHub'));
+        });
+    }
+
+    function ghPull() {
+        if (!ghReady()) { toast(t('ظبط بيانات GitHub الأول', 'Set up GitHub first')); return; }
+        ghStatus('busy', t('بيسحب…', 'Pulling…'));
+        fetch(ghApiUrl() + '?ref=' + encodeURIComponent(settings.ghBranch) + '&t=' + Date.now(),
+              { headers: ghHeaders(), cache: 'no-store' })
+        .then(r => { if (!r.ok) throw r; return r.json(); })
+        .then(file => {
+            const data = JSON.parse(b64decode(file.content));
+            if (!Array.isArray(data.sections)) throw { status: 422 };
+            menu = data.sections;
+            const token = ghToken();
+            settings = Object.assign({}, DEFAULT_SETTINGS, settings, data.settings || {});
+            setGhToken(token);
+            if (!menu.some(s => s.id === activeSection)) activeSection = menu[0] ? menu[0].id : null;
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify({
+                    updatedAt: data.updatedAt || new Date().toISOString(), sections: menu, settings: settings
+                }));
+            } catch (e) {}
+            render();
+            updateGhUI();
+            ghStatus('ok', t('اتسحبت آخر نسخة ✓', 'Pulled ✓'));
+            toast(t('جبت آخر نسخة من GitHub ✅', 'Latest version pulled ✅'));
+        })
+        .catch(err => {
+            const status = err && err.status ? err.status : 0;
+            ghStatus('err', t('السحب فشل', 'Pull failed'));
+            toast(status ? ghError(status) : t('مفيش إنترنت', 'No connection'));
+        });
+    }
+
+    function ghTest() {
+        const owner = document.getElementById('setGhOwner').value.trim();
+        const repo = document.getElementById('setGhRepo').value.trim();
+        const token = document.getElementById('setGhToken').value.trim();
+        if (!owner || !repo || !token) { toast(t('املا الحساب والريبو والتوكن', 'Fill owner, repo and token')); return; }
+        toast(t('بجرب الاتصال…', 'Testing…'));
+        fetch('https://api.github.com/repos/' + encodeURIComponent(owner) + '/' + encodeURIComponent(repo), {
+            headers: {
+                'Authorization': 'Bearer ' + token,
+                'Accept': 'application/vnd.github+json',
+                'X-GitHub-Api-Version': '2022-11-28'
+            }, cache: 'no-store'
+        })
+        .then(r => { if (!r.ok) throw r; return r.json(); })
+        .then(repoInfo => {
+            const canWrite = repoInfo.permissions ? (repoInfo.permissions.push || repoInfo.permissions.admin) : true;
+            toast(canWrite
+                ? t('الاتصال تمام ✅ ' + repoInfo.full_name, 'Connected ✅ ' + repoInfo.full_name)
+                : t('الاتصال شغال بس التوكن مالوش صلاحية كتابة', 'Connected, but the token cannot write'));
+        })
+        .catch(err => toast(ghError(err && err.status ? err.status : 0)));
+    }
+
+    function ghForgetToken() {
+        setGhToken('');
+        document.getElementById('setGhToken').value = '';
+        updateGhUI();
+        toast(t('التوكن اتمسح من الجهاز ده', 'Token removed from this device'));
+    }
+
+    /* --------------------------- import / export ----------------------- */
+    function download(filename, content, type) {
+        const blob = new Blob([content], { type: type || 'application/octet-stream' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(() => URL.revokeObjectURL(url), 1500);
+    }
+
+    function currentPayload() {
+        return { updatedAt: new Date().toISOString(), sections: menu, settings: settings };
+    }
+
+    function exportJSON() {
+        download('menu-data.json', JSON.stringify(currentPayload(), null, 1), 'application/json');
+        toast(t('نزّلت menu-data.json — ارفعه جنب index.html عشان يشوفه كل الناس', 'menu-data.json downloaded — upload it next to index.html'));
+    }
+
+    function exportHTML() {
+        const payload = currentPayload();
+        const root = document.documentElement.cloneNode(true);
+        root.setAttribute('lang', 'ar');
+        root.setAttribute('dir', 'rtl');
+        root.setAttribute('data-theme', 'dark');
+        root.querySelector('#menuData').textContent = JSON.stringify({ updatedAt: payload.updatedAt, sections: payload.sections });
+        root.querySelector('#siteSettings').textContent = JSON.stringify(payload.settings);
+        root.querySelector('#categoryNav').innerHTML = '';
+        root.querySelector('#menuContainer').innerHTML = '';
+        root.querySelector('#headerSocial').innerHTML = '';
+        root.querySelector('#footerSocial').innerHTML = '';
+        const body = root.querySelector('body');
+        body.className = '';
+        root.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('open'));
+        root.querySelectorAll('input').forEach(i => i.removeAttribute('value'));
+        const ghs = root.querySelector('#ghStatus');
+        if (ghs) { ghs.className = 'gh-status off'; ghs.innerHTML = ''; }
+        const tst = root.querySelector('#toast');
+        tst.className = 'toast';
+        tst.textContent = '';
+        download('index.html', '<!DOCTYPE html>\n' + root.outerHTML, 'text/html;charset=utf-8');
+        toast(t('نزّلت index.html بالتعديلات — ارفعه على الاستضافة', 'index.html downloaded with your changes — upload it to your host'));
+    }
+
+    function importJSON(input) {
+        const file = input.files && input.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = () => {
+            try {
+                const data = JSON.parse(reader.result);
+                if (!Array.isArray(data.sections)) throw new Error('bad');
+                menu = data.sections;
+                settings = Object.assign({}, DEFAULT_SETTINGS, data.settings || {});
+                activeSection = menu[0] ? menu[0].id : null;
+                saveState();
+                render();
+                toast(t('النسخة اترجعت ✅', 'Backup restored ✅'));
+            } catch (e) {
+                toast(t('الملف مش سليم ❌', 'Invalid file ❌'));
             }
+            input.value = '';
+        };
+        reader.readAsText(file);
+    }
 
-            const items = Array.from(grid.querySelectorAll('.menu-item'));
+    function confirmReset() {
+        askConfirm(t('هترجّع المنيو للنسخة الأصلية وكل تعديلاتك هتروح. متأكد؟',
+                     'Reset the menu to the original version and lose your changes?'), () => {
+            try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
+            menu = clone(bakedMenu.sections);
+            settings = Object.assign({}, DEFAULT_SETTINGS, bakedSettings);
+            activeSection = menu[0] ? menu[0].id : null;
+            render();
+            toast(t('رجعت للنسخة الأصلية', 'Reset done'));
+        });
+    }
 
-            items.sort((a, b) => {
-                const priceTextA = a.querySelector('.item-price').textContent;
-                const priceTextB = b.querySelector('.item-price').textContent;
-
-                const getMinPrice = (text) => {
-                    const nums = text.split('/').map(num => parseFloat(num.trim()));
-                    return Math.min(...nums);
-                };
-
-                const priceA = getMinPrice(priceTextA);
-                const priceB = getMinPrice(priceTextB);
-
-                if (sortValue === 'low-high') {
-                    return priceA - priceB;
-                } else if (sortValue === 'high-low') {
-                    return priceB - priceA;
-                }
-            });
-
-            grid.innerHTML = '';
-            items.forEach(item => grid.appendChild(item));
-        }
+    /* ------------------------------- init ------------------------------ */
+    loadState();
+    applyStaticLang();
+    render();
+    updateThemeLabel();
+    try { if (sessionStorage.getItem(SESSION_KEY) === '1') setAdmin(true); } catch (e) {}
+    updateGhUI();
+    tryExternalData();
     </script>
 </body>
 </html>
